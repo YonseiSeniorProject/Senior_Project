@@ -38,18 +38,57 @@ module dense_core#(
     input wire signed [INPUT_BW-1:0]       weight_row_mem_data,
     input wire [WEIGHT_PER_CORE-1:0]       weight_row_mem_addr,
     // ------------------------------------------------------------------------
-    // psum from core 32bit x 32rows (2-D shape array like wire or reg is not supported in verilog)
+    // psum from core 32bit x 32rows (2-D shape array like wire or reg ports is not supported in verilog)
     // ------------------------------------------------------------------------
     output wire [PSUM_BW*NUM_ROWS-1:0] psum_rows
     );
+    // NOTE: CORE의 동작이 끝나면 계속 CORE_START신호가 들어오기 전까지 DONE = 1이 유지되어야 함
     
     localparam IA_ROW_MEM_ADDR      = 6;
     localparam WEIGHT_ROW_MEM_ADDR  = 7;
     
     // ------------------------------------------------------------------------
     // data_2_row_mem IP : transfer data comes from act_n_weight_ctrlr to corresponding row_mems
-    // ------------------------------------------------------------------------
+    // ------------------------------------------------------------------------ 
+    wire data_2_row_mem_start;
+    wire data_2_row_mem_done;
+    assign data_2_row_mem_start = core_start;
     
+    wire signed [INPUT_BW-1:0]   act_row_mem_each_data;
+    wire [IA_ROW_MEM_ADDR-1:0]   act_row_mem_each_addr;
+    wire [NUM_IA_ROW_MEM-1:0]    which_act_row_mem_en;
+    wire [NUM_IA_ROW_MEM-1:0]    which_act_row_mem_we;
+
+    wire signed [INPUT_BW-1:0]       weight_row_mem_each_data;
+    wire [WEIGHT_ROW_MEM_ADDR-1:0]   weight_row_mem_each_addr;
+    wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_en;
+    wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_we;
+
+    wire [NUM_IA_ROW_MEM-1:0]        which_act_row_mem_activate;
+    wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_activate;
+    
+    data_2_row_mem data_2_row_mem  (
+                .clk(clk),
+                .resetn(resetn),
+                
+                .start(data_2_row_mem_start),
+                .done(data_2_row_mem_done),
+                
+                .OC(OC), .IMG_H(IMG_H), .IMG_W(IMG_W), .K(K),
+                
+                .act_row_mem_data(act_row_mem_data), .act_row_mem_addr(act_row_mem_addr),
+                
+                .weight_row_mem_data(weight_row_mem_data), .weight_row_mem_addr(weight_row_mem_addr),
+                
+                .act_row_mem_each_data(act_row_mem_each_data), .act_row_mem_each_addr(act_row_mem_each_addr), 
+                .which_act_row_mem_en(which_act_row_mem_en), .which_act_row_mem_we(which_act_row_mem_we),
+
+                .weight_row_mem_each_data(weight_row_mem_each_data), .weight_row_mem_each_addr(weight_row_mem_each_addr), 
+                .which_weight_row_mem_en(which_weight_row_mem_en), .which_weight_row_mem_we(which_weight_row_mem_we),
+
+                .which_act_row_mem_activate(which_act_row_mem_activate),
+                .which_weight_row_mem_activate(which_weight_row_mem_activate)
+            );
     
     
     
