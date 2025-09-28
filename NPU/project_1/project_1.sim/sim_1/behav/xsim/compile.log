@@ -8,6 +8,8 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/minsung/senior_project/VIVADO/pr
 INFO: [VRFC 10-311] analyzing module INPUT_MEM
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/minsung/senior_project/VIVADO/project_1/act_n_weight_ctrlr.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module act_n_weight_ctrlr
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/minsung/senior_project/VIVADO/project_1/data_2_row_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_2_row_mem
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/minsung/senior_project/VIVADO/project_1/dense_core.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module dense_core
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/minsung/senior_project/VIVADO/project_1/top.v" into library xil_defaultlib

@@ -1586,4 +1586,19 @@ Block Memory Generator module top_tb.uut.\gen_dense_core[7].dense_core_inst .\ge
 Block Memory Generator module top_tb.uut.\gen_dense_core[7].dense_core_inst .\gen_ia_row_mem[91].IA_ROW_MEM_inst .inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
 Block Memory Generator module top_tb.uut.\gen_dense_core[7].dense_core_inst .\gen_ia_row_mem[92].IA_ROW_MEM_inst .inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
 Block Memory Generator module top_tb.uut.\gen_dense_core[7].dense_core_inst .\gen_ia_row_mem[93].IA_ROW_MEM_inst .inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module top_tb.uut.\gen_dense_core[7].dense_core_inst .\gen_ia_r
+Block Memory Generator module top_tb.uut.\gen_dense_core[7].dense_core_inst .\gen_ia_row_mem[94].IA_ROW_MEM_inst .inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module top_tb.uut.\gen_dense_core[7].dense_core_inst .\gen_ia_row_mem[95].IA_ROW_MEM_inst .inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module top_tb.uut.\gen_dense_core[7].dense_core_inst .\gen_weight_row_mem[0].WEIGHT_ROW_MEM_inst .inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module top_tb.uut.\gen_dense_core[7].dense_core_inst .\gen_weight_row_mem[1].WEIGHT_ROW_MEM_inst .inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module top_tb.uut.\gen_dense_core[7].dense_core_inst .\gen_weight_row_mem[2].WEIGHT_ROW_MEM_inst .inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module top_tb.uut.INPUT_MEM.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module top_tb.uut.WEIGHT_MEM.inst.\native_mem_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Welcom EE3551_Practice12!
+Done Done Done Start Start Start
+DUT Finishs Operation!
+PASS: memory comparison succeed @   106115ns
+$finish called at time : 106215 ns : File "C:/minsung/senior_project/VIVADO/project_1/top_tb.v" Line 85
