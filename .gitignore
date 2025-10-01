@@ -1,0 +1,11 @@
+*_cache/
+*_gen/
+*.hw
+*_ip_user_files/
+*_runs/
+*_sim/
+*_srcs/sources_1/ip/
+
+*.log
+
+test.ipynb
