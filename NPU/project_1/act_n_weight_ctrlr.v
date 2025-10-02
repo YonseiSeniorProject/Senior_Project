@@ -274,8 +274,8 @@ module act_n_weight_ctrlr #(
     /***** Check whether there is available CORE *****/
     always @(posedge clk or negedge resetn) begin
         if(~resetn) begin
-            dense_core_ready        <= 0;
-            sparse_core_ready       <= 0;
+//            dense_core_ready        <= 0;
+//            sparse_core_ready       <= 0;
             dense_core_check_cnt    <= 0;
             sparse_core_check_cnt   <= 0;
         end
@@ -381,19 +381,12 @@ module act_n_weight_ctrlr #(
     always @(posedge clk or negedge resetn) begin
         if(~resetn) begin
             weight_current_ic    <= 0;
+            ic_per_core_cnt      <= 0;
         end
         else begin
             case (state)
                 IDLE : begin
-                    input_mem_addr_reg     <= 0;
-                    weight_mem_addr_reg    <= 0;
-                    
-                    input_per_core_cnt     <= 0;
-                    weight_per_core_cnt    <= 0;
-                    
-                    weight_ic_cnt          <= 0;
-                    weight_oc_iter         <= 0;
-                    
+                    weight_current_ic      <= 0;
                     ic_per_core_cnt        <= 0;
                 end
                 IS_DONE : begin
