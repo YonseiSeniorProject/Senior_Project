@@ -1,10 +1,10 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
--- Date        : Mon Sep 29 16:25:15 2025
+-- Date        : Mon Sep 29 16:25:12 2025
 -- Host        : MinsungKim running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               c:/minsung/senior_project/VIVADO/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top INPUT_MEM -prefix
+--               INPUT_MEM_ INPUT_MEM_stub.vhdl
 -- Design      : INPUT_MEM
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xczu9eg-ffvb1156-2-e
