@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="INPUT_MEM_synth_1" LaunchDir="C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/INPUT_MEM_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="WEIGHT_MEM_synth_1" LaunchDir="C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/WEIGHT_MEM_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="INPUT_MEM_synth_1"/>
+		<Parent Id="WEIGHT_MEM_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+		<Parameter Name="runs.enableClusterConf" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+

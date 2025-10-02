@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/minsung/senior_project/VIVADO/project_1/project_1.runs/synth_1'
+HD_PWD='C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
