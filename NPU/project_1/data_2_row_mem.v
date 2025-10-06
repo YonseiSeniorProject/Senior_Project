@@ -48,12 +48,12 @@ module data_2_row_mem #(
     output wire signed [INPUT_BW-1:0]       weight_row_mem_each_data,
     output wire [WEIGHT_ROW_MEM_ADDR-1:0]   weight_row_mem_each_addr,
     output wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_en,
-    output wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_we,
+    output wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_we
     // ------------------------------------------------------------------------
     // activation signals for each row_mems
     // ------------------------------------------------------------------------
-    output wire [NUM_IA_ROW_MEM-1:0]        which_act_row_mem_activate,
-    output wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_activate
+//    output wire [NUM_IA_ROW_MEM-1:0]        which_act_row_mem_activate,
+//    output wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_activate
     );
     
     /***** MAX Elems of each Global memory *****/
@@ -157,6 +157,11 @@ module data_2_row_mem #(
     reg [NUM_IA_ROW_MEM-1:0]    which_act_row_mem_we_reg;
     reg [1:0]                   offset_cnt;
     
+    assign act_row_mem_each_data    = act_row_mem_each_data_reg;
+    assign act_row_mem_each_addr    = act_row_mem_each_addr_reg;
+    assign which_act_row_mem_en     = which_act_row_mem_en_reg;
+    assign which_act_row_mem_we     = which_act_row_mem_we_reg;
+    
     always @(posedge clk or negedge resetn) begin
         if(~resetn) begin
             act_row_mem_each_data_reg   <= 0;
@@ -235,6 +240,10 @@ module data_2_row_mem #(
     reg [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_en_reg;
     reg [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_we_reg;
     reg [5:0]                       weight_oc_iter;
+    assign weight_row_mem_each_data = weight_row_mem_each_data_reg;
+    assign weight_row_mem_each_addr = weight_row_mem_each_addr_reg;
+    assign which_weight_row_mem_en = which_weight_row_mem_en_reg;
+    assign which_weight_row_mem_we = which_weight_row_mem_we_reg;
     
     always @(posedge clk or negedge resetn) begin
         if(~resetn) begin

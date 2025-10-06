@@ -28,10 +28,10 @@ module dense_core#(
     input  wire [2:0] STRIDE,
     output wire core_done,
     // ------------------------------------------------------------------------
-    // act_row_mem outputs & write
+    // ia_row_mem outputs & write
     // ------------------------------------------------------------------------
-    input wire signed [INPUT_BW-1:0]   act_row_mem_data,
-    input wire [ACT_PER_CORE-1:0]      act_row_mem_addr,
+    input wire signed [INPUT_BW-1:0]   ia_row_mem_data,
+    input wire [ACT_PER_CORE-1:0]      ia_row_mem_addr,
     // ------------------------------------------------------------------------
     // weight_row_mem outputs & write
     // ------------------------------------------------------------------------
@@ -48,25 +48,25 @@ module dense_core#(
     localparam WEIGHT_ROW_MEM_ADDR  = 7;
     
     // ------------------------------------------------------------------------
-    // data_2_row_mem IP : transfer data comes from act_n_weight_ctrlr to corresponding row_mems
+    // data_2_row_mem Module : transfer data comes from act_n_weight_ctrlr to corresponding row_mems
     // ------------------------------------------------------------------------ 
     wire data_2_row_mem_start;
     wire data_2_row_mem_done;
     assign data_2_row_mem_start = core_start;
     
-    wire signed [INPUT_BW-1:0]   act_row_mem_each_data;
-    wire [IA_ROW_MEM_ADDR-1:0]   act_row_mem_each_addr;
-    wire [NUM_IA_ROW_MEM-1:0]    which_act_row_mem_en;
-    wire [NUM_IA_ROW_MEM-1:0]    which_act_row_mem_we;
+    wire signed [INPUT_BW-1:0]   ia_row_mem_each_data;
+    wire [IA_ROW_MEM_ADDR-1:0]   ia_row_mem_each_addr;
+    wire [NUM_IA_ROW_MEM-1:0]    which_ia_row_mem_en;
+    wire [NUM_IA_ROW_MEM-1:0]    which_ia_row_mem_we;
 
     wire signed [INPUT_BW-1:0]       weight_row_mem_each_data;
     wire [WEIGHT_ROW_MEM_ADDR-1:0]   weight_row_mem_each_addr;
     wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_en;
     wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_we;
 
-    wire [NUM_IA_ROW_MEM-1:0]        which_act_row_mem_activate;
-    wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_activate;
-    
+//    wire [NUM_IA_ROW_MEM-1:0]        which_ia_row_mem_activate;
+//    wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_activate;
+
     data_2_row_mem data_2_row_mem  (
                 .clk(clk),
                 .resetn(resetn),
@@ -76,32 +76,21 @@ module dense_core#(
                 
                 .OC(OC), .IMG_H(IMG_H), .IMG_W(IMG_W), .K(K),
                 
-                .act_row_mem_data(act_row_mem_data), .act_row_mem_addr(act_row_mem_addr),
+                .act_row_mem_data(ia_row_mem_data), .act_row_mem_addr(ia_row_mem_addr),
                 
                 .weight_row_mem_data(weight_row_mem_data), .weight_row_mem_addr(weight_row_mem_addr),
                 
-                .act_row_mem_each_data(act_row_mem_each_data), .act_row_mem_each_addr(act_row_mem_each_addr), 
-                .which_act_row_mem_en(which_act_row_mem_en), .which_act_row_mem_we(which_act_row_mem_we),
+                .act_row_mem_each_data(ia_row_mem_each_data), .act_row_mem_each_addr(ia_row_mem_each_addr), 
+                .which_act_row_mem_en(which_ia_row_mem_en), .which_act_row_mem_we(which_ia_row_mem_we),
 
                 .weight_row_mem_each_data(weight_row_mem_each_data), .weight_row_mem_each_addr(weight_row_mem_each_addr), 
-                .which_weight_row_mem_en(which_weight_row_mem_en), .which_weight_row_mem_we(which_weight_row_mem_we),
+                .which_weight_row_mem_en(which_weight_row_mem_en), .which_weight_row_mem_we(which_weight_row_mem_we)
 
-                .which_act_row_mem_activate(which_act_row_mem_activate),
-                .which_weight_row_mem_activate(which_weight_row_mem_activate)
+//                .which_act_row_mem_activate(which_ia_row_mem_activate),
+//                .which_weight_row_mem_activate(which_weight_row_mem_activate)
             );
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    // ------------------------------------------------------------------------------------------------------------------------------------------------ 
     /***** IA_ROW_MEMs Signals *****/
     // each row mem contains maximum 34 datas (K=3: 34x8bit / K=1: 32x8bit)
     // PE_ARRAY have total 3x32 PEs -> Thus, total 96 row mems are needed (for K=1, every PE needs row mem)
@@ -116,8 +105,8 @@ module dense_core#(
     
     wire [NUM_IA_ROW_MEM-1:0]               ia_row_mem_ena;         // 0 to 95
     wire [NUM_IA_ROW_MEM-1:0]               ia_row_mem_wea;
-    wire [IA_ROW_MEM_ADDR-1:0]              ia_row_mem_addra [NUM_IA_ROW_MEM-1:0];
-    wire [INPUT_BW-1:0]                     ia_row_mem_dina  [NUM_IA_ROW_MEM-1:0];
+    wire [IA_ROW_MEM_ADDR-1:0]              ia_row_mem_addra;
+    wire [INPUT_BW-1:0]                     ia_row_mem_dina;
     
     wire [NUM_IA_ROW_MEM-1:0]               ia_row_mem_enb;
     wire [IA_ROW_MEM_ADDR-1:0]              ia_row_mem_addrb [NUM_IA_ROW_MEM-1:0];
@@ -131,8 +120,9 @@ module dense_core#(
                 .clka (clk),
                 .ena (ia_row_mem_ena[i]),
                 .wea (ia_row_mem_wea[i]),
-                .addra(ia_row_mem_addra[i]),
-                .dina (ia_row_mem_dina[i]),
+                .addra(ia_row_mem_addra),
+                .dina (ia_row_mem_dina),
+                
                 .clkb (clk),
                 .enb (ia_row_mem_enb[i]),
                 .addrb(ia_row_mem_addrb[i]),
@@ -144,8 +134,9 @@ module dense_core#(
     /***** WEIGHT_ROW_MEMs Signals *****/
     wire [2:0]                      weight_row_mem_ena;
     wire [2:0]                      weight_row_mem_wea;
-    wire [WEIGHT_ROW_MEM_ADDR-1:0]  weight_row_mem_addra [NUM_WEIGHT_ROW_MEM-1:0];
-    wire [INPUT_BW-1:0]             weight_row_mem_dina  [NUM_WEIGHT_ROW_MEM-1:0];
+    wire [WEIGHT_ROW_MEM_ADDR-1:0]  weight_row_mem_addra;
+    wire [INPUT_BW-1:0]             weight_row_mem_dina;
+    
     wire [2:0]                      weight_row_mem_enb;
     wire [WEIGHT_ROW_MEM_ADDR-1:0]  weight_row_mem_addrb [NUM_WEIGHT_ROW_MEM-1:0];
     wire [INPUT_BW-1:0]             weight_row_mem_doutb [NUM_WEIGHT_ROW_MEM-1:0];
@@ -157,8 +148,9 @@ module dense_core#(
                 .clka (clk),
                 .ena (weight_row_mem_ena[i]),
                 .wea (weight_row_mem_wea[i]),
-                .addra(weight_row_mem_addra[i]), // bit slicing
-                .dina (weight_row_mem_dina[i]), // bit slicing
+                .addra(weight_row_mem_addra),
+                .dina (weight_row_mem_dina),
+                
                 .clkb (clk),
                 .enb (weight_row_mem_enb[i]),
                 .addrb(weight_row_mem_addrb[i]),
@@ -166,6 +158,26 @@ module dense_core#(
             );
         end
     endgenerate
+    // ------------------------------------------------------------------------------------------------------------------------------------------------  
+    
+    // ------------------------------------------------------------------------ 
+    // wiring data_2_row_mem to each row_mems
+    // ------------------------------------------------------------------------
+    assign ia_row_mem_ena    = which_ia_row_mem_en;         // 0 to 95
+    assign ia_row_mem_wea    = which_ia_row_mem_we;
+    assign ia_row_mem_addra  = ia_row_mem_each_addr;
+    assign ia_row_mem_dina   = ia_row_mem_each_data;
+    
+    assign weight_row_mem_ena   = which_weight_row_mem_en;
+    assign weight_row_mem_wea   = which_weight_row_mem_we;
+    assign weight_row_mem_addra = weight_row_mem_each_addr;
+    assign weight_row_mem_dina  = weight_row_mem_each_data;
+    
+    
+    
+    
+     
+    
     
 //    IA_ROW_MEM IA_ROW_MEM_0 (
 //      .clka (clk),
