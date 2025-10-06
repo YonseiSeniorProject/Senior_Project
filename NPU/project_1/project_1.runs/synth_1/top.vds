@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Thu Oct  2 14:25:33 2025
-# Process ID: 36520
+# Start of session at: Tue Oct  7 02:21:00 2025
+# Process ID: 10888
 # Current directory: C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/top.vds
@@ -17,9 +17,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg
 INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-e
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 32104
+INFO: [Synth 8-7075] Helper process launched with PID 18788
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1573.695 ; gain = 116.426
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1573.367 ; gain = 115.926
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/top.v:4]
 	Parameter ADDR_IN bound to: 20 - type: integer 
@@ -27,6 +27,9 @@ INFO: [Synth 8-6157] synthesizing module 'top' [C:/minsung/senior_project/git_wo
 	Parameter ADDR_OUT bound to: 15 - type: integer 
 	Parameter INPUT_BW bound to: 8 - type: integer 
 	Parameter OUTPUT_BW bound to: 8 - type: integer 
+	Parameter IDLE bound to: 3'b000 
+	Parameter WORKING bound to: 3'b001 
+	Parameter DONE bound to: 3'b010 
 	Parameter ACT_PER_CORE bound to: 11 - type: integer 
 	Parameter WEIGHT_PER_CORE bound to: 9 - type: integer 
 	Parameter NUM_DENSE_CORE bound to: 8 - type: integer 
@@ -46,10 +49,10 @@ INFO: [Synth 8-6157] synthesizing module 'dense_core' [C:/minsung/senior_project
 	Parameter NUM_WEIGHT_ROW_MEM bound to: 3 - type: integer 
 	Parameter IA_ROW_MEM_ADDR bound to: 6 - type: integer 
 	Parameter WEIGHT_ROW_MEM_ADDR bound to: 7 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'IA_ROW_MEM' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-36520-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'IA_ROW_MEM' (1#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-36520-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'WEIGHT_ROW_MEM' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-36520-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_ROW_MEM' (2#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-36520-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'IA_ROW_MEM' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-10888-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'IA_ROW_MEM' (1#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-10888-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'WEIGHT_ROW_MEM' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-10888-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_ROW_MEM' (2#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-10888-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'data_2_row_mem' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/data_2_row_mem.v:4]
 	Parameter ACT_PER_CORE bound to: 11 - type: integer 
 	Parameter WEIGHT_PER_CORE bound to: 9 - type: integer 
@@ -88,33 +91,37 @@ INFO: [Synth 8-6157] synthesizing module 'act_n_weight_ctrlr' [C:/minsung/senior
 	Parameter DONE bound to: 3'b111 
 INFO: [Synth 8-226] default block is never used [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/act_n_weight_ctrlr.v:156]
 INFO: [Synth 8-6155] done synthesizing module 'act_n_weight_ctrlr' (5#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/act_n_weight_ctrlr.v:4]
-WARNING: [Synth 8-689] width (8) of port connection 'OC' does not match port width (6) of module 'act_n_weight_ctrlr' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/top.v:112]
-INFO: [Synth 8-6157] synthesizing module 'INPUT_MEM' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-36520-MinsungKim/realtime/INPUT_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'INPUT_MEM' (6#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-36520-MinsungKim/realtime/INPUT_MEM_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'WEIGHT_MEM' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-36520-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_MEM' (7#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-36520-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
+WARNING: [Synth 8-689] width (8) of port connection 'OC' does not match port width (6) of module 'act_n_weight_ctrlr' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/top.v:225]
+INFO: [Synth 8-6157] synthesizing module 'INPUT_MEM' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-10888-MinsungKim/realtime/INPUT_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'INPUT_MEM' (6#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-10888-MinsungKim/realtime/INPUT_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'WEIGHT_MEM' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-10888-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_MEM' (7#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-10888-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'top' (8#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/top.v:4]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1633.410 ; gain = 176.141
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1637.340 ; gain = 179.898
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1651.340 ; gain = 194.070
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1655.254 ; gain = 197.812
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1651.340 ; gain = 194.070
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1655.254 ; gain = 197.812
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1651.340 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.119 . Memory (MB): peak = 1655.254 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM/INPUT_MEM_in_context.xdc] for cell 'INPUT_MEM'
-Finished Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM/INPUT_MEM_in_context.xdc] for cell 'INPUT_MEM'
-Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM/WEIGHT_MEM_in_context.xdc] for cell 'WEIGHT_MEM'
-Finished Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM/WEIGHT_MEM_in_context.xdc] for cell 'WEIGHT_MEM'
+Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM/INPUT_MEM_in_context.xdc] for cell 'INPUT_MEM_0'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM/INPUT_MEM_in_context.xdc] for cell 'INPUT_MEM_0'
+Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM/INPUT_MEM_in_context.xdc] for cell 'INPUT_MEM_1'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM/INPUT_MEM_in_context.xdc] for cell 'INPUT_MEM_1'
+Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM/WEIGHT_MEM_in_context.xdc] for cell 'WEIGHT_MEM_0'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM/WEIGHT_MEM_in_context.xdc] for cell 'WEIGHT_MEM_0'
+Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM/WEIGHT_MEM_in_context.xdc] for cell 'WEIGHT_MEM_1'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM/WEIGHT_MEM_in_context.xdc] for cell 'WEIGHT_MEM_1'
 Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM_in_context.xdc] for cell 'gen_dense_core[0].dense_core_inst/gen_weight_row_mem[0].WEIGHT_ROW_MEM_inst'
 Finished Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM_in_context.xdc] for cell 'gen_dense_core[0].dense_core_inst/gen_weight_row_mem[0].WEIGHT_ROW_MEM_inst'
 Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM_in_context.xdc] for cell 'gen_dense_core[0].dense_core_inst/gen_weight_row_mem[1].WEIGHT_ROW_MEM_inst'
@@ -1701,13 +1708,13 @@ Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project
 Finished Parsing XDC File [c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/IA_ROW_MEM/IA_ROW_MEM/IA_ROW_MEM_in_context.xdc] for cell 'gen_dense_core[7].dense_core_inst/gen_ia_row_mem[95].IA_ROW_MEM_inst'
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1777.383 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1782.812 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.095 . Memory (MB): peak = 1777.383 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.110 . Memory (MB): peak = 1782.812 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1777.383 ; gain = 320.113
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1782.812 ; gain = 325.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -1715,13 +1722,15 @@ Start Loading Part and Timing Information
 Loading part: xczu9eg-ffvb1156-2-e
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1777.383 ; gain = 320.113
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1782.812 ; gain = 325.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property KEEP_HIERARCHY = SOFT for INPUT_MEM. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for WEIGHT_MEM. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for INPUT_MEM_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for INPUT_MEM_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for WEIGHT_MEM_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for WEIGHT_MEM_1. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_dense_core[0].dense_core_inst /\gen_weight_row_mem[0].WEIGHT_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_dense_core[1].dense_core_inst /\gen_weight_row_mem[0].WEIGHT_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_dense_core[2].dense_core_inst /\gen_weight_row_mem[0].WEIGHT_ROW_MEM_inst . (constraint file  auto generated constraint).
@@ -2515,60 +2524,78 @@ Applied set_property KEEP_HIERARCHY = SOFT for \gen_dense_core[5].dense_core_ins
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_dense_core[6].dense_core_inst /\gen_ia_row_mem[9].IA_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_dense_core[7].dense_core_inst /\gen_ia_row_mem[9].IA_ROW_MEM_inst . (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1777.383 ; gain = 320.113
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1782.812 ; gain = 325.371
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'top'
 WARNING: [Synth 8-327] inferring latch for variable 'was_dense_core_reg' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/act_n_weight_ctrlr.v:165]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                              000
+                 WORKING |                               01 |                              001
+                    DONE |                               10 |                              010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'top'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1777.383 ; gain = 320.113
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1782.812 ; gain = 325.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input   32 Bit       Adders := 5     
+	   2 Input   32 Bit       Adders := 37    
 	   2 Input   20 Bit       Adders := 2     
 	   2 Input   18 Bit       Adders := 1     
 	   2 Input   11 Bit       Adders := 2     
 	   2 Input   10 Bit       Adders := 1     
 	   2 Input    9 Bit       Adders := 1     
-	   3 Input    6 Bit       Adders := 2     
-	   2 Input    6 Bit       Adders := 2     
+	   2 Input    7 Bit       Adders := 8     
+	   3 Input    6 Bit       Adders := 18    
+	   2 Input    6 Bit       Adders := 10    
 	   2 Input    4 Bit       Adders := 1     
 	   2 Input    3 Bit       Adders := 1     
-	   2 Input    2 Bit       Adders := 2     
+	   2 Input    2 Bit       Adders := 42    
 +---Registers : 
+	               96 Bit    Registers := 8     
 	               20 Bit    Registers := 1     
 	               18 Bit    Registers := 1     
-	               11 Bit    Registers := 4     
+	               11 Bit    Registers := 12    
 	               10 Bit    Registers := 1     
-	                9 Bit    Registers := 1     
-	                8 Bit    Registers := 2     
-	                6 Bit    Registers := 2     
+	                9 Bit    Registers := 9     
+	                8 Bit    Registers := 34    
+	                7 Bit    Registers := 24    
+	                6 Bit    Registers := 18    
 	                4 Bit    Registers := 3     
-	                3 Bit    Registers := 4     
-	                2 Bit    Registers := 4     
-	                1 Bit    Registers := 2     
+	                3 Bit    Registers := 20    
+	                2 Bit    Registers := 44    
+	                1 Bit    Registers := 4     
 +---Muxes : 
+	   2 Input   96 Bit        Muxes := 24    
 	   4 Input   20 Bit        Muxes := 1     
+	   2 Input   20 Bit        Muxes := 4     
 	   4 Input   18 Bit        Muxes := 1     
+	   2 Input   18 Bit        Muxes := 4     
 	   4 Input   11 Bit        Muxes := 2     
 	   3 Input   10 Bit        Muxes := 1     
 	   4 Input    9 Bit        Muxes := 1     
-	   2 Input    8 Bit        Muxes := 3     
+	   2 Input    8 Bit        Muxes := 25    
 	   4 Input    8 Bit        Muxes := 1     
 	   3 Input    8 Bit        Muxes := 1     
-	   2 Input    6 Bit        Muxes := 5     
+	   3 Input    7 Bit        Muxes := 8     
+	   2 Input    7 Bit        Muxes := 16    
+	   2 Input    6 Bit        Muxes := 29    
 	   2 Input    4 Bit        Muxes := 6     
 	   4 Input    4 Bit        Muxes := 2     
-	   2 Input    3 Bit        Muxes := 7     
+	   2 Input    3 Bit        Muxes := 31    
 	   4 Input    3 Bit        Muxes := 1     
-	   3 Input    2 Bit        Muxes := 2     
-	   2 Input    2 Bit        Muxes := 3     
+	   2 Input    2 Bit        Muxes := 37    
+	   7 Input    2 Bit        Muxes := 8     
+	   3 Input    2 Bit        Muxes := 3     
 	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 82    
 	   4 Input    1 Bit        Muxes := 8     
 	   3 Input    1 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 5     
 	   8 Input    1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -2597,7 +2624,7 @@ DSP Report: Generating DSP act_n_weight_ctrlr/weight_mem_addr, operation Mode is
 DSP Report: operator act_n_weight_ctrlr/weight_mem_addr is absorbed into DSP act_n_weight_ctrlr/weight_mem_addr.
 DSP Report: operator act_n_weight_ctrlr/weight_mem_addr1 is absorbed into DSP act_n_weight_ctrlr/weight_mem_addr.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1777.383 ; gain = 320.113
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:20 ; elapsed = 00:01:23 . Memory (MB): peak = 2014.738 ; gain = 557.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -2622,19 +2649,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:55 ; elapsed = 00:01:01 . Memory (MB): peak = 2340.156 ; gain = 882.887
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:42 ; elapsed = 00:01:48 . Memory (MB): peak = 2373.941 ; gain = 916.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:55 ; elapsed = 00:01:01 . Memory (MB): peak = 2340.156 ; gain = 882.887
+Finished Timing Optimization : Time (s): cpu = 00:01:42 ; elapsed = 00:01:48 . Memory (MB): peak = 2373.941 ; gain = 916.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:57 ; elapsed = 00:01:04 . Memory (MB): peak = 2350.254 ; gain = 892.984
+Finished Technology Mapping : Time (s): cpu = 00:01:49 ; elapsed = 00:01:57 . Memory (MB): peak = 2806.137 ; gain = 1348.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -2651,22 +2678,6 @@ Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin ena
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin wea[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin addra[5]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin addra[4]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin addra[3]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin addra[2]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin addra[1]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin addra[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin dina[7]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin dina[6]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin dina[5]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin dina[4]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin dina[3]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin dina[2]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin dina[1]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin dina[0]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin enb
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin addrb[5]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin addrb[4]
@@ -2674,22 +2685,6 @@ CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_i
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin addrb[2]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin addrb[1]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst  has unconnected pin addrb[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin ena
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin wea[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin addra[5]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin addra[4]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin addra[3]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin addra[2]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin addra[1]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin addra[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin dina[7]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin dina[6]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin dina[5]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin dina[4]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin dina[3]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin dina[2]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin dina[1]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin dina[0]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin enb
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin addrb[5]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin addrb[4]
@@ -2697,22 +2692,6 @@ CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_i
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin addrb[2]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin addrb[1]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst  has unconnected pin addrb[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin ena
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin wea[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin addra[5]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin addra[4]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin addra[3]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin addra[2]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin addra[1]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin addra[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin dina[7]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin dina[6]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin dina[5]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin dina[4]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin dina[3]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin dina[2]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin dina[1]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin dina[0]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin enb
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin addrb[5]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin addrb[4]
@@ -2720,22 +2699,6 @@ CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_i
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin addrb[2]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin addrb[1]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[2].IA_ROW_MEM_inst  has unconnected pin addrb[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin ena
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin wea[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin addra[5]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin addra[4]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin addra[3]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin addra[2]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin addra[1]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin addra[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin dina[7]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin dina[6]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin dina[5]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin dina[4]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin dina[3]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin dina[2]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin dina[1]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin dina[0]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin enb
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin addrb[5]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin addrb[4]
@@ -2743,47 +2706,111 @@ CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_i
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin addrb[2]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin addrb[1]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[3].IA_ROW_MEM_inst  has unconnected pin addrb[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[4].IA_ROW_MEM_inst  has unconnected pin ena
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[4].IA_ROW_MEM_inst  has unconnected pin wea[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[4].IA_ROW_MEM_inst  has unconnected pin addra[5]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[4].IA_ROW_MEM_inst  has unconnected pin addra[4]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[4].IA_ROW_MEM_inst  has unconnected pin addra[3]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[4].IA_ROW_MEM_inst  has unconnected pin addra[2]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[4].IA_ROW_MEM_inst  has unconnected pin addra[1]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[4].IA_ROW_MEM_inst  has unconnected pin addra[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[4].IA_ROW_MEM_inst  has unconnected pin enb
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[4].IA_ROW_MEM_inst  has unconnected pin addrb[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[4].IA_ROW_MEM_inst  has unconnected pin addrb[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[4].IA_ROW_MEM_inst  has unconnected pin addrb[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[4].IA_ROW_MEM_inst  has unconnected pin addrb[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[4].IA_ROW_MEM_inst  has unconnected pin addrb[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[4].IA_ROW_MEM_inst  has unconnected pin addrb[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[5].IA_ROW_MEM_inst  has unconnected pin enb
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[5].IA_ROW_MEM_inst  has unconnected pin addrb[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[5].IA_ROW_MEM_inst  has unconnected pin addrb[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[5].IA_ROW_MEM_inst  has unconnected pin addrb[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[5].IA_ROW_MEM_inst  has unconnected pin addrb[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[5].IA_ROW_MEM_inst  has unconnected pin addrb[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[5].IA_ROW_MEM_inst  has unconnected pin addrb[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[6].IA_ROW_MEM_inst  has unconnected pin enb
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[6].IA_ROW_MEM_inst  has unconnected pin addrb[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[6].IA_ROW_MEM_inst  has unconnected pin addrb[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[6].IA_ROW_MEM_inst  has unconnected pin addrb[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[6].IA_ROW_MEM_inst  has unconnected pin addrb[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[6].IA_ROW_MEM_inst  has unconnected pin addrb[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[6].IA_ROW_MEM_inst  has unconnected pin addrb[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[7].IA_ROW_MEM_inst  has unconnected pin enb
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[7].IA_ROW_MEM_inst  has unconnected pin addrb[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[7].IA_ROW_MEM_inst  has unconnected pin addrb[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[7].IA_ROW_MEM_inst  has unconnected pin addrb[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[7].IA_ROW_MEM_inst  has unconnected pin addrb[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[7].IA_ROW_MEM_inst  has unconnected pin addrb[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[7].IA_ROW_MEM_inst  has unconnected pin addrb[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[8].IA_ROW_MEM_inst  has unconnected pin enb
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[8].IA_ROW_MEM_inst  has unconnected pin addrb[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[8].IA_ROW_MEM_inst  has unconnected pin addrb[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[8].IA_ROW_MEM_inst  has unconnected pin addrb[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[8].IA_ROW_MEM_inst  has unconnected pin addrb[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[8].IA_ROW_MEM_inst  has unconnected pin addrb[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[8].IA_ROW_MEM_inst  has unconnected pin addrb[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[9].IA_ROW_MEM_inst  has unconnected pin enb
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[9].IA_ROW_MEM_inst  has unconnected pin addrb[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[9].IA_ROW_MEM_inst  has unconnected pin addrb[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[9].IA_ROW_MEM_inst  has unconnected pin addrb[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[9].IA_ROW_MEM_inst  has unconnected pin addrb[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[9].IA_ROW_MEM_inst  has unconnected pin addrb[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[9].IA_ROW_MEM_inst  has unconnected pin addrb[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[10].IA_ROW_MEM_inst  has unconnected pin enb
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[10].IA_ROW_MEM_inst  has unconnected pin addrb[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[10].IA_ROW_MEM_inst  has unconnected pin addrb[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[10].IA_ROW_MEM_inst  has unconnected pin addrb[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[10].IA_ROW_MEM_inst  has unconnected pin addrb[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[10].IA_ROW_MEM_inst  has unconnected pin addrb[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[10].IA_ROW_MEM_inst  has unconnected pin addrb[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[11].IA_ROW_MEM_inst  has unconnected pin enb
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[11].IA_ROW_MEM_inst  has unconnected pin addrb[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[11].IA_ROW_MEM_inst  has unconnected pin addrb[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[11].IA_ROW_MEM_inst  has unconnected pin addrb[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[11].IA_ROW_MEM_inst  has unconnected pin addrb[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[11].IA_ROW_MEM_inst  has unconnected pin addrb[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[11].IA_ROW_MEM_inst  has unconnected pin addrb[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[12].IA_ROW_MEM_inst  has unconnected pin enb
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[12].IA_ROW_MEM_inst  has unconnected pin addrb[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[12].IA_ROW_MEM_inst  has unconnected pin addrb[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[12].IA_ROW_MEM_inst  has unconnected pin addrb[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[12].IA_ROW_MEM_inst  has unconnected pin addrb[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[12].IA_ROW_MEM_inst  has unconnected pin addrb[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[12].IA_ROW_MEM_inst  has unconnected pin addrb[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[13].IA_ROW_MEM_inst  has unconnected pin enb
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[13].IA_ROW_MEM_inst  has unconnected pin addrb[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[13].IA_ROW_MEM_inst  has unconnected pin addrb[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[13].IA_ROW_MEM_inst  has unconnected pin addrb[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[13].IA_ROW_MEM_inst  has unconnected pin addrb[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[13].IA_ROW_MEM_inst  has unconnected pin addrb[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[13].IA_ROW_MEM_inst  has unconnected pin addrb[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[14].IA_ROW_MEM_inst  has unconnected pin enb
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_dense_core[0].dense_core_inst/gen_ia_row_mem[14].IA_ROW_MEM_inst  has unconnected pin addrb[5]
 INFO: [Common 17-14] Message 'Synth 8-4442' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:03 ; elapsed = 00:01:11 . Memory (MB): peak = 2365.023 ; gain = 907.754
+Finished IO Insertion : Time (s): cpu = 00:01:55 ; elapsed = 00:02:02 . Memory (MB): peak = 2816.730 ; gain = 1359.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:03 ; elapsed = 00:01:11 . Memory (MB): peak = 2365.023 ; gain = 907.754
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:55 ; elapsed = 00:02:02 . Memory (MB): peak = 2816.730 ; gain = 1359.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:04 ; elapsed = 00:01:11 . Memory (MB): peak = 2365.023 ; gain = 907.754
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:55 ; elapsed = 00:02:03 . Memory (MB): peak = 2816.730 ; gain = 1359.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:04 ; elapsed = 00:01:11 . Memory (MB): peak = 2365.023 ; gain = 907.754
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:55 ; elapsed = 00:02:03 . Memory (MB): peak = 2816.730 ; gain = 1359.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:04 ; elapsed = 00:01:11 . Memory (MB): peak = 2365.023 ; gain = 907.754
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:56 ; elapsed = 00:02:04 . Memory (MB): peak = 2816.730 ; gain = 1359.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:04 ; elapsed = 00:01:11 . Memory (MB): peak = 2365.023 ; gain = 907.754
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:56 ; elapsed = 00:02:04 . Memory (MB): peak = 2816.730 ; gain = 1359.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -2793,8 +2820,8 @@ Report BlackBoxes:
 +------+---------------+----------+
 |      |BlackBox name  |Instances |
 +------+---------------+----------+
-|1     |INPUT_MEM      |         1|
-|2     |WEIGHT_MEM     |         1|
+|1     |INPUT_MEM      |         2|
+|2     |WEIGHT_MEM     |         2|
 |3     |IA_ROW_MEM     |       768|
 |4     |WEIGHT_ROW_MEM |        24|
 +------+---------------+----------+
@@ -2806,57 +2833,60 @@ Report Cell Usage:
 |1     |IA_ROW_MEM      |     1|
 |2     |IA_ROW_MEM_     |   767|
 |769   |INPUT_MEM       |     1|
-|770   |WEIGHT_MEM      |     1|
-|771   |WEIGHT_ROW_MEM  |     1|
-|772   |WEIGHT_ROW_MEM_ |    23|
-|795   |BUFG            |     1|
-|796   |CARRY8          |    37|
-|797   |DSP_ALU         |     5|
-|798   |DSP_A_B_DATA    |     5|
-|800   |DSP_C_DATA      |     5|
-|801   |DSP_MULTIPLIER  |     5|
-|802   |DSP_M_DATA      |     5|
-|803   |DSP_OUTPUT      |     5|
-|804   |DSP_PREADD      |     5|
-|805   |DSP_PREADD_DATA |     5|
-|806   |LUT1            |    40|
-|807   |LUT2            |    88|
-|808   |LUT3            |    40|
-|809   |LUT4            |    91|
-|810   |LUT5            |    74|
-|811   |LUT6            |   145|
-|812   |FDCE            |    76|
-|813   |FDRE            |    42|
-|814   |LD              |     1|
-|815   |IBUF            |    94|
-|816   |OBUF            |    17|
-|817   |OBUFT           |     8|
+|770   |INPUT_MEM_      |     1|
+|771   |WEIGHT_MEM      |     1|
+|772   |WEIGHT_MEM_     |     1|
+|773   |WEIGHT_ROW_MEM  |     1|
+|774   |WEIGHT_ROW_MEM_ |    23|
+|797   |BUFG            |     1|
+|798   |CARRY8          |   175|
+|799   |DSP_ALU         |     5|
+|800   |DSP_A_B_DATA    |     5|
+|802   |DSP_C_DATA      |     5|
+|803   |DSP_MULTIPLIER  |     5|
+|804   |DSP_M_DATA      |     5|
+|805   |DSP_OUTPUT      |     5|
+|806   |DSP_PREADD      |     5|
+|807   |DSP_PREADD_DATA |     5|
+|808   |LUT1            |    58|
+|809   |LUT2            |   849|
+|810   |LUT3            |   667|
+|811   |LUT4            |  1064|
+|812   |LUT5            |   935|
+|813   |LUT6            |  2814|
+|814   |MUXF7           |    16|
+|815   |FDCE            |  1680|
+|816   |FDRE            |    42|
+|817   |LD              |     1|
+|818   |IBUF            |    92|
+|819   |OBUF            |     1|
+|820   |OBUFT           |    24|
 +------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:04 ; elapsed = 00:01:11 . Memory (MB): peak = 2365.023 ; gain = 907.754
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:56 ; elapsed = 00:02:04 . Memory (MB): peak = 2816.730 ; gain = 1359.289
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 18282 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:53 ; elapsed = 00:01:06 . Memory (MB): peak = 2365.023 ; gain = 781.711
-Synthesis Optimization Complete : Time (s): cpu = 00:01:04 ; elapsed = 00:01:11 . Memory (MB): peak = 2365.023 ; gain = 907.754
+Synthesis finished with 0 errors, 5604 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:45 ; elapsed = 00:01:58 . Memory (MB): peak = 2816.730 ; gain = 1231.730
+Synthesis Optimization Complete : Time (s): cpu = 00:01:56 ; elapsed = 00:02:04 . Memory (MB): peak = 2816.730 ; gain = 1359.289
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 2377.066 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 138 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.169 . Memory (MB): peak = 2828.770 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 290 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2395.910 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2837.508 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 101 instances were transformed.
+  A total of 99 instances were transformed.
   BUFG => BUFGCE: 1 instance 
   DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 5 instances
-  IBUF => IBUF (IBUFCTRL, INBUF): 94 instances
+  IBUF => IBUF (IBUFCTRL, INBUF): 92 instances
   LD => LDCE: 1 instance 
 
 INFO: [Common 17-83] Releasing license: Synthesis
-33 Infos, 3 Warnings, 100 Critical Warnings and 0 Errors encountered.
+35 Infos, 3 Warnings, 100 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:15 ; elapsed = 00:01:26 . Memory (MB): peak = 2395.910 ; gain = 1288.594
+synth_design: Time (s): cpu = 00:02:08 ; elapsed = 00:02:19 . Memory (MB): peak = 2837.508 ; gain = 1731.109
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint 'C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Oct  2 14:27:10 2025...
+INFO: [Common 17-206] Exiting Vivado at Tue Oct  7 02:23:30 2025...

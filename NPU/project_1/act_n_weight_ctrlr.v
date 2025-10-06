@@ -145,7 +145,7 @@ module act_n_weight_ctrlr #(
     assign weight_row_mem_data  = weight_mem_data;
     assign weight_row_mem_addr  = weight_per_core_cnt_delay;
     
-    assign done = (state==DONE);
+    assign done = (state==DONE || state==IDLE);
 
     always @(posedge clk or negedge resetn) begin
         if(~resetn) state <= IDLE;
