@@ -2,7 +2,7 @@
 2020.2
 Nov 18 2020
 09:47:47
-C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/act_n_weight_ctrlr.v,1759807856,verilog,,C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/data_2_row_mem.v,,act_n_weight_ctrlr,,,,,,,,
+C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/act_n_weight_ctrlr.v,1759832427,verilog,,C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/data_2_row_mem.v,,act_n_weight_ctrlr,,,,,,,,
 C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/data_2_row_mem.v,1759829954,verilog,,C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/dense_core.v,,data_2_row_mem,,,,,,,,
 C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/dense_core.v,1759830154,verilog,,C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/dense_pe.v,,dense_core,,,,,,,,
 C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/dense_pe.v,1759830464,verilog,,C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/dense_pe_array.v,,dense_pe,,,,,,,,

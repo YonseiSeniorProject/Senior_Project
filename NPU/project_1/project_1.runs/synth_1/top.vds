@@ -2,15 +2,14 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Tue Oct  7 18:50:41 2025
-# Process ID: 20316
+# Start of session at: Tue Oct  7 19:24:39 2025
+# Process ID: 28468
 # Current directory: C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/top.vds
 # Journal file: C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source top.tcl -notrace
-create_project: Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1085.809 ; gain = 0.000
 Command: synth_design -top top -part xczu9eg-ffvb1156-2-e
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xczu9eg'
@@ -18,9 +17,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg
 INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-e
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 27248
+INFO: [Synth 8-7075] Helper process launched with PID 14860
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1573.945 ; gain = 116.453
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1573.992 ; gain = 116.055
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/top.v:4]
 	Parameter ADDR_IN bound to: 20 - type: integer 
@@ -51,10 +50,10 @@ INFO: [Synth 8-6157] synthesizing module 'dense_core' [C:/minsung/senior_project
 	Parameter NUM_PE_ROWS bound to: 3 - type: integer 
 	Parameter IA_ROW_MEM_ADDR bound to: 6 - type: integer 
 	Parameter WEIGHT_ROW_MEM_ADDR bound to: 7 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'IA_ROW_MEM' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-20316-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'IA_ROW_MEM' (1#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-20316-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'WEIGHT_ROW_MEM' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-20316-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_ROW_MEM' (2#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-20316-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'IA_ROW_MEM' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-28468-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'IA_ROW_MEM' (1#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-28468-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'WEIGHT_ROW_MEM' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-28468-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_ROW_MEM' (2#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-28468-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'data_2_row_mem' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/data_2_row_mem.v:4]
 	Parameter ACT_PER_CORE bound to: 11 - type: integer 
 	Parameter WEIGHT_PER_CORE bound to: 9 - type: integer 
@@ -115,24 +114,24 @@ INFO: [Synth 8-6157] synthesizing module 'act_n_weight_ctrlr' [C:/minsung/senior
 INFO: [Synth 8-226] default block is never used [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/act_n_weight_ctrlr.v:157]
 INFO: [Synth 8-6155] done synthesizing module 'act_n_weight_ctrlr' (7#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/act_n_weight_ctrlr.v:4]
 WARNING: [Synth 8-689] width (8) of port connection 'OC' does not match port width (6) of module 'act_n_weight_ctrlr' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/top.v:225]
-INFO: [Synth 8-6157] synthesizing module 'INPUT_MEM' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-20316-MinsungKim/realtime/INPUT_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'INPUT_MEM' (8#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-20316-MinsungKim/realtime/INPUT_MEM_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'WEIGHT_MEM' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-20316-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_MEM' (9#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-20316-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'INPUT_MEM' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-28468-MinsungKim/realtime/INPUT_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'INPUT_MEM' (8#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-28468-MinsungKim/realtime/INPUT_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'WEIGHT_MEM' [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-28468-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_MEM' (9#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/.Xil/Vivado-28468-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'top' (10#1) [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/top.v:4]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1656.992 ; gain = 199.500
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1656.773 ; gain = 198.836
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1674.922 ; gain = 217.430
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1656.773 ; gain = 198.836
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1674.922 ; gain = 217.430
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1656.773 ; gain = 198.836
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1674.922 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1656.773 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -1733,13 +1732,13 @@ Parsing XDC File [C:/minsung/senior_project/git_works/Senior_Project/NPU/project
 Finished Parsing XDC File [C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 1837.805 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 1836.703 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.255 . Memory (MB): peak = 1837.805 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.251 . Memory (MB): peak = 1836.703 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1837.805 ; gain = 380.312
+Finished Constraint Validation : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 1836.703 ; gain = 378.766
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -1747,7 +1746,7 @@ Start Loading Part and Timing Information
 Loading part: xczu9eg-ffvb1156-2-e
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1837.805 ; gain = 380.312
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 1836.703 ; gain = 378.766
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -2549,7 +2548,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for \gen_dense_core[5].dense_core_ins
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_dense_core[6].dense_core_inst /\gen_ia_row_mem[9].IA_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_dense_core[7].dense_core_inst /\gen_ia_row_mem[9].IA_ROW_MEM_inst . (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 1837.805 ; gain = 380.312
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:39 . Memory (MB): peak = 1836.703 ; gain = 378.766
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'dense_pe'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'top'
@@ -2570,7 +2569,7 @@ WARNING: [Synth 8-327] inferring latch for variable 'was_dense_core_reg' [C:/min
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'top'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 1837.805 ; gain = 380.312
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:36 ; elapsed = 00:00:42 . Memory (MB): peak = 1836.703 ; gain = 378.766
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -2657,7 +2656,7 @@ DSP Report: Generating DSP act_n_weight_ctrlr/weight_mem_addr, operation Mode is
 DSP Report: operator act_n_weight_ctrlr/weight_mem_addr is absorbed into DSP act_n_weight_ctrlr/weight_mem_addr.
 DSP Report: operator act_n_weight_ctrlr/weight_mem_addr1 is absorbed into DSP act_n_weight_ctrlr/weight_mem_addr.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:57 ; elapsed = 00:02:06 . Memory (MB): peak = 2061.551 ; gain = 604.059
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:30 ; elapsed = 00:02:48 . Memory (MB): peak = 2060.680 ; gain = 602.742
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -2682,19 +2681,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:15 ; elapsed = 00:02:27 . Memory (MB): peak = 2444.328 ; gain = 986.836
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:53 ; elapsed = 00:03:13 . Memory (MB): peak = 2458.570 ; gain = 1000.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:15 ; elapsed = 00:02:27 . Memory (MB): peak = 2444.328 ; gain = 986.836
+Finished Timing Optimization : Time (s): cpu = 00:02:53 ; elapsed = 00:03:13 . Memory (MB): peak = 2458.570 ; gain = 1000.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:23 ; elapsed = 00:02:37 . Memory (MB): peak = 2632.965 ; gain = 1175.473
+Finished Technology Mapping : Time (s): cpu = 00:03:02 ; elapsed = 00:03:25 . Memory (MB): peak = 2650.078 ; gain = 1192.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -2748,37 +2747,37 @@ CRITICAL WARNING: [Synth 8-4442] BlackBox module WEIGHT_MEM_1 has unconnected pi
 CRITICAL WARNING: [Synth 8-4442] BlackBox module WEIGHT_MEM_1 has unconnected pin dinb[1]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module WEIGHT_MEM_1 has unconnected pin dinb[0]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:27 ; elapsed = 00:02:41 . Memory (MB): peak = 2640.836 ; gain = 1183.344
+Finished IO Insertion : Time (s): cpu = 00:03:08 ; elapsed = 00:03:31 . Memory (MB): peak = 2658.887 ; gain = 1200.949
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:27 ; elapsed = 00:02:41 . Memory (MB): peak = 2640.836 ; gain = 1183.344
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:08 ; elapsed = 00:03:31 . Memory (MB): peak = 2658.887 ; gain = 1200.949
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:28 ; elapsed = 00:02:42 . Memory (MB): peak = 2640.836 ; gain = 1183.344
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:10 ; elapsed = 00:03:34 . Memory (MB): peak = 2658.887 ; gain = 1200.949
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:28 ; elapsed = 00:02:42 . Memory (MB): peak = 2640.836 ; gain = 1183.344
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:10 ; elapsed = 00:03:34 . Memory (MB): peak = 2658.887 ; gain = 1200.949
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:29 ; elapsed = 00:02:43 . Memory (MB): peak = 2640.836 ; gain = 1183.344
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:11 ; elapsed = 00:03:35 . Memory (MB): peak = 2658.887 ; gain = 1200.949
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:29 ; elapsed = 00:02:43 . Memory (MB): peak = 2640.836 ; gain = 1183.344
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:11 ; elapsed = 00:03:35 . Memory (MB): peak = 2658.887 ; gain = 1200.949
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -2831,18 +2830,18 @@ Report Cell Usage:
 |820   |OBUFT           |    24|
 +------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:29 ; elapsed = 00:02:43 . Memory (MB): peak = 2640.836 ; gain = 1183.344
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:11 ; elapsed = 00:03:35 . Memory (MB): peak = 2658.887 ; gain = 1200.949
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 36 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:11 ; elapsed = 00:02:31 . Memory (MB): peak = 2640.836 ; gain = 1020.461
-Synthesis Optimization Complete : Time (s): cpu = 00:02:29 ; elapsed = 00:02:43 . Memory (MB): peak = 2640.836 ; gain = 1183.344
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:47 ; elapsed = 00:03:18 . Memory (MB): peak = 2658.887 ; gain = 1021.020
+Synthesis Optimization Complete : Time (s): cpu = 00:03:11 ; elapsed = 00:03:35 . Memory (MB): peak = 2658.887 ; gain = 1200.949
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.231 . Memory (MB): peak = 2652.867 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.298 . Memory (MB): peak = 2670.914 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 289 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2662.594 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2682.590 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 99 instances were transformed.
   BUFG => BUFGCE: 1 instance 
@@ -2853,8 +2852,8 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 40 Infos, 3 Warnings, 36 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:43 ; elapsed = 00:03:14 . Memory (MB): peak = 2662.594 ; gain = 1576.785
+synth_design: Time (s): cpu = 00:03:27 ; elapsed = 00:03:56 . Memory (MB): peak = 2682.590 ; gain = 1577.137
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint 'C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Oct  7 18:54:19 2025...
+INFO: [Common 17-206] Exiting Vivado at Tue Oct  7 19:28:54 2025...
