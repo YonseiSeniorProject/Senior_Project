@@ -95,13 +95,15 @@ read_verilog -library xil_defaultlib {
   C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/act_n_weight_ctrlr.v
   C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/data_2_row_mem.v
   C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/dense_core.v
+  C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/dense_pe.v
+  C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/dense_pe_array.v
   C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/top.v
 }
-read_ip -quiet C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.srcs/sources_1/ip/INPUT_MEM/INPUT_MEM.xci
-set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM_ooc.xdc]
-
 read_ip -quiet C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.srcs/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM.xci
 set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM_ooc.xdc]
+
+read_ip -quiet C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.srcs/sources_1/ip/INPUT_MEM/INPUT_MEM.xci
+set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM_ooc.xdc]
 
 read_ip -quiet C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.srcs/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM.xci
 set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM_ooc.xdc]
@@ -118,6 +120,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
