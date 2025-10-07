@@ -5,14 +5,15 @@ module dense_core#(
     // SRAM address widths (enough to cover depth)
     parameter ADDR_IN           = 20,           // 2^20 = 1,048,576 > 34x34x512 = 591,872 (HWC)
     parameter ADDR_W            = 18,           // 2^18 = 262,144 > 3x3x512x32 = 147,456 (KH, KW, IC, OC_tile)
-    parameter ADDR_PSUM         = 15,           // 2^15 = 32,768 > 32x32x32 = 32,768
+    parameter ADDR_PSUM         = 11,           // 2^11 = 2048 > 32x32 = 1024
     parameter INPUT_BW          = 8,            // 8bit Data comes from AXI interface
     parameter PSUM_BW           = 32,           // 8bit Data goes to AXI interface (after Quantization)
     parameter ACT_PER_CORE      = 11,
     parameter WEIGHT_PER_CORE   = 9,
-    parameter NUM_ROWS          = 32,
     parameter NUM_IA_ROW_MEM    = 96,
-    parameter NUM_WEIGHT_ROW_MEM= 3
+    parameter NUM_WEIGHT_ROW_MEM= 3,
+    parameter NUM_COLS = 32, // PE 열 수
+    parameter NUM_PE_ROWS = 3 // PE 행 수
     )(
     input wire clk,
     input wire resetn,
@@ -40,7 +41,7 @@ module dense_core#(
     // ------------------------------------------------------------------------
     // psum from core 32bit x 32rows (2-D shape array like wire or reg ports is not supported in verilog)
     // ------------------------------------------------------------------------
-    output wire [PSUM_BW*NUM_ROWS-1:0] psum_rows
+    output wire [PSUM_BW*NUM_COLS-1:0] psum_rows
     );
     // NOTE: CORE의 동작이 끝나면 계속 CORE_START신호가 들어오기 전까지 DONE = 1이 유지되어야 함
     
@@ -64,7 +65,7 @@ module dense_core#(
     wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_en;
     wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_we;
 
-//    wire [NUM_IA_ROW_MEM-1:0]        which_ia_row_mem_activate;
+    wire [NUM_IA_ROW_MEM-1:0]        which_ia_row_mem_activate;
 //    wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_activate;
 
     data_2_row_mem data_2_row_mem  (
@@ -84,10 +85,10 @@ module dense_core#(
                 .which_act_row_mem_en(which_ia_row_mem_en), .which_act_row_mem_we(which_ia_row_mem_we),
 
                 .weight_row_mem_each_data(weight_row_mem_each_data), .weight_row_mem_each_addr(weight_row_mem_each_addr), 
-                .which_weight_row_mem_en(which_weight_row_mem_en), .which_weight_row_mem_we(which_weight_row_mem_we)
+                .which_weight_row_mem_en(which_weight_row_mem_en), .which_weight_row_mem_we(which_weight_row_mem_we),
+//                .which_weight_row_mem_activate(which_weight_row_mem_activate),
+                .which_ia_row_mem_activate(which_ia_row_mem_activate)
 
-//                .which_act_row_mem_activate(which_ia_row_mem_activate),
-//                .which_weight_row_mem_activate(which_weight_row_mem_activate)
             );
     
     // ------------------------------------------------------------------------------------------------------------------------------------------------ 
@@ -173,11 +174,86 @@ module dense_core#(
     assign weight_row_mem_addra = weight_row_mem_each_addr;
     assign weight_row_mem_dina  = weight_row_mem_each_data;
     
+    // ------------------------------------------------------------------------ 
+    // dense_pe_array Module
+    // ------------------------------------------------------------------------
+    wire pe_array_start, pe_array_done;
+    assign pe_array_start = data_2_row_mem_done;
     
+    wire [IA_ROW_MEM_ADDR*NUM_IA_ROW_MEM-1:0]   pe_array_ia_row_mem_addr;
+    wire [NUM_IA_ROW_MEM-1:0]                   pe_array_which_ia_row_mem_en;
+    wire [INPUT_BW*NUM_IA_ROW_MEM-1:0]          pe_array_ia_row_mem_data;
     
+    wire [WEIGHT_ROW_MEM_ADDR*NUM_WEIGHT_ROW_MEM-1:0]   pe_array_weight_row_mem_addr;
+    wire [NUM_WEIGHT_ROW_MEM-1:0]                       pe_array_which_weight_row_mem_en;
+    wire [INPUT_BW*NUM_WEIGHT_ROW_MEM-1:0]              pe_array_weight_row_mem_data;
+    
+    wire [ADDR_PSUM*NUM_COLS-1:0] pe_array_psum_addrs;
+
+    // Concatenate IA_ROW_MEM doutb to pe_array ia_row_mem_data
+    generate
+        for (i = 0; i < NUM_IA_ROW_MEM; i = i + 1) begin : gen_ia_data_concat
+            assign pe_array_ia_row_mem_data[INPUT_BW*(i+1)-1 : INPUT_BW*i]  = ia_row_mem_doutb[i];
+            assign ia_row_mem_addrb[i]                                      = pe_array_ia_row_mem_addr[IA_ROW_MEM_ADDR*(i+1)-1 : IA_ROW_MEM_ADDR*i];
+            assign ia_row_mem_enb[i]                                        = pe_array_which_ia_row_mem_en[i];
+        end
+    endgenerate
+
+    // Concatenate WEIGHT_ROW_MEM doutb to pe_array weight_row_mem_data
+    generate
+        for (i = 0; i < NUM_WEIGHT_ROW_MEM; i = i + 1) begin : gen_weight_data_concat
+            assign pe_array_weight_row_mem_data[INPUT_BW*(i+1)-1 : INPUT_BW*i]  = weight_row_mem_doutb[i];
+            assign weight_row_mem_addrb[i]                                      = pe_array_weight_row_mem_addr[WEIGHT_ROW_MEM_ADDR*(i+1)-1 : WEIGHT_ROW_MEM_ADDR*i];
+            assign weight_row_mem_enb[i]                                        = pe_array_which_weight_row_mem_en[i];
+        end
+    endgenerate
+
+    // dense_pe_array instance
+    dense_pe_array #(
+        .ADDR_PSUM(ADDR_PSUM),
+        .INPUT_BW(INPUT_BW),
+        .PSUM_BW(PSUM_BW),
+        .IA_ROW_MEM_ADDR(IA_ROW_MEM_ADDR),
+        .WEIGHT_ROW_MEM_ADDR(WEIGHT_ROW_MEM_ADDR),
+        .NUM_IA_ROW_MEM(NUM_IA_ROW_MEM),
+        .NUM_COLS(NUM_COLS),
+        .NUM_PE_ROWS(NUM_PE_ROWS),
+        .NUM_WEIGHT_ROW_MEM(NUM_WEIGHT_ROW_MEM)
+    ) pe_array_inst (
+        .clk(clk),
+        .resetn(resetn),
+        
+        .start(pe_array_start),
+        .K(K),
+        .IMG_H(IMG_H),
+        .IMG_W(IMG_W),
+        .OC(OC),
+        .STRIDE(STRIDE),
+        .done(pe_array_done),
+        
+        .ia_row_mem_data(pe_array_ia_row_mem_data),
+        .which_ia_row_mem_activate(which_ia_row_mem_activate),
+        .ia_row_mem_addr(pe_array_ia_row_mem_addr),
+        .which_ia_row_mem_en(pe_array_which_ia_row_mem_en),
+        
+        .weight_row_mem_data(pe_array_weight_row_mem_data),
+        .weight_row_mem_addr(pe_array_weight_row_mem_addr),
+        .which_weight_row_mem_en(pe_array_which_weight_row_mem_en),
+        
+        .psum_rows(psum_rows),
+        .psum_addrs(pe_array_psum_addrs)
+    );
     
      
     
+
+
+endmodule
+
+
+
+
+
     
 //    IA_ROW_MEM IA_ROW_MEM_0 (
 //      .clka (clk),
@@ -191,6 +267,3 @@ module dense_core#(
 //      .addrb(ia_row_mem_0_addrb),
 //      .doutb(ia_row_mem_0_doutb)
 //    );
-    
-
-endmodule

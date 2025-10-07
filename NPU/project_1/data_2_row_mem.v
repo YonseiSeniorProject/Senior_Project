@@ -48,12 +48,12 @@ module data_2_row_mem #(
     output wire signed [INPUT_BW-1:0]       weight_row_mem_each_data,
     output wire [WEIGHT_ROW_MEM_ADDR-1:0]   weight_row_mem_each_addr,
     output wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_en,
-    output wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_we
+    output wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_we,
     // ------------------------------------------------------------------------
     // activation signals for each row_mems
     // ------------------------------------------------------------------------
-//    output wire [NUM_IA_ROW_MEM-1:0]        which_act_row_mem_activate,
-//    output wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_activate
+    //    output wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_activate,
+    output wire [NUM_IA_ROW_MEM-1:0]        which_ia_row_mem_activate
     );
     
     /***** MAX Elems of each Global memory *****/
@@ -81,6 +81,8 @@ module data_2_row_mem #(
     localparam IDLE         = 3'd0;
     localparam LOAD_DATA    = 3'd1;
     localparam DONE         = 3'd2;
+    
+    assign done = (state==DONE);
     
     always @(posedge clk or negedge resetn) begin
         if(~resetn) state <= IDLE;
@@ -157,10 +159,14 @@ module data_2_row_mem #(
     reg [NUM_IA_ROW_MEM-1:0]    which_act_row_mem_we_reg;
     reg [1:0]                   offset_cnt;
     
+    reg [NUM_IA_ROW_MEM-1:0]        which_ia_row_mem_activate_reg;
+    
     assign act_row_mem_each_data    = act_row_mem_each_data_reg;
     assign act_row_mem_each_addr    = act_row_mem_each_addr_reg;
     assign which_act_row_mem_en     = which_act_row_mem_en_reg;
     assign which_act_row_mem_we     = which_act_row_mem_we_reg;
+    
+    assign which_ia_row_mem_activate = which_ia_row_mem_activate_reg;
     
     always @(posedge clk or negedge resetn) begin
         if(~resetn) begin
@@ -171,6 +177,8 @@ module data_2_row_mem #(
             ia_row_mem_cnt              <= 0;
             offset_cnt                  <= 0;
             ic_iter_cnt                 <= 0;
+            
+            which_ia_row_mem_activate_reg   <= 0;
         end
         else begin
             case (state)
@@ -185,6 +193,8 @@ module data_2_row_mem #(
                     act_row_mem_each_addr_reg <= act_row_mem_addr_reg % input_img_w;
                     which_act_row_mem_en_reg[ia_row_mem_cnt] <= 1;
                     which_act_row_mem_we_reg[ia_row_mem_cnt] <= 1;
+                    
+                    which_ia_row_mem_activate_reg[ia_row_mem_cnt] <= 1;
   
                     if ((act_row_mem_addr_reg % input_img_w) == input_img_w - 1) begin
                         if (K==3) begin
@@ -213,6 +223,8 @@ module data_2_row_mem #(
                     ia_row_mem_cnt              <= 0;
                     offset_cnt                  <= 0;
                     ic_iter_cnt                 <= 0;
+                    
+                    which_ia_row_mem_activate_reg   <= 0;
                 end
             endcase
         end
