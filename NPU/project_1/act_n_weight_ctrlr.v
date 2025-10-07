@@ -124,6 +124,7 @@ module act_n_weight_ctrlr #(
     assign weight_mem_en    = (state != IDLE);
     
     ////////////////////////////////////////
+    // for address output, synchronized with data out of GLB
     reg [10:0]  input_per_core_cnt_delay;
     reg [10:0]  weight_per_core_cnt_delay;
     
