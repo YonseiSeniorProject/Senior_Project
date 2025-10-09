@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/synth_1/top.tcl"
+  variable script "C:/minsung/senior_project/git_works/Back_Up_1010/project_1/project_1.runs/synth_1/top.tcl"
   variable category "vivado_synth"
 }
 
@@ -77,37 +77,40 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.cache/wt [current_project]
-set_property parent.project_path C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.xpr [current_project]
+set_property webtalk.parent_dir C:/minsung/senior_project/git_works/Back_Up_1010/project_1/project_1.cache/wt [current_project]
+set_property parent.project_path C:/minsung/senior_project/git_works/Back_Up_1010/project_1/project_1.xpr [current_project]
 set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part xilinx.com:zcu102:part0:3.4 [current_project]
-set_property ip_output_repo c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.cache/ip [current_project]
+set_property ip_output_repo c:/minsung/senior_project/git_works/Back_Up_1010/project_1/project_1.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-add_files C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/1x1_random_data.coe
-add_files C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/1x1_filter_data.coe
-add_files C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/3x3_random_data.coe
-add_files C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/3x3_filter_data.coe
+add_files C:/minsung/senior_project/git_works/Back_Up_1010/project_1/1x1_random_data.coe
+add_files C:/minsung/senior_project/git_works/Back_Up_1010/project_1/1x1_filter_data.coe
+add_files C:/minsung/senior_project/git_works/Back_Up_1010/project_1/3x3_random_data.coe
+add_files C:/minsung/senior_project/git_works/Back_Up_1010/project_1/3x3_filter_data.coe
+add_files C:/minsung/senior_project/git_works/Back_Up_1010/project_1/3x3_random_data_s_2.coe
 read_verilog -library xil_defaultlib {
-  C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/act_n_weight_ctrlr.v
-  C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/data_2_row_mem.v
-  C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/dense_core.v
-  C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/top.v
+  C:/minsung/senior_project/git_works/Back_Up_1010/project_1/act_n_weight_ctrlr.v
+  C:/minsung/senior_project/git_works/Back_Up_1010/project_1/data_2_row_mem.v
+  C:/minsung/senior_project/git_works/Back_Up_1010/project_1/dense_core.v
+  C:/minsung/senior_project/git_works/Back_Up_1010/project_1/dense_pe.v
+  C:/minsung/senior_project/git_works/Back_Up_1010/project_1/dense_pe_array.v
+  C:/minsung/senior_project/git_works/Back_Up_1010/project_1/top.v
 }
-read_ip -quiet C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.srcs/sources_1/ip/INPUT_MEM/INPUT_MEM.xci
-set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM_ooc.xdc]
+read_ip -quiet C:/minsung/senior_project/git_works/Back_Up_1010/project_1/project_1.srcs/sources_1/ip/IA_ROW_MEM/IA_ROW_MEM.xci
+set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Back_Up_1010/project_1/project_1.gen/sources_1/ip/IA_ROW_MEM/IA_ROW_MEM_ooc.xdc]
 
-read_ip -quiet C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.srcs/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM.xci
-set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM_ooc.xdc]
+read_ip -quiet C:/minsung/senior_project/git_works/Back_Up_1010/project_1/project_1.srcs/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM.xci
+set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Back_Up_1010/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM_ooc.xdc]
 
-read_ip -quiet C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.srcs/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM.xci
-set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM_ooc.xdc]
+read_ip -quiet C:/minsung/senior_project/git_works/Back_Up_1010/project_1/project_1.srcs/sources_1/ip/INPUT_MEM/INPUT_MEM.xci
+set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Back_Up_1010/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM_ooc.xdc]
 
-read_ip -quiet C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.srcs/sources_1/ip/IA_ROW_MEM/IA_ROW_MEM.xci
-set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.gen/sources_1/ip/IA_ROW_MEM/IA_ROW_MEM_ooc.xdc]
+read_ip -quiet C:/minsung/senior_project/git_works/Back_Up_1010/project_1/project_1.srcs/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM.xci
+set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Back_Up_1010/project_1/project_1.gen/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -118,6 +121,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 

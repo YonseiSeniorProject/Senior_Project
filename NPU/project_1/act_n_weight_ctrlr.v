@@ -5,7 +5,7 @@ module act_n_weight_ctrlr #(
     // SRAM address widths
     parameter ADDR_IN           = 20,           // 2^20 = 1,048,576 > 34x34x512 = 591,872 (HWC)
     parameter ADDR_W            = 18,           // 2^18 = 262,144 > 3x3x512x32 = 147,456 (KH, KW, IC, OC_tile)
-    parameter ACT_PER_CORE      = 11,
+    parameter ACT_PER_CORE      = 13,
     parameter WEIGHT_PER_CORE   = 9,
     parameter NUM_DENSE_CORE    = 8,
     parameter NUM_SPARSE_CORE   = 4,
@@ -23,10 +23,11 @@ module act_n_weight_ctrlr #(
     // Configurable Data
     // ------------------------------------------------------------------------
     input  wire [9:0] TOTAL_IC,
-    input  wire [5:0] OC,
+    input  wire [7:0] OC,
     input  wire [5:0] IMG_H,
     input  wire [5:0] IMG_W,
     input  wire [2:0] K,
+    input  wire [2:0] STRIDE,
     // ------------------------------------------------------------------------
     // global input inputs & read
     // ------------------------------------------------------------------------
@@ -62,8 +63,8 @@ module act_n_weight_ctrlr #(
     );
     
     /***** MAX Elems of each Global memory *****/
-    wire [5:0] input_img_h        = IMG_H + K - 1;
-    wire [5:0] input_img_w        = IMG_W + K - 1;
+    wire [6:0] input_img_h        = (IMG_H - 1) * STRIDE + K;
+    wire [6:0] input_img_w        = (IMG_W - 1) * STRIDE + K;
     
     wire [ADDR_IN-1:0] max_elems_input_mem    = input_img_h * input_img_w * TOTAL_IC; 
     wire [ADDR_W-1:0]  max_elems_weight_mem   = K * K * TOTAL_IC * OC; 
@@ -71,8 +72,8 @@ module act_n_weight_ctrlr #(
     /***** Total Elems which will be transfered to CORE *****/
     wire [12:0] weight_ic_offset   = K * K * (TOTAL_IC);
     
-    wire [10:0] act_per_core       = (input_img_h * input_img_w); // strictly, it's per FSM iteration, not per core.
-    wire [8:0]  weight_per_core    = (K * K * OC);                // strictly, it's per FSM iteration, not per core.
+    wire [ACT_PER_CORE-1:0] act_per_core       = (input_img_h * input_img_w); // strictly, it's per FSM iteration, not per core.
+    wire [8:0]  weight_per_core                = (K * K * OC);                // strictly, it's per FSM iteration, not per core.
     
     /***** K=3: 1 IC per CORE / K=1: 3 IC per CORE *****/
     reg [1:0] ic_per_core_cnt;
@@ -90,16 +91,16 @@ module act_n_weight_ctrlr #(
     reg get_core;
     
     /***** Sparsity checking regs *****/
-    reg [5:0] sparsity_cnt;
-    reg [5:0] sparse_amount;
+    reg [6:0] sparsity_cnt;
+    reg [6:0] sparse_amount;
     
     /***** Global Memory address counter *****/
     reg [ADDR_IN-1:0] input_mem_addr_reg;
     reg [ADDR_W-1:0]  weight_mem_addr_reg;
     
     /***** counter to check number of datas send to CORE *****/
-    reg [10:0]  input_per_core_cnt;
-    reg [10:0]  weight_per_core_cnt;
+    reg [ACT_PER_CORE-1:0]  input_per_core_cnt;
+    reg [10:0]              weight_per_core_cnt;
     
     /***** FSM *****/
     reg [2:0] state, n_state;
@@ -124,8 +125,9 @@ module act_n_weight_ctrlr #(
     assign weight_mem_en    = (state != IDLE);
     
     ////////////////////////////////////////
-    reg [10:0]  input_per_core_cnt_delay;
-    reg [10:0]  weight_per_core_cnt_delay;
+    // for address output, synchronized with data out of GLB
+    reg [ACT_PER_CORE-1:0]  input_per_core_cnt_delay;
+    reg [10:0]              weight_per_core_cnt_delay;
     
     always @(posedge clk or negedge resetn) begin
         if(~resetn) begin
@@ -145,7 +147,7 @@ module act_n_weight_ctrlr #(
     assign weight_row_mem_data  = weight_mem_data;
     assign weight_row_mem_addr  = weight_per_core_cnt_delay;
     
-    assign done = (state==DONE);
+    assign done = (state==DONE || state==IDLE);
 
     always @(posedge clk or negedge resetn) begin
         if(~resetn) state <= IDLE;
