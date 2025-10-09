@@ -184,6 +184,8 @@ module top#(
     assign weight_web_1      = 0;
     assign weight_addrb_0    = (double_buf_cnt==0) ? weight_addrb_top : 0;
     assign weight_addrb_1    = (double_buf_cnt!=0) ? weight_addrb_top : 0;
+    assign weight_dinb_0     = (double_buf_cnt==0) ? weight_dinb_top : 0;
+    assign weight_dinb_1     = (double_buf_cnt!=0) ? weight_dinb_top : 0;
     assign weight_doutb_top  = (double_buf_cnt==0) ? weight_doutb_0 : weight_doutb_1;
     
     // ------------------------------------------------------------------------
