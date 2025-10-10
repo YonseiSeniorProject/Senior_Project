@@ -3,10 +3,10 @@
 
 module data_2_row_mem #(
     // SRAM address widths
-    parameter ACT_PER_CORE          = 11,
+    parameter ACT_PER_CORE          = 13,
     parameter WEIGHT_PER_CORE       = 9,
     parameter INPUT_BW              = 8,
-    parameter IA_ROW_MEM_ADDR       = 6,
+    parameter IA_ROW_MEM_ADDR       = 7,
     parameter WEIGHT_ROW_MEM_ADDR   = 7,
     parameter NUM_IA_ROW_MEM        = 96,
     parameter NUM_WEIGHT_ROW_MEM    = 3
@@ -21,10 +21,11 @@ module data_2_row_mem #(
     // ------------------------------------------------------------------------
     // Configurable Data
     // ------------------------------------------------------------------------
-    input  wire [5:0] OC,
+    input  wire [7:0] OC,
     input  wire [5:0] IMG_H,
     input  wire [5:0] IMG_W,
     input  wire [2:0] K,
+    input  wire [2:0] STRIDE,
     // ------------------------------------------------------------------------
     // activation inputs from act_n_weight_ctrlr
     // ------------------------------------------------------------------------
@@ -48,23 +49,24 @@ module data_2_row_mem #(
     output wire signed [INPUT_BW-1:0]       weight_row_mem_each_data,
     output wire [WEIGHT_ROW_MEM_ADDR-1:0]   weight_row_mem_each_addr,
     output wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_en,
-    output wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_we,
+    output wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_we
     // ------------------------------------------------------------------------
     // activation signals for each row_mems
     // ------------------------------------------------------------------------
-    output wire [NUM_IA_ROW_MEM-1:0]        which_act_row_mem_activate,
-    output wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_activate
+    //    output wire [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_activate,
+//    output wire [NUM_IA_ROW_MEM-1:0]        which_ia_row_mem_activate
     );
     
     /***** MAX Elems of each Global memory *****/
-    wire [5:0] input_img_h        = IMG_H + K - 1;
-    wire [5:0] input_img_w        = IMG_W + K - 1;
+    wire [IA_ROW_MEM_ADDR-1:0] input_img_h        = (IMG_H - 1) * STRIDE + K;
+    wire [IA_ROW_MEM_ADDR-1:0] input_img_w        = (IMG_W - 1) * STRIDE + K;
     
-    wire [10:0] act_per_core       = (input_img_h * input_img_w); // strictly, it's per FSM iteration, not per core.
-    wire [8:0]  weight_per_core    = (K * K * OC);                // strictly, it's per FSM iteration, not per core.
+    wire [ACT_PER_CORE-1:0]     act_per_core        = (input_img_h * input_img_w); // strictly, it's per FSM iteration, not per core.
+    wire [WEIGHT_PER_CORE-1:0]  weight_per_core     = (K * K * OC);                // strictly, it's per FSM iteration, not per core.
     
     /***** OFFSET since in case of K=3, ia_row_mems should be partially activated *****/
-    localparam OFFSET = 32; // number of PEs in 1 row = number of columns
+    localparam OFFSET_S1 = (32-1); // number of PEs in 1 row = number of columns
+    localparam OFFSET_S2 = (64-1);
     
     /***** register for counting which row_mem is enabled *****/
     localparam LOG2_NUM_IA_ROW_MEM      = $clog2(NUM_IA_ROW_MEM);
@@ -81,6 +83,8 @@ module data_2_row_mem #(
     localparam IDLE         = 3'd0;
     localparam LOAD_DATA    = 3'd1;
     localparam DONE         = 3'd2;
+    
+    assign done = (state==DONE);
     
     always @(posedge clk or negedge resetn) begin
         if(~resetn) state <= IDLE;
@@ -157,6 +161,16 @@ module data_2_row_mem #(
     reg [NUM_IA_ROW_MEM-1:0]    which_act_row_mem_we_reg;
     reg [1:0]                   offset_cnt;
     
+//    reg [NUM_IA_ROW_MEM-1:0]        which_ia_row_mem_activate_reg;
+    
+    assign act_row_mem_each_data    = act_row_mem_each_data_reg;
+    assign act_row_mem_each_addr    = act_row_mem_each_addr_reg;
+    assign which_act_row_mem_en     = which_act_row_mem_en_reg;
+    assign which_act_row_mem_we     = which_act_row_mem_we_reg;
+    
+//    assign which_ia_row_mem_activate = which_ia_row_mem_activate_reg;
+    
+    // 수정 이후로 ia_row_mem_cnt_delay가 필요 없어짐, ia_row_mem_cnt로 대체 가능 -> 나중에 참고
     always @(posedge clk or negedge resetn) begin
         if(~resetn) begin
             act_row_mem_each_data_reg   <= 0;
@@ -166,34 +180,144 @@ module data_2_row_mem #(
             ia_row_mem_cnt              <= 0;
             offset_cnt                  <= 0;
             ic_iter_cnt                 <= 0;
+            
+//            which_ia_row_mem_activate_reg   <= 0;
         end
         else begin
             case (state)
                 LOAD_DATA : begin
-                    // restore previous enable signal to zero
-                    if(ia_row_mem_cnt_delay != ia_row_mem_cnt) begin 
-                        which_act_row_mem_en_reg[ia_row_mem_cnt_delay] <= 0;
-                        which_act_row_mem_we_reg[ia_row_mem_cnt_delay] <= 0;
-                    end
-                    
                     act_row_mem_each_data_reg <= act_row_mem_data_reg;
                     act_row_mem_each_addr_reg <= act_row_mem_addr_reg % input_img_w;
-                    which_act_row_mem_en_reg[ia_row_mem_cnt] <= 1;
-                    which_act_row_mem_we_reg[ia_row_mem_cnt] <= 1;
-  
-                    if ((act_row_mem_addr_reg % input_img_w) == input_img_w - 1) begin
+                                    
+                    if(offset_cnt == 0) begin
+//                        which_ia_row_mem_activate_reg[ia_row_mem_cnt] <= 1;
+                            
+                        which_act_row_mem_en_reg[ia_row_mem_cnt] <= 1;
+                        which_act_row_mem_we_reg[ia_row_mem_cnt] <= 1;
+                        
+                        offset_cnt <= offset_cnt + 1;
+                    end
+                    if ((act_row_mem_each_addr_reg) == input_img_w - 1) begin
                         if (K==3) begin
-                            if (offset_cnt < 2) begin
-                                offset_cnt <= offset_cnt + 1;
-                                ia_row_mem_cnt <= ia_row_mem_cnt + OFFSET;
+                            if(STRIDE == 1) begin
+                                if (offset_cnt == 1) begin
+                                    // restore previous enable signal to zero
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay] <= 0;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay] <= 0;
+                                    ////////////////////////////////////////////////////////////
+                                    
+                                    offset_cnt <= offset_cnt + 1;
+                                    ia_row_mem_cnt <= ia_row_mem_cnt + 1;
+                                    
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt + 1] <= 1;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt + 1] <= 1;
+                                    
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt + 1 + OFFSET_S1] <= 1;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt + 1 + OFFSET_S1] <= 1;  
+                                end
+                                else if (offset_cnt == 2 && ia_row_mem_cnt < IMG_H - 1) begin
+                                    // restore previous enable signal to zero
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay] <= 0;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay] <= 0;
+                                    
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
+                                    
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
+                                    ////////////////////////////////////////////////////////////
+                                    
+                                    offset_cnt <= offset_cnt;
+                                    ia_row_mem_cnt <= ia_row_mem_cnt + 1;
+                                    
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt + 1] <= 1;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt + 1] <= 1;
+                                    
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt + 1 + OFFSET_S1] <= 1;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt + 1 + OFFSET_S1] <= 1;
+                                    
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt + 1 + 2 * OFFSET_S1] <= 1;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt + 1 + 2 * OFFSET_S1] <= 1;  
+                                end
+                                else if (offset_cnt == 2 && ia_row_mem_cnt == IMG_H - 1) begin
+                                    // restore previous enable signal to zero
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay] <= 0;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay] <= 0;
+                                    
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
+                                    
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
+                                    ////////////////////////////////////////////////////////////
+                                    
+                                    offset_cnt <= offset_cnt;
+                                    ia_row_mem_cnt <= ia_row_mem_cnt + 1;
+                                                   
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt + 1 + OFFSET_S1] <= 1;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt + 1 + OFFSET_S1] <= 1;
+                                    
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt + 1 + 2 * OFFSET_S1] <= 1;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt + 1 + 2 * OFFSET_S1] <= 1;  
+                                end
+                                else if (offset_cnt == 2 && ia_row_mem_cnt == IMG_H) begin
+                                    // restore previous enable signal to zero
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
+                                    
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
+                                    ////////////////////////////////////////////////////////////
+                                    
+                                    offset_cnt <= offset_cnt;
+                                    ia_row_mem_cnt <= ia_row_mem_cnt + 1;
+                                    
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt + 1 + 2 * OFFSET_S1] <= 1;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt + 1 + 2 * OFFSET_S1] <= 1;  
+                                end
                             end
-                            else begin 
-                                offset_cnt <= offset_cnt;
-                                ia_row_mem_cnt <= ia_row_mem_cnt + 1;
+                            else begin
+                                if (offset_cnt == 1) begin
+                                    // restore previous enable signal to zero 
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt] <= 0;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt] <= 0;
+                                    
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt + OFFSET_S2] <= 0;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt + OFFSET_S2] <= 0;
+                                    ////////////////////////////////////////////////////////////
+                                                                        
+                                    offset_cnt <= offset_cnt + 1;
+                                    
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt + 1 + OFFSET_S1] <= 1;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt + 1 + OFFSET_S1] <= 1;  
+                                end
+                                else if (offset_cnt == 2) begin
+                                    // restore previous enable signal to zero
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt + 1 + OFFSET_S1] <= 0;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt + 1 + OFFSET_S1] <= 0;  
+                                    ////////////////////////////////////////////////////////////
+                                    
+                                    offset_cnt <= offset_cnt - 1;
+                                    ia_row_mem_cnt <= ia_row_mem_cnt + 1;
+                                    
+                                    if(ia_row_mem_cnt < IMG_H - 1) begin
+                                        which_act_row_mem_en_reg[ia_row_mem_cnt + 1] <= 1;
+                                        which_act_row_mem_we_reg[ia_row_mem_cnt + 1] <= 1;
+                                    end 
+                                    which_act_row_mem_en_reg[ia_row_mem_cnt + 1 + OFFSET_S2] <= 1;
+                                    which_act_row_mem_we_reg[ia_row_mem_cnt + 1 + OFFSET_S2] <= 1;  
+                                end
                             end
                         end
                         else begin
+                            which_act_row_mem_en_reg[ia_row_mem_cnt] <= 0;
+                            which_act_row_mem_we_reg[ia_row_mem_cnt] <= 0;
+                            
                             ia_row_mem_cnt <= ia_row_mem_cnt + 1;
+                            
+                            which_act_row_mem_en_reg[ia_row_mem_cnt + 1] <= 1;
+                            which_act_row_mem_we_reg[ia_row_mem_cnt + 1] <= 1;
+                            
                             if(act_row_mem_addr_reg >= act_per_core - 1) begin
                                 ic_iter_cnt <= ic_iter_cnt + 1;
                             end
@@ -208,6 +332,8 @@ module data_2_row_mem #(
                     ia_row_mem_cnt              <= 0;
                     offset_cnt                  <= 0;
                     ic_iter_cnt                 <= 0;
+                    
+//                    which_ia_row_mem_activate_reg   <= which_ia_row_mem_activate_reg;
                 end
             endcase
         end
@@ -235,6 +361,10 @@ module data_2_row_mem #(
     reg [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_en_reg;
     reg [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_we_reg;
     reg [5:0]                       weight_oc_iter;
+    assign weight_row_mem_each_data = weight_row_mem_each_data_reg;
+    assign weight_row_mem_each_addr = weight_row_mem_each_addr_reg;
+    assign which_weight_row_mem_en = which_weight_row_mem_en_reg;
+    assign which_weight_row_mem_we = which_weight_row_mem_we_reg;
     
     always @(posedge clk or negedge resetn) begin
         if(~resetn) begin
@@ -256,8 +386,15 @@ module data_2_row_mem #(
                     
                     weight_row_mem_each_data_reg                    <= weight_row_mem_data_reg;
                     weight_row_mem_each_addr_reg                    <= ((weight_row_mem_addr_reg % K) + weight_oc_iter*K);
-                    which_weight_row_mem_en_reg[weight_row_mem_cnt+ic_iter_cnt] <= 1;
-                    which_weight_row_mem_we_reg[weight_row_mem_cnt+ic_iter_cnt] <= 1;
+                    if(weight_row_mem_addr_reg >= weight_per_core-1) begin
+                        which_weight_row_mem_en_reg[weight_row_mem_cnt+ic_iter_cnt] <= 0;
+                        which_weight_row_mem_we_reg[weight_row_mem_cnt+ic_iter_cnt] <= 0;
+                    end
+                    else begin
+                        which_weight_row_mem_en_reg[weight_row_mem_cnt+ic_iter_cnt] <= 1;
+                        which_weight_row_mem_we_reg[weight_row_mem_cnt+ic_iter_cnt] <= 1;
+                    end
+                    
                     
                     if(weight_row_mem_addr_reg % K == (K-1)) begin
                         if(weight_row_mem_cnt == K-1)  weight_row_mem_cnt <= 0;
