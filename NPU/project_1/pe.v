@@ -7,7 +7,7 @@ module pe#(
     parameter INPUT_BW              = 8,            // 8bit Data comes from AXI interface
     parameter PSUM_BW               = 32,           // 8bit Data goes to AXI interface (after Quantization)
     parameter IA_ROW_MEM_ADDR       = 7,
-    parameter WEIGHT_ROW_MEM_ADDR   = 7
+    parameter WEIGHT_ROW_MEM_ADDR   = 8
     )(
     input wire clk,
     input wire resetn,
@@ -69,6 +69,8 @@ module pe#(
     reg [WEIGHT_ROW_MEM_ADDR-1:0]   weight_row_mem_addr_reg_delay;
     reg                             weight_row_mem_en_reg;
     
+    reg weight_fetch_done;
+        
     assign done = (state==IDLE);
     
     always @(posedge clk or negedge resetn) begin
@@ -89,7 +91,8 @@ module pe#(
                 else                              n_state = PREPARE;
             end
             COMPUTE : begin 
-                n_state = COMPUTE;
+                if (weight_fetch_done)  n_state = IDLE;
+                else                    n_state = COMPUTE;
             end
             default :  n_state = IDLE;
         endcase
@@ -97,7 +100,12 @@ module pe#(
     
     // ------------------------------------------------------------------------
     // row_mem_fetch Logic
+    // OFFSET for weight address -> since, when multiplying weights from different oc, address of row mem has OFFSET
     // ------------------------------------------------------------------------
+    wire [2:0] WEIGHT_OC_OFFSET                     = K;
+    wire [IA_ROW_MEM_ADDR-1:0] input_img_w          = (IMG_W - 1) * STRIDE + K;
+    wire [WEIGHT_ROW_MEM_ADDR-1:0] WEIGHT_ADDR_MAX  = K*OC;
+    
     assign ia_row_mem_addr      = ia_row_mem_addr_reg_delay;
     assign ia_row_mem_en        = ia_row_mem_en_reg;
     assign weight_row_mem_addr  = weight_row_mem_addr_reg_delay;
@@ -105,6 +113,7 @@ module pe#(
     
     /***** regs or wires for mac.v *****/
     wire ia_need, weight_need;  // used in COMPUTE state
+    reg [1:0] weight_iter_cnt;
     
     always @(posedge clk or negedge resetn) begin
         if(~resetn) begin
@@ -112,14 +121,17 @@ module pe#(
             ia_row_mem_en_reg       <= 0;
             weight_row_mem_addr_reg <= 0;
             weight_row_mem_en_reg   <= 0;
+            
+            weight_iter_cnt         <= 0;
+            weight_fetch_done       <= 0;
         end
         else begin
             case (state)
                 PREPARE : begin
                     ia_row_mem_addr_reg     <= ia_row_mem_addr_reg + 1;
-                    weight_row_mem_addr_reg <= weight_row_mem_addr_reg + 1;
-                    ia_row_mem_en_reg <= 1;
+                    weight_row_mem_addr_reg <= weight_row_mem_addr_reg + WEIGHT_OC_OFFSET;
                     
+                    ia_row_mem_en_reg <= 1;
                     if(weight_row_mem_activate) weight_row_mem_en_reg <= 1;
                     else                        weight_row_mem_en_reg <= 0;
                 end
@@ -134,13 +146,26 @@ module pe#(
                     end
                     
                     if(weight_need == 1) begin
-                        weight_row_mem_addr_reg     <= weight_row_mem_addr_reg + 1;
+                        if(weight_row_mem_addr_reg + WEIGHT_OC_OFFSET < WEIGHT_ADDR_MAX && weight_iter_cnt < K) begin
+                            weight_row_mem_addr_reg     <= weight_row_mem_addr_reg + WEIGHT_OC_OFFSET;
+                        end
+                        else if (weight_row_mem_addr_reg + WEIGHT_OC_OFFSET >= WEIGHT_ADDR_MAX && weight_iter_cnt < K-1) begin  // more strict
+                            weight_row_mem_addr_reg     <= weight_iter_cnt + 1;
+                            weight_iter_cnt             <= weight_iter_cnt + 1;
+                        end
+                        else begin
+                            weight_row_mem_addr_reg     <= 0;
+                            weight_iter_cnt             <= 0;
+                        end
+                        
                         if(weight_row_mem_activate) weight_row_mem_en_reg <= 1;
                         else                        weight_row_mem_en_reg <= 0;
                     end
                     else begin
                         weight_row_mem_addr_reg  <= weight_row_mem_addr_reg;
                         weight_row_mem_en_reg    <= 0;
+                        
+//                        weight_fetch_done        <= 1;
                     end
                 end
                 default :  begin
@@ -148,6 +173,9 @@ module pe#(
                     ia_row_mem_en_reg       <= 0;
                     weight_row_mem_addr_reg <= 0;
                     weight_row_mem_en_reg   <= 0;
+                    
+                    weight_iter_cnt         <= 0;
+                    weight_fetch_done       <= 0;
                 end
             endcase
         end

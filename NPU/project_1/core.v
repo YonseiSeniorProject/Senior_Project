@@ -9,7 +9,7 @@ module core#(
     parameter INPUT_BW          = 8,            // 8bit Data comes from AXI interface
     parameter PSUM_BW           = 32,           // 8bit Data goes to AXI interface (after Quantization)
     parameter ACT_PER_CORE      = 13,
-    parameter WEIGHT_PER_CORE   = 9,
+    parameter WEIGHT_PER_CORE   = 10,
     parameter NUM_IA_ROW_MEM    = 96,
     parameter NUM_WEIGHT_ROW_MEM= 3,
     parameter NUM_COLS = 32, // PE 열 수
@@ -46,7 +46,7 @@ module core#(
     // NOTE: CORE의 동작이 끝나면 계속 CORE_START신호가 들어오기 전까지 DONE = 1이 유지되어야 함
     
     localparam IA_ROW_MEM_ADDR      = 7;
-    localparam WEIGHT_ROW_MEM_ADDR  = 7;
+    localparam WEIGHT_ROW_MEM_ADDR  = 8;
     
     // ------------------------------------------------------------------------
     // data_2_row_mem Module : transfer data comes from act_n_weight_ctrlr to corresponding row_mems

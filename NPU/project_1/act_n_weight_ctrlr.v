@@ -6,7 +6,7 @@ module act_n_weight_ctrlr #(
     parameter ADDR_IN           = 20,           // 2^20 = 1,048,576 > 34x34x512 = 591,872 (HWC)
     parameter ADDR_W            = 18,           // 2^18 = 262,144 > 3x3x512x32 = 147,456 (KH, KW, IC, OC_tile)
     parameter ACT_PER_CORE      = 13,
-    parameter WEIGHT_PER_CORE   = 9,
+    parameter WEIGHT_PER_CORE   = 10,
     parameter NUM_CORE          = 4,
     parameter INPUT_BW          = 8,            // 8bit Data comes from AXI interface
     parameter OUTPUT_BW         = 8             // 8bit Data goes to AXI interface (after Quantization)
@@ -69,8 +69,8 @@ module act_n_weight_ctrlr #(
     /***** Total Elems which will be transfered to CORE *****/
     wire [12:0] weight_ic_offset   = K * K * (TOTAL_IC);
     
-    wire [ACT_PER_CORE-1:0] act_per_core       = (input_img_h * input_img_w); // strictly, it's per FSM iteration, not per core.
-    wire [8:0]  weight_per_core                = (K * K * OC);                // strictly, it's per FSM iteration, not per core.
+    wire [ACT_PER_CORE-1:0]     act_per_core       = (input_img_h * input_img_w); // strictly, it's per FSM iteration, not per core.
+    wire [WEIGHT_PER_CORE-1:0]  weight_per_core    = (K * K * OC);                // strictly, it's per FSM iteration, not per core.
     
     /***** K=3: 1 IC per CORE / K=1: 3 IC per CORE *****/
     reg [1:0] ic_per_core_cnt;
@@ -89,8 +89,8 @@ module act_n_weight_ctrlr #(
     reg [ADDR_W-1:0]  weight_mem_addr_reg;
     
     /***** counter to check number of datas send to CORE *****/
-    reg [ACT_PER_CORE-1:0]  input_per_core_cnt;
-    reg [10:0]              weight_per_core_cnt;
+    reg [ACT_PER_CORE-1:0]          input_per_core_cnt;
+    reg [WEIGHT_PER_CORE-1:0]       weight_per_core_cnt;
     
     /***** FSM *****/
     reg [2:0] state, n_state;
@@ -105,9 +105,9 @@ module act_n_weight_ctrlr #(
     assign input_mem_addr   = input_mem_addr_reg;
     assign input_mem_en     = (state != IDLE);
     
-    reg [8:0]     weight_oc_iter;    // MAX: 512 total IC in yolov8n network
-    reg [9:0]     weight_current_ic;
-    reg [3:0]     weight_ic_cnt;
+    reg [WEIGHT_PER_CORE-1:0]   weight_oc_iter;    // MAX: 512 total IC in yolov8n network
+    reg [9:0]                   weight_current_ic;
+    reg [3:0]                   weight_ic_cnt;
     assign weight_mem_addr  = weight_oc_iter * weight_ic_offset + weight_current_ic * K * K + weight_ic_cnt;
     assign weight_mem_en    = (state != IDLE);
     

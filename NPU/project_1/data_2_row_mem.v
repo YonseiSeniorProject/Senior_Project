@@ -4,10 +4,10 @@
 module data_2_row_mem #(
     // SRAM address widths
     parameter ACT_PER_CORE          = 13,
-    parameter WEIGHT_PER_CORE       = 9,
+    parameter WEIGHT_PER_CORE       = 10,
     parameter INPUT_BW              = 8,
     parameter IA_ROW_MEM_ADDR       = 7,
-    parameter WEIGHT_ROW_MEM_ADDR   = 7,
+    parameter WEIGHT_ROW_MEM_ADDR   = 8,
     parameter NUM_IA_ROW_MEM        = 96,
     parameter NUM_WEIGHT_ROW_MEM    = 3
 )(
@@ -360,7 +360,7 @@ module data_2_row_mem #(
     reg [WEIGHT_ROW_MEM_ADDR-1:0]   weight_row_mem_each_addr_reg;
     reg [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_en_reg;
     reg [NUM_WEIGHT_ROW_MEM-1:0]    which_weight_row_mem_we_reg;
-    reg [5:0]                       weight_oc_iter;
+    reg [6:0]                       weight_oc_iter;
     assign weight_row_mem_each_data = weight_row_mem_each_data_reg;
     assign weight_row_mem_each_addr = weight_row_mem_each_addr_reg;
     assign which_weight_row_mem_en = which_weight_row_mem_en_reg;
@@ -386,7 +386,7 @@ module data_2_row_mem #(
                     
                     weight_row_mem_each_data_reg                    <= weight_row_mem_data_reg;
                     weight_row_mem_each_addr_reg                    <= ((weight_row_mem_addr_reg % K) + weight_oc_iter*K);
-                    if(weight_row_mem_addr_reg >= weight_per_core-1) begin
+                    if(weight_row_mem_addr_reg >= weight_per_core) begin
                         which_weight_row_mem_en_reg[weight_row_mem_cnt+ic_iter_cnt] <= 0;
                         which_weight_row_mem_we_reg[weight_row_mem_cnt+ic_iter_cnt] <= 0;
                     end

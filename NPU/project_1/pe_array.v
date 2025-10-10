@@ -7,7 +7,7 @@ module pe_array#(
     parameter INPUT_BW              = 8,            // 8bit Data comes from AXI interface
     parameter PSUM_BW               = 32,           // 8bit Data goes to AXI interface (after Quantization)
     parameter IA_ROW_MEM_ADDR       = 7,
-    parameter WEIGHT_ROW_MEM_ADDR   = 7,
+    parameter WEIGHT_ROW_MEM_ADDR   = 8,
     parameter NUM_ROWS              = 32,
     parameter NUM_IA_ROW_MEM        = 96,
     parameter NUM_COLS              = 32,           // PE ¿­ ¼ö

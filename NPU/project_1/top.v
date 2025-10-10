@@ -192,7 +192,7 @@ module top#(
     // act_n_weight_ctrlr Module : locate activations & weights to appropriate core
     // ------------------------------------------------------------------------
     localparam  ACT_PER_CORE      = 13;
-    localparam  WEIGHT_PER_CORE   = 9;
+    localparam  WEIGHT_PER_CORE   = 10;
     localparam  NUM_CORE    = 4;
     
     wire [INPUT_BW-1:0]  input_mem_data;
