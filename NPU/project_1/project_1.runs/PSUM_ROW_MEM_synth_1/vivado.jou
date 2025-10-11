@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Sat Oct 11 18:47:51 2025
-# Process ID: 26312
+# Start of session at: Sat Oct 11 20:38:36 2025
+# Process ID: 10108
 # Current directory: C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/PSUM_ROW_MEM_synth_1
 # Command line: vivado.exe -log PSUM_ROW_MEM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source PSUM_ROW_MEM.tcl
 # Log file: C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/PSUM_ROW_MEM_synth_1/PSUM_ROW_MEM.vds

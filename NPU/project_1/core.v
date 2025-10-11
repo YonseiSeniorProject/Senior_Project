@@ -248,14 +248,14 @@ module core#(
     );
     
      /***** PSUM_ROW_MEMs Signals *****/
-    wire [2:0]                      psum_row_mem_ena;
-    wire [2:0]                      psum_row_mem_wea;
-    wire [ADDR_PSUM-1:0]            psum_row_mem_addra;
-    wire [INPUT_BW-1:0]             psum_row_mem_dina;
+    wire [0:NUM_COLS-1]             psum_row_mem_ena;
+    wire [0:NUM_COLS-1]             psum_row_mem_wea;
+    wire [ADDR_PSUM-1:0]            psum_row_mem_addra [0:NUM_COLS-1];
+    wire [PSUM_BW-1:0]              psum_row_mem_dina  [0:NUM_COLS-1];
     
-    wire [2:0]                      psum_row_mem_enb;
-    wire [ADDR_PSUM-1:0]            psum_row_mem_addrb [NUM_COLS-1:0];
-    wire [INPUT_BW-1:0]             psum_row_mem_doutb [NUM_COLS-1:0];
+    wire [0:NUM_COLS-1]             psum_row_mem_enb;
+    wire [ADDR_PSUM-1:0]            psum_row_mem_addrb [0:NUM_COLS-1];
+    wire [PSUM_BW-1:0]              psum_row_mem_doutb [0:NUM_COLS-1];
     
     /***** Total 32 PSUM_ROW_MEMs *****/
     generate
@@ -264,8 +264,8 @@ module core#(
                 .clka (clk),
                 .ena (psum_row_mem_ena[i]),
                 .wea (psum_row_mem_wea[i]),
-                .addra(psum_row_mem_addra),
-                .dina (psum_row_mem_dina),
+                .addra(psum_row_mem_addra[i]),
+                .dina (psum_row_mem_dina[i]),
                 
                 .clkb (clk),
                 .enb (psum_row_mem_enb[i]),
@@ -277,7 +277,7 @@ module core#(
     
     wire signed [PSUM_BW-1:0]   top_psum_data_out   [0:NUM_COLS-1];
     wire [ADDR_PSUM-1:0]        top_psum_addr_out   [0:NUM_COLS-1];
-    wire                        top_psum_valid_out  [0:NUM_COLS-1];
+    wire [0:NUM_COLS-1]         top_psum_valid_out;
     
     generate
         for (i = 0; i < NUM_COLS; i = i + 1) begin : gen_psum_out
@@ -287,10 +287,42 @@ module core#(
         end
     endgenerate
     
+    /***** Temporary psum acc for debugging *****/
+    reg signed [PSUM_BW-1:0]    top_psum_data_out_acc   [0:NUM_COLS-1];
+    reg [ADDR_PSUM-1:0]         top_psum_addr_out_acc   [0:NUM_COLS-1];
+    reg [0:NUM_COLS-1]          top_psum_we_acc;
     
+    // READ PSUMs already in PSUM_ROW_MEM
+    assign psum_row_mem_enb = top_psum_valid_out;
+    generate
+        for (i = 0; i < NUM_COLS; i = i + 1) begin : gen_psum_rd_addr
+            assign  psum_row_mem_addrb[i] = top_psum_addr_out[i];
+        end
+    endgenerate
     
-    
-    
+    // need delay for reading psums which already exist in PUM_ROW_MEM
+    // so, we apply delay for PSUMs which are coming from pe_array
+    integer k;
+    always @(posedge clk or negedge resetn) begin
+        if(~resetn) begin
+            for (k = 0; k < NUM_COLS; k = k + 1) begin
+                top_psum_data_out_acc[k] <= 0;
+                top_psum_addr_out_acc[k] <= 0;
+                top_psum_we_acc[k]       <= 0;
+            end
+        end
+        else begin
+            for (k = 0; k < NUM_COLS; k = k + 1) begin
+                top_psum_data_out_acc[k] <= top_psum_data_out[k];
+                top_psum_addr_out_acc[k] <= top_psum_addr_out[k];
+                top_psum_we_acc[k]       <= top_psum_valid_out[k];
+            end
+        end
+    end
+
+
+
+
 
 endmodule
 

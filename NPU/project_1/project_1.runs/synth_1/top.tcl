@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xczu9eg-ffvb1156-2-e
 
@@ -93,6 +92,7 @@ add_files C:/minsung/senior_project/git_works/Back_Up_1011/project_1/1x1_filter_
 add_files C:/minsung/senior_project/git_works/Back_Up_1011/project_1/3x3_random_data.coe
 add_files C:/minsung/senior_project/git_works/Back_Up_1011/project_1/3x3_filter_data.coe
 add_files C:/minsung/senior_project/git_works/Back_Up_1011/project_1/3x3_random_data_s_2.coe
+add_files c:/minsung/senior_project/git_works/Back_Up_1011/project_1/memory_init.coe
 read_verilog -library xil_defaultlib {
   C:/minsung/senior_project/git_works/Back_Up_1011/project_1/act_n_weight_ctrlr.v
   C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v
@@ -113,6 +113,9 @@ set_property used_in_implementation false [get_files -all c:/minsung/senior_proj
 
 read_ip -quiet C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.srcs/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM.xci
 set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM_ooc.xdc]
+
+read_ip -quiet C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.srcs/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM.xci
+set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

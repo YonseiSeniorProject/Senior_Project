@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Sat Oct 11 18:30:11 2025
-# Process ID: 2920
+# Start of session at: Sat Oct 11 20:56:44 2025
+# Process ID: 19820
 # Current directory: C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/top.vds
@@ -17,9 +17,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg
 INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-e
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 26744
+INFO: [Synth 8-7075] Helper process launched with PID 26800
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1573.758 ; gain = 116.852
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1574.352 ; gain = 116.332
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/top.v:4]
 	Parameter ADDR_IN bound to: 20 - type: integer 
@@ -49,10 +49,76 @@ INFO: [Synth 8-6157] synthesizing module 'core' [C:/minsung/senior_project/git_w
 	Parameter NUM_PE_ROWS bound to: 3 - type: integer 
 	Parameter IA_ROW_MEM_ADDR bound to: 7 - type: integer 
 	Parameter WEIGHT_ROW_MEM_ADDR bound to: 8 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'IA_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-2920-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'IA_ROW_MEM' (1#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-2920-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'WEIGHT_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-2920-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_ROW_MEM' (2#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-2920-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'IA_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-19820-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'IA_ROW_MEM' (1#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-19820-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'WEIGHT_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-19820-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_ROW_MEM' (2#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-19820-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-19820-MinsungKim/realtime/PSUM_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'PSUM_ROW_MEM' (3#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-19820-MinsungKim/realtime/PSUM_ROW_MEM_stub.v:6]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:267]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:272]
 INFO: [Synth 8-6157] synthesizing module 'data_2_row_mem' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/data_2_row_mem.v:4]
 	Parameter ACT_PER_CORE bound to: 13 - type: integer 
 	Parameter WEIGHT_PER_CORE bound to: 10 - type: integer 
@@ -68,14 +134,13 @@ INFO: [Synth 8-6157] synthesizing module 'data_2_row_mem' [C:/minsung/senior_pro
 	Parameter IDLE bound to: 3'b000 
 	Parameter LOAD_DATA bound to: 3'b001 
 	Parameter DONE bound to: 3'b010 
-INFO: [Synth 8-6155] done synthesizing module 'data_2_row_mem' (3#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/data_2_row_mem.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'data_2_row_mem' (4#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/data_2_row_mem.v:4]
 INFO: [Synth 8-6157] synthesizing module 'pe_array' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/pe_array.v:4]
 	Parameter ADDR_PSUM bound to: 12 - type: integer 
 	Parameter INPUT_BW bound to: 8 - type: integer 
 	Parameter PSUM_BW bound to: 32 - type: integer 
 	Parameter IA_ROW_MEM_ADDR bound to: 7 - type: integer 
 	Parameter WEIGHT_ROW_MEM_ADDR bound to: 8 - type: integer 
-	Parameter NUM_ROWS bound to: 32 - type: integer 
 	Parameter NUM_IA_ROW_MEM bound to: 96 - type: integer 
 	Parameter NUM_COLS bound to: 32 - type: integer 
 	Parameter NUM_PE_ROWS bound to: 3 - type: integer 
@@ -100,10 +165,10 @@ INFO: [Synth 8-6157] synthesizing module 'mac' [C:/minsung/senior_project/git_wo
 	Parameter IDLE bound to: 3'b000 
 	Parameter PREPARE bound to: 3'b001 
 	Parameter COMPUTE bound to: 3'b010 
-INFO: [Synth 8-6155] done synthesizing module 'mac' (4#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/mac.v:4]
-INFO: [Synth 8-6155] done synthesizing module 'pe' (5#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/pe.v:4]
-INFO: [Synth 8-6155] done synthesizing module 'pe_array' (6#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/pe_array.v:4]
-INFO: [Synth 8-6155] done synthesizing module 'core' (7#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'mac' (5#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/mac.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'pe' (6#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/pe.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'pe_array' (7#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/pe_array.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'core' (8#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/core.v:4]
 INFO: [Synth 8-6157] synthesizing module 'act_n_weight_ctrlr' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/act_n_weight_ctrlr.v:4]
 	Parameter ADDR_IN bound to: 20 - type: integer 
 	Parameter ADDR_W bound to: 18 - type: integer 
@@ -118,25 +183,25 @@ INFO: [Synth 8-6157] synthesizing module 'act_n_weight_ctrlr' [C:/minsung/senior
 	Parameter LOAD_DATA bound to: 3'b010 
 	Parameter IS_DONE bound to: 3'b011 
 	Parameter DONE bound to: 3'b100 
-INFO: [Synth 8-6155] done synthesizing module 'act_n_weight_ctrlr' (8#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/act_n_weight_ctrlr.v:4]
-INFO: [Synth 8-6157] synthesizing module 'INPUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-2920-MinsungKim/realtime/INPUT_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'INPUT_MEM' (9#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-2920-MinsungKim/realtime/INPUT_MEM_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'WEIGHT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-2920-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_MEM' (10#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-2920-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'top' (11#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/top.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'act_n_weight_ctrlr' (9#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/act_n_weight_ctrlr.v:4]
+INFO: [Synth 8-6157] synthesizing module 'INPUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-19820-MinsungKim/realtime/INPUT_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'INPUT_MEM' (10#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-19820-MinsungKim/realtime/INPUT_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'WEIGHT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-19820-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_MEM' (11#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/.Xil/Vivado-19820-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top' (12#1) [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/top.v:4]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1658.855 ; gain = 201.949
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1658.086 ; gain = 200.066
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1677.734 ; gain = 220.828
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1676.000 ; gain = 217.980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1677.734 ; gain = 220.828
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1676.000 ; gain = 217.980
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1811.047 ; gain = 10.359
+Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1811.582 ; gain = 10.988
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -941,17 +1006,273 @@ Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/pro
 Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_weight_row_mem[1].WEIGHT_ROW_MEM_inst'
 Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_weight_row_mem[2].WEIGHT_ROW_MEM_inst'
 Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_weight_row_mem[2].WEIGHT_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[3].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[3].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[4].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[4].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[5].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[5].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[6].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[6].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[7].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[7].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[8].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[8].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[9].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[9].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[10].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[10].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[11].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[11].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[12].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[12].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[13].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[13].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[14].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[14].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[15].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[15].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[16].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[16].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[17].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[17].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[18].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[18].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[19].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[19].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[20].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[20].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[21].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[21].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[22].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[22].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[23].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[23].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[24].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[24].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[25].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[25].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[26].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[26].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[27].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[27].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[28].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[28].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[29].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[29].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[30].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[30].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[31].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_psum_row_mem[31].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[3].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[3].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[4].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[4].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[5].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[5].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[6].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[6].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[7].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[7].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[8].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[8].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[9].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[9].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[10].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[10].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[11].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[11].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[12].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[12].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[13].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[13].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[14].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[14].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[15].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[15].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[16].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[16].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[17].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[17].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[18].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[18].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[19].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[19].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[20].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[20].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[21].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[21].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[22].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[22].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[23].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[23].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[24].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[24].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[25].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[25].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[26].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[26].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[27].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[27].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[28].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[28].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[29].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[29].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[30].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[30].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[31].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[1].core_inst/gen_psum_row_mem[31].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[3].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[3].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[4].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[4].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[5].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[5].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[6].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[6].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[7].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[7].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[8].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[8].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[9].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[9].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[10].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[10].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[11].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[11].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[12].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[12].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[13].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[13].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[14].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[14].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[15].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[15].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[16].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[16].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[17].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[17].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[18].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[18].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[19].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[19].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[20].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[20].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[21].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[21].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[22].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[22].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[23].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[23].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[24].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[24].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[25].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[25].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[26].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[26].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[27].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[27].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[28].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[28].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[29].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[29].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[30].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[30].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[31].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[2].core_inst/gen_psum_row_mem[31].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[3].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[3].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[4].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[4].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[5].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[5].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[6].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[6].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[7].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[7].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[8].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[8].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[9].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[9].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[10].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[10].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[11].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[11].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[12].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[12].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[13].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[13].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[14].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[14].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[15].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[15].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[16].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[16].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[17].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[17].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[18].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[18].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[19].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[19].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[20].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[20].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[21].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[21].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[22].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[22].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[23].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[23].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[24].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[24].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[25].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[25].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[26].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[26].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[27].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[27].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[28].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[28].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[29].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[29].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[30].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[30].PSUM_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[31].PSUM_ROW_MEM_inst'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[31].PSUM_ROW_MEM_inst'
 Parsing XDC File [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/dont_touch.xdc]
 Finished Parsing XDC File [C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 2184.223 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 2189.145 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.811 . Memory (MB): peak = 2184.223 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.701 . Memory (MB): peak = 2189.145 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:30 ; elapsed = 00:00:30 . Memory (MB): peak = 2184.223 ; gain = 727.316
+Finished Constraint Validation : Time (s): cpu = 00:00:30 ; elapsed = 00:00:29 . Memory (MB): peak = 2189.145 ; gain = 731.125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -959,7 +1280,7 @@ Start Loading Part and Timing Information
 Loading part: xczu9eg-ffvb1156-2-e
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:30 ; elapsed = 00:00:30 . Memory (MB): peak = 2184.223 ; gain = 727.316
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:30 ; elapsed = 00:00:29 . Memory (MB): peak = 2189.145 ; gain = 731.125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -1364,8 +1685,136 @@ Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_weig
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_weight_row_mem[2].WEIGHT_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_weight_row_mem[2].WEIGHT_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_weight_row_mem[2].WEIGHT_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[0].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[0].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[0].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[0].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[10].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[10].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[10].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[10].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[11].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[11].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[11].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[11].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[12].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[12].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[12].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[12].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[13].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[13].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[13].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[13].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[14].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[14].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[14].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[14].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[15].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[15].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[15].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[15].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[16].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[16].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[16].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[16].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[17].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[17].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[17].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[17].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[18].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[18].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[18].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[18].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[19].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[19].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[19].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[19].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[1].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[1].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[1].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[1].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[20].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[20].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[20].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[20].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[21].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[21].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[21].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[21].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[22].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[22].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[22].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[22].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[23].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[23].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[23].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[23].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[24].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[24].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[24].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[24].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[25].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[25].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[25].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[25].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[26].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[26].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[26].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[26].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[27].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[27].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[27].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[27].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[28].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[28].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[28].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[28].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[29].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[29].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[29].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[29].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[2].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[2].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[2].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[2].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[30].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[30].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[30].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[30].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[31].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[31].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[31].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[31].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[3].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[3].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[3].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[3].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[4].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[4].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[4].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[4].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[5].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[5].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[5].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[5].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[6].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[6].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[6].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[6].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[7].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[7].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[7].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[7].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[8].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[8].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[8].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[8].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum_row_mem[9].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[9].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[9].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[9].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 2184.223 ; gain = 727.316
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:31 . Memory (MB): peak = 2189.145 ; gain = 731.125
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'pe_array'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'top'
@@ -1386,7 +1835,7 @@ WARNING: [Synth 8-327] inferring latch for variable 'was_core_reg' [C:/minsung/s
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'top'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 2184.223 ; gain = 727.316
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:35 ; elapsed = 00:00:34 . Memory (MB): peak = 2189.145 ; gain = 731.125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -1406,6 +1855,7 @@ Detailed RTL Component Info :
 	   2 Input    4 Bit       Adders := 1     
 	   2 Input    3 Bit       Adders := 768   
 	   2 Input    2 Bit       Adders := 785   
+	   3 Input    1 Bit       Adders := 384   
 +---Registers : 
 	               96 Bit    Registers := 4     
 	               32 Bit    Registers := 388   
@@ -1479,207 +1929,202 @@ DSP Report: Generating DSP act_n_weight_ctrlr/weight_mem_addr, operation Mode is
 DSP Report: operator act_n_weight_ctrlr/weight_mem_addr is absorbed into DSP act_n_weight_ctrlr/weight_mem_addr.
 DSP Report: operator act_n_weight_ctrlr/weight_mem_addr1 is absorbed into DSP act_n_weight_ctrlr/weight_mem_addr.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\state_reg[2] )
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[11].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[11].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[12].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[12].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[13].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[13].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[14].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[14].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[15].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[15].pe_inst/state_reg[2]'
 INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[11].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[11].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[12].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[12].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[13].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[13].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[14].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[14].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[15].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[15].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[14].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[14].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[15].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[15].pe_inst/state_reg[2]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[1].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[11].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[12].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[13].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[14].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[15].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[0].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[1].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[11].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[12].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[13].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[14].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[15].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[1].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[11].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[12].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[13].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[14].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[15].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[16]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[16]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[16]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[16]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[2].gen_cols[12].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[16]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[2].gen_cols[13].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[14].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[2].gen_cols[14].pe_inst/mac_inst/mult_data_reg_reg[16]'
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[9].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[10].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[9].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[10].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[9].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[10].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[4].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[4].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[4].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[4].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[4].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[4].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[5].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[5].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[5].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[5].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[5].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[5].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[6].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[6].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[6].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[6].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[21].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[21].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[21].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[21].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/state_reg[2]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[2].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[3].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[4].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[2].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[3].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[4].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[2].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[3].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[4].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[5].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[6].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[7].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[8].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[21].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[25].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[1].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[3].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[4].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[5].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[6].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[7].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[8].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[21].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[25].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[3].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[4].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[5].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[6].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[7].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[8].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[16]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[16]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[16]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[16]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[16]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[4].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[0].gen_cols[4].pe_inst/mac_inst/mult_data_reg_reg[16]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[4].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[0].gen_cols[4].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[4].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[0].gen_cols[4].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[23].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[24].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[23].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[24].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[23].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[24].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[19].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[20].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[19].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[20].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[19].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[20].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[21].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[1].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[12].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[13].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[14].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[12].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[13].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[14].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[1].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[12].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[13].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[14].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[15].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[16].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[17].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[18].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[19].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[15].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[16].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[17].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[18].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[19].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[15].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[16].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[17].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[18].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[19].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[20].pe_inst /\state_reg[2] )
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[20].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[21].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[22].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[23].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[24].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[20].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[21].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[22].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[23].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[24].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[0].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[21].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[22].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[23].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[24].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[25].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[0].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[25].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[7].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[8].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[9].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[10].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[11].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[7].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[8].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[9].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[10].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[11].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[6].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[7].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[8].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[9].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[10].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[11].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[26].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[27].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[28].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[29].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[25].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[30].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[31].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[0].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[26].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[27].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[28].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[29].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[25].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[30].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[31].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[0].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[26].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[27].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[28].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[29].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[30].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[31].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[30].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[1].gen_cols[31].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[30].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[31].pe_inst /\state_reg[2] )
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:05 ; elapsed = 00:01:36 . Memory (MB): peak = 2184.223 ; gain = 727.316
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:12 ; elapsed = 00:01:41 . Memory (MB): peak = 2189.145 ; gain = 731.125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -1704,19 +2149,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:20 ; elapsed = 00:01:54 . Memory (MB): peak = 2453.039 ; gain = 996.133
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:28 ; elapsed = 00:01:58 . Memory (MB): peak = 2479.348 ; gain = 1021.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:22 ; elapsed = 00:01:55 . Memory (MB): peak = 2453.039 ; gain = 996.133
+Finished Timing Optimization : Time (s): cpu = 00:01:29 ; elapsed = 00:01:59 . Memory (MB): peak = 2479.348 ; gain = 1021.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:30 ; elapsed = 00:02:17 . Memory (MB): peak = 2535.512 ; gain = 1078.605
+Finished Technology Mapping : Time (s): cpu = 00:01:38 ; elapsed = 00:02:21 . Memory (MB): peak = 2555.172 ; gain = 1097.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -1733,42 +2178,143 @@ Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3295] tying undriven pin i_74932:I0 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_74932:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_74932:I3 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_74932:I5 to constant 0
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin ena
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin wea[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin addra[10]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin addra[9]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin addra[8]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin addra[7]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin addra[6]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin addra[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin addra[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin addra[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin addra[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin addra[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin addra[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[31]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[30]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[29]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[28]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[27]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[26]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[25]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[24]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[23]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[22]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[21]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[20]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[19]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[18]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[17]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[16]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[15]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[14]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[13]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[12]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[11]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[10]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[9]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[8]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[7]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[6]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[0].PSUM_ROW_MEM_inst  has unconnected pin dina[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin ena
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin wea[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin addra[10]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin addra[9]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin addra[8]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin addra[7]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin addra[6]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin addra[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin addra[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin addra[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin addra[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin addra[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin addra[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[31]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[30]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[29]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[28]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[27]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[26]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[25]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[24]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[23]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[22]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[21]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[20]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[19]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[18]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[17]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[16]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[15]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[14]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[13]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[12]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[11]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[10]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[9]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[8]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[7]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[6]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[1].PSUM_ROW_MEM_inst  has unconnected pin dina[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst  has unconnected pin ena
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst  has unconnected pin wea[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst  has unconnected pin addra[10]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst  has unconnected pin addra[9]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst  has unconnected pin addra[8]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst  has unconnected pin addra[7]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst  has unconnected pin addra[6]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst  has unconnected pin addra[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst  has unconnected pin addra[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \gen_core[0].core_inst/gen_psum_row_mem[2].PSUM_ROW_MEM_inst  has unconnected pin addra[3]
+INFO: [Common 17-14] Message 'Synth 8-4442' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3295] tying undriven pin i_74463:I0 to constant 0
+WARNING: [Synth 8-3295] tying undriven pin i_74463:I1 to constant 0
+WARNING: [Synth 8-3295] tying undriven pin i_74463:I3 to constant 0
+WARNING: [Synth 8-3295] tying undriven pin i_74463:I5 to constant 0
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:40 ; elapsed = 00:02:28 . Memory (MB): peak = 2679.426 ; gain = 1222.520
+Finished IO Insertion : Time (s): cpu = 00:01:48 ; elapsed = 00:02:33 . Memory (MB): peak = 2700.652 ; gain = 1242.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:40 ; elapsed = 00:02:29 . Memory (MB): peak = 2679.426 ; gain = 1222.520
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:48 ; elapsed = 00:02:33 . Memory (MB): peak = 2700.652 ; gain = 1242.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:47 ; elapsed = 00:02:35 . Memory (MB): peak = 2679.426 ; gain = 1222.520
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:55 ; elapsed = 00:02:40 . Memory (MB): peak = 2700.652 ; gain = 1242.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:47 ; elapsed = 00:02:36 . Memory (MB): peak = 2679.426 ; gain = 1222.520
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:56 ; elapsed = 00:02:41 . Memory (MB): peak = 2700.652 ; gain = 1242.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:49 ; elapsed = 00:02:38 . Memory (MB): peak = 2679.426 ; gain = 1222.520
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:58 ; elapsed = 00:02:43 . Memory (MB): peak = 2700.652 ; gain = 1242.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:50 ; elapsed = 00:02:38 . Memory (MB): peak = 2679.426 ; gain = 1222.520
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:58 ; elapsed = 00:02:43 . Memory (MB): peak = 2700.652 ; gain = 1242.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1782,6 +2328,7 @@ Report BlackBoxes:
 |2     |WEIGHT_MEM     |         2|
 |3     |IA_ROW_MEM     |       384|
 |4     |WEIGHT_ROW_MEM |        12|
+|5     |PSUM_ROW_MEM   |       128|
 +------+---------------+----------+
 
 Report Cell Usage: 
@@ -1792,46 +2339,48 @@ Report Cell Usage:
 |2     |IA_ROW_MEM_     |   383|
 |385   |INPUT_MEM       |     1|
 |386   |INPUT_MEM_      |     1|
-|387   |WEIGHT_MEM      |     1|
-|388   |WEIGHT_MEM_     |     1|
-|389   |WEIGHT_ROW_MEM  |     1|
-|390   |WEIGHT_ROW_MEM_ |    11|
-|401   |BUFG            |     1|
-|402   |CARRY8          |  5284|
-|403   |DSP_ALU         |     5|
-|404   |DSP_A_B_DATA    |     5|
-|406   |DSP_C_DATA      |     5|
-|407   |DSP_MULTIPLIER  |     5|
-|408   |DSP_M_DATA      |     5|
-|409   |DSP_OUTPUT      |     5|
-|410   |DSP_PREADD      |     5|
-|411   |DSP_PREADD_DATA |     5|
-|412   |LUT1            |    39|
-|413   |LUT2            |  7842|
-|414   |LUT3            | 16022|
-|415   |LUT4            | 14653|
-|416   |LUT5            | 12876|
-|417   |LUT6            | 23875|
-|418   |MUXF7           |    64|
-|419   |FDCE            | 30533|
-|420   |FDRE            |   426|
-|421   |IBUF            |    99|
-|422   |OBUF            |     1|
-|423   |OBUFT           |    24|
+|387   |PSUM_ROW_MEM    |     1|
+|388   |PSUM_ROW_MEM_   |   127|
+|515   |WEIGHT_MEM      |     1|
+|516   |WEIGHT_MEM_     |     1|
+|517   |WEIGHT_ROW_MEM  |     1|
+|518   |WEIGHT_ROW_MEM_ |    11|
+|529   |BUFG            |     1|
+|530   |CARRY8          |  5284|
+|531   |DSP_ALU         |     5|
+|532   |DSP_A_B_DATA    |     5|
+|534   |DSP_C_DATA      |     5|
+|535   |DSP_MULTIPLIER  |     5|
+|536   |DSP_M_DATA      |     5|
+|537   |DSP_OUTPUT      |     5|
+|538   |DSP_PREADD      |     5|
+|539   |DSP_PREADD_DATA |     5|
+|540   |LUT1            |    39|
+|541   |LUT2            |  9593|
+|542   |LUT3            | 13730|
+|543   |LUT4            | 14625|
+|544   |LUT5            | 13451|
+|545   |LUT6            | 23399|
+|546   |MUXF7           |    64|
+|547   |FDCE            | 30531|
+|548   |FDRE            |   426|
+|549   |IBUF            |    99|
+|550   |OBUF            |     1|
+|551   |OBUFT           |    24|
 +------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:50 ; elapsed = 00:02:38 . Memory (MB): peak = 2679.426 ; gain = 1222.520
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:59 ; elapsed = 00:02:44 . Memory (MB): peak = 2700.652 ; gain = 1242.633
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:23 ; elapsed = 00:02:20 . Memory (MB): peak = 2679.426 ; gain = 716.031
-Synthesis Optimization Complete : Time (s): cpu = 00:01:50 ; elapsed = 00:02:40 . Memory (MB): peak = 2679.426 ; gain = 1222.520
+Synthesis finished with 0 errors, 5760 critical warnings and 5 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:32 ; elapsed = 00:02:25 . Memory (MB): peak = 2700.652 ; gain = 729.488
+Synthesis Optimization Complete : Time (s): cpu = 00:01:59 ; elapsed = 00:02:45 . Memory (MB): peak = 2700.652 ; gain = 1242.633
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2702.918 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2718.070 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 5453 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 2832.762 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 2873.297 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 105 instances were transformed.
   BUFG => BUFGCE: 1 instance 
@@ -1839,10 +2388,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   IBUF => IBUF (IBUFCTRL, INBUF): 99 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-241 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered.
+239 Infos, 69 Warnings, 100 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:22 ; elapsed = 00:03:29 . Memory (MB): peak = 2832.762 ; gain = 1726.000
+synth_design: Time (s): cpu = 00:02:33 ; elapsed = 00:03:23 . Memory (MB): peak = 2873.297 ; gain = 1769.668
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint 'C:/minsung/senior_project/git_works/Back_Up_1011/project_1/project_1.runs/synth_1/top.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 2832.762 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 2873.297 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Oct 11 18:34:01 2025...
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 11 21:00:29 2025...
