@@ -21,6 +21,10 @@ module pe#(
     input  wire [2:0] STRIDE,
     output wire done,
     // ------------------------------------------------------------------------
+    // Configurable Data within CORE
+    // ------------------------------------------------------------------------
+    input wire is_bottom, 
+    // ------------------------------------------------------------------------
     // ia_row_mem outputs & read
     // ------------------------------------------------------------------------
     input wire signed [INPUT_BW-1:0]   ia_row_mem_data,
@@ -45,7 +49,8 @@ module pe#(
     output wire signed [INPUT_BW-1:0]       right_weight_data_out,
     
     output wire signed [PSUM_BW-1:0]        top_psum_data_out,
-    output wire [ADDR_PSUM-1:0]             top_psum_addr_out
+    output wire [ADDR_PSUM-1:0]             top_psum_addr_out,
+    output wire                             top_psum_valid_out
     );
     
     // pe.v는 자신에게 할당된 ia_row_mem이 acitvate되었는지 core.v -> pe_array.v로부터 받음 
@@ -69,7 +74,7 @@ module pe#(
     reg [WEIGHT_ROW_MEM_ADDR-1:0]   weight_row_mem_addr_reg_delay;
     reg                             weight_row_mem_en_reg;
     
-    reg weight_fetch_done;
+    wire mac_done;
         
     assign done = (state==IDLE);
     
@@ -91,8 +96,8 @@ module pe#(
                 else                              n_state = PREPARE;
             end
             COMPUTE : begin 
-                if (weight_fetch_done)  n_state = IDLE;
-                else                    n_state = COMPUTE;
+                if (mac_done)  n_state = IDLE;
+                else           n_state = COMPUTE;
             end
             default :  n_state = IDLE;
         endcase
@@ -123,7 +128,6 @@ module pe#(
             weight_row_mem_en_reg   <= 0;
             
             weight_iter_cnt         <= 0;
-            weight_fetch_done       <= 0;
         end
         else begin
             case (state)
@@ -164,8 +168,6 @@ module pe#(
                     else begin
                         weight_row_mem_addr_reg  <= weight_row_mem_addr_reg;
                         weight_row_mem_en_reg    <= 0;
-                        
-//                        weight_fetch_done        <= 1;
                     end
                 end
                 default :  begin
@@ -175,7 +177,6 @@ module pe#(
                     weight_row_mem_en_reg   <= 0;
                     
                     weight_iter_cnt         <= 0;
-                    weight_fetch_done       <= 0;
                 end
             endcase
         end
@@ -201,8 +202,8 @@ module pe#(
     reg signed [INPUT_BW-1:0] right_weight_data_out_reg;
     assign right_weight_data_out = right_weight_data_out_reg;
             
-    wire [PSUM_BW-1:0]      mac_psum_data_out;
-    wire [ADDR_PSUM-1:0]    mac_psum_addr_out;
+    wire signed [PSUM_BW-1:0]   mac_psum_data_out;
+    wire [ADDR_PSUM-1:0]        mac_psum_addr_out;
     assign top_psum_data_out = mac_psum_data_out;
     assign top_psum_addr_out = mac_psum_addr_out;
     
@@ -218,7 +219,15 @@ module pe#(
     // mac.v
     // ------------------------------------------------------------------------
     wire mac_start = start;
-    wire mac_done;
+//    wire mac_done;
+
+    wire signed [PSUM_BW-1:0]   mac_psum_data_in;
+    wire [ADDR_PSUM-1:0]        mac_psum_addr_in;    
+    assign mac_psum_data_in = bottom_psum_data_in;
+    assign mac_psum_addr_in = bottom_psum_addr_in;
+    
+    wire psum_valid;
+    assign top_psum_valid_out = psum_valid;
 
     mac #(
         .INPUT_BW(INPUT_BW),
@@ -237,6 +246,8 @@ module pe#(
         .STRIDE(STRIDE),
         .done(mac_done),
         
+        .is_bottom(is_bottom),
+        
         .ia_row_mem_data(ia_row_mem_data),          // pe_net에서 오는 입력 데이터
         .ia_row_mem_en(ia_row_mem_en),              // pe의 ia_row_mem_en 입력받아서, ia_row_mem_data가 유효한지 판단
         .ia_need(ia_need),                          // mac의 ia_need 출력
@@ -244,17 +255,13 @@ module pe#(
         .weight_row_mem_data(weight_data_2_pe_net), // pe_net에서 오는 가중치 데이터
         .weight_need(weight_need),                  // mac의 weight_need 출력
         
-        .psum_data(mac_psum_data_out),              // pe의 출력으로 전달
-        .psum_addr(mac_psum_addr_out)               // pe의 출력으로 전달
+        .psum_data_in(mac_psum_data_in),
+        .psum_addr_in(mac_psum_addr_in),
+        .psum_data_out(mac_psum_data_out),          // pe의 출력으로 전달
+        .psum_addr_out(mac_psum_addr_out),          // pe의 출력으로 전달
+        .psum_valid(psum_valid)
     );
-    
 
-    
-    
-    
-    
-    
-    
     endmodule
 
     /****************************** dummy example ******************************/

@@ -1,5 +1,6 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
+"../../../../project_1.gen/sources_1/ip/PSUM_ROW_MEM/sim/PSUM_ROW_MEM.v" \
 "../../../../project_1.gen/sources_1/ip/WEIGHT_ROW_MEM/sim/WEIGHT_ROW_MEM.v" \
 "../../../../project_1.gen/sources_1/ip/IA_ROW_MEM/sim/IA_ROW_MEM.v" \
 "../../../../project_1.gen/sources_1/ip/WEIGHT_MEM/sim/WEIGHT_MEM.v" \

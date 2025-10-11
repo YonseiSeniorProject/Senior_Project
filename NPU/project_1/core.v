@@ -144,7 +144,7 @@ module core#(
     
     /***** Total 3 WEIGHT_ROW_MEMs *****/
     generate
-        for (i = 0; i < 3; i = i + 1) begin : gen_weight_row_mem
+        for (i = 0; i < NUM_WEIGHT_ROW_MEM; i = i + 1) begin : gen_weight_row_mem
             WEIGHT_ROW_MEM WEIGHT_ROW_MEM_inst (
                 .clka (clk),
                 .ena (weight_row_mem_ena[i]),
@@ -190,6 +190,7 @@ module core#(
     
     wire [ADDR_PSUM*NUM_COLS-1:0]   pe_array_psum_addrs;
     wire [PSUM_BW*NUM_COLS-1:0]     pe_array_psum_rows;
+    wire [NUM_COLS-1:0]             pe_array_psum_valids;
 
     // Concatenate IA_ROW_MEM doutb to pe_array ia_row_mem_data
     generate
@@ -242,12 +243,54 @@ module core#(
         .which_weight_row_mem_en(pe_array_which_weight_row_mem_en),
         
         .psum_rows(pe_array_psum_rows),
-        .psum_addrs(pe_array_psum_addrs)
+        .psum_addrs(pe_array_psum_addrs),
+        .psum_valids(pe_array_psum_valids)
     );
     
-     
+     /***** PSUM_ROW_MEMs Signals *****/
+    wire [2:0]                      psum_row_mem_ena;
+    wire [2:0]                      psum_row_mem_wea;
+    wire [ADDR_PSUM-1:0]            psum_row_mem_addra;
+    wire [INPUT_BW-1:0]             psum_row_mem_dina;
     
-
+    wire [2:0]                      psum_row_mem_enb;
+    wire [ADDR_PSUM-1:0]            psum_row_mem_addrb [NUM_COLS-1:0];
+    wire [INPUT_BW-1:0]             psum_row_mem_doutb [NUM_COLS-1:0];
+    
+    /***** Total 32 PSUM_ROW_MEMs *****/
+    generate
+        for (i = 0; i < NUM_COLS; i = i + 1) begin : gen_psum_row_mem
+            PSUM_ROW_MEM PSUM_ROW_MEM_inst (
+                .clka (clk),
+                .ena (psum_row_mem_ena[i]),
+                .wea (psum_row_mem_wea[i]),
+                .addra(psum_row_mem_addra),
+                .dina (psum_row_mem_dina),
+                
+                .clkb (clk),
+                .enb (psum_row_mem_enb[i]),
+                .addrb(psum_row_mem_addrb[i]),
+                .doutb(psum_row_mem_doutb[i])
+            );
+        end
+    endgenerate
+    
+    wire signed [PSUM_BW-1:0]   top_psum_data_out   [0:NUM_COLS-1];
+    wire [ADDR_PSUM-1:0]        top_psum_addr_out   [0:NUM_COLS-1];
+    wire                        top_psum_valid_out  [0:NUM_COLS-1];
+    
+    generate
+        for (i = 0; i < NUM_COLS; i = i + 1) begin : gen_psum_out
+            assign  top_psum_data_out[i] = pe_array_psum_rows[PSUM_BW*(i+1) - 1 : PSUM_BW*(i)];
+            assign  top_psum_addr_out[i] = pe_array_psum_addrs[ADDR_PSUM*(i+1) - 1 : ADDR_PSUM*(i)];
+            assign  top_psum_valid_out[i]= pe_array_psum_valids[i];
+        end
+    endgenerate
+    
+    
+    
+    
+    
 
 endmodule
 

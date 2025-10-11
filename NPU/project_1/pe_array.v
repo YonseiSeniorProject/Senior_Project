@@ -8,7 +8,6 @@ module pe_array#(
     parameter PSUM_BW               = 32,           // 8bit Data goes to AXI interface (after Quantization)
     parameter IA_ROW_MEM_ADDR       = 7,
     parameter WEIGHT_ROW_MEM_ADDR   = 8,
-    parameter NUM_ROWS              = 32,
     parameter NUM_IA_ROW_MEM        = 96,
     parameter NUM_COLS              = 32,           // PE 열 수
     parameter NUM_PE_ROWS           = 3,            // PE 행 수
@@ -40,10 +39,11 @@ module pe_array#(
     output wire [WEIGHT_ROW_MEM_ADDR*NUM_WEIGHT_ROW_MEM-1:0]    weight_row_mem_addr,
     output wire [NUM_WEIGHT_ROW_MEM-1:0]                        which_weight_row_mem_en,
     // ------------------------------------------------------------------------
-    // psum from core 32bit x 32rows (2-D shape array like wire or reg ports is not supported in verilog)
+    // psum from core 32bit x 32cols (2-D shape array like wire or reg ports is not supported in verilog)
     // ------------------------------------------------------------------------
-    output wire [PSUM_BW*NUM_ROWS-1:0]      psum_rows,
-    output wire [ADDR_PSUM*NUM_ROWS-1:0]    psum_addrs
+    output wire [PSUM_BW*NUM_COLS-1:0]      psum_rows,
+    output wire [ADDR_PSUM*NUM_COLS-1:0]    psum_addrs,
+    output wire [NUM_COLS-1:0]              psum_valids
     );
     
     // row_mem에 있는 data가 필요할 때, 각 pe는 addr, enable신호를 보내 core.v로부터 row_mem의 data 받아옴
@@ -92,7 +92,8 @@ module pe_array#(
 //    wire signed [1:0]               top_y_out           [0:NUM_PE_ROWS-1][0:NUM_COLS-1];
 //    wire signed [INPUT_BW-1:0]      top_ia_data_out     [0:NUM_PE_ROWS-1][0:NUM_COLS-1];
     wire signed [PSUM_BW-1:0]       top_psum_data_out   [0:NUM_PE_ROWS-1][0:NUM_COLS-1];
-    wire signed [ADDR_PSUM-1:0]     top_psum_addr_out   [0:NUM_PE_ROWS-1][0:NUM_COLS-1];
+    wire [ADDR_PSUM-1:0]            top_psum_addr_out   [0:NUM_PE_ROWS-1][0:NUM_COLS-1];
+    wire                            top_psum_valid_out  [0:NUM_PE_ROWS-1][0:NUM_COLS-1];
    
     /***** pe done signals *****/
     wire [NUM_IA_ROW_MEM-1:0] done_pe;
@@ -176,6 +177,8 @@ module pe_array#(
                     .OC(OC),
                     .STRIDE(STRIDE),
                     .done(done_pe[idx]),
+                    
+                    .is_bottom(r == NUM_PE_ROWS-1),
                    
                     // ia_row_mem: data와 addr을 각 PE별 slice로 따로 연결
                     .ia_row_mem_data(ia_row_mem_data[INPUT_BW*(idx+1)-1 : INPUT_BW*idx]),
@@ -209,7 +212,8 @@ module pe_array#(
 //                    .top_y_out(top_y_out[r][c]),
 //                    .top_ia_data_out(top_ia_data_out[r][c]),
                     .top_psum_data_out(top_psum_data_out[r][c]),
-                    .top_psum_addr_out(top_psum_addr_out[r][c])
+                    .top_psum_addr_out(top_psum_addr_out[r][c]),
+                    .top_psum_valid_out(top_psum_valid_out[r][c])
                 );
             end
         end
@@ -219,11 +223,10 @@ module pe_array#(
     genvar i;
     generate
         for (i = 0; i < NUM_COLS; i = i + 1) begin : gen_psum_out
-            assign psum_rows[PSUM_BW*(i+1) - 1 : PSUM_BW*(i)]       = top_psum_data_out[NUM_PE_ROWS-1][i];
-            assign psum_addrs[ADDR_PSUM*(i+1) - 1 : ADDR_PSUM*(i)]  = top_psum_addr_out[NUM_PE_ROWS-1][i];
+            assign psum_rows[PSUM_BW*(i+1) - 1 : PSUM_BW*(i)]       = top_psum_data_out[0][i];
+            assign psum_addrs[ADDR_PSUM*(i+1) - 1 : ADDR_PSUM*(i)]  = top_psum_addr_out[0][i];
+            assign psum_valids[i]                                   = top_psum_valid_out[0][i];
         end
     endgenerate
-    
-    
     
     endmodule
