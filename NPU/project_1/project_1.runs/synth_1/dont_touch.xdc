@@ -7,5 +7,8 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==PSUM_ROW_ME
 # IP: ip/IA_ROW_MEM/IA_ROW_MEM.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==IA_ROW_MEM || ORIG_REF_NAME==IA_ROW_MEM} -quiet] -quiet
 
+# IP: ip/WEIGHT_MEM/WEIGHT_MEM.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==WEIGHT_MEM || ORIG_REF_NAME==WEIGHT_MEM} -quiet] -quiet
+
 # IP: ip/INPUT_MEM/INPUT_MEM.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==INPUT_MEM || ORIG_REF_NAME==INPUT_MEM} -quiet] -quiet

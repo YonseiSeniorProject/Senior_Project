@@ -29,6 +29,10 @@ module core#(
     input  wire [2:0] STRIDE,
     output wire core_done,
     // ------------------------------------------------------------------------
+    // Configurable Data to check whether there is no ic left, we should make data_2_row_mem transfer done
+    // ------------------------------------------------------------------------
+    input  wire is_act_n_weight_ctrlr_done,
+    // ------------------------------------------------------------------------
     // ia_row_mem outputs & write
     // ------------------------------------------------------------------------
     input wire signed [INPUT_BW-1:0]   ia_row_mem_data,
@@ -53,6 +57,7 @@ module core#(
     // ------------------------------------------------------------------------ 
     wire data_2_row_mem_start;
     wire data_2_row_mem_done;
+    wire data_2_row_mem_idle;
     assign data_2_row_mem_start = core_start;
     
     wire signed [INPUT_BW-1:0]   ia_row_mem_each_data;
@@ -74,6 +79,8 @@ module core#(
                 
                 .start(data_2_row_mem_start),
                 .done(data_2_row_mem_done),
+                .is_idle(data_2_row_mem_idle),
+                .is_act_n_weight_ctrlr_done(is_act_n_weight_ctrlr_done),
                 
                 .OC(OC), .IMG_H(IMG_H), .IMG_W(IMG_W), .K(K),.STRIDE(STRIDE),
                 
@@ -334,8 +341,18 @@ module core#(
     endgenerate
     assign psum_row_mem_ena = top_psum_we_acc;
     assign psum_row_mem_wea = top_psum_we_acc;
+    
+    reg data_2_row_mem_idle_delay;
+    always @(posedge clk or negedge resetn) begin
+        if(~resetn) begin
+            data_2_row_mem_idle_delay <= 0;
+        end
+        else begin
+            data_2_row_mem_idle_delay <= data_2_row_mem_idle;
+        end
+    end
 
-    assign core_done = pe_array_done;
+    assign core_done = (pe_array_done & data_2_row_mem_idle_delay);
 
 endmodule
 

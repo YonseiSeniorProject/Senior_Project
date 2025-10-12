@@ -154,12 +154,12 @@ module act_n_weight_ctrlr #(
             else                                           n_state = CORE_CHECK;
         end
         LOAD_DATA : begin
-            was_core = 1;
             if(input_per_core_cnt >= (act_per_core - 1) && weight_per_core_cnt >= (weight_per_core - 1)) n_state = IS_DONE;
             else n_state = LOAD_DATA;
         end
         IS_DONE : begin
             if(input_mem_addr_reg >= (max_elems_input_mem-1) && weight_mem_addr_reg >=( max_elems_weight_mem-1))    n_state = DONE;
+            else if(K!=3 && ic_per_core_cnt<2)                                                                      n_state = LOAD_DATA;
             else                                                                                                    n_state = CORE_CHECK;
         end
         DONE : begin
@@ -309,17 +309,27 @@ module act_n_weight_ctrlr #(
     assign which_core_start   = which_core_start_reg;
     
     ////////////////////////////////////////
-    // get_core_delay & check_cnt_delay to synchronize with was_dense_core flag
-    reg get_core_delay;
-    reg [LOG2_NUM_CORE-1:0]   core_check_cnt_delay, core_check_cnt_delay2;
+//    // get_core_delay & check_cnt_delay to synchronize with was_dense_core flag
+//    reg get_core_delay;
+//    reg [LOG2_NUM_CORE-1:0]   core_check_cnt_delay, core_check_cnt_delay2;
+//    always @(posedge clk or negedge resetn) begin
+//        if(~resetn) begin
+//            get_core_delay <= 0;
+//            core_check_cnt_delay  <= 0; core_check_cnt_delay2  <= 0;
+//        end
+//        else begin
+//            get_core_delay <= get_core;
+//            core_check_cnt_delay  <= core_check_cnt;  core_check_cnt_delay2  <= core_check_cnt_delay;
+//        end
+//    end
+
+    reg [LOG2_NUM_CORE-1:0]   core_check_cnt_delay;
     always @(posedge clk or negedge resetn) begin
         if(~resetn) begin
-            get_core_delay <= 0;
-            core_check_cnt_delay  <= 0; core_check_cnt_delay2  <= 0;
+            core_check_cnt_delay  <= 0;
         end
         else begin
-            get_core_delay <= get_core;
-            core_check_cnt_delay  <= core_check_cnt;  core_check_cnt_delay2  <= core_check_cnt_delay;
+            core_check_cnt_delay  <= core_check_cnt;
         end
     end
     ////////////////////////////////////////
@@ -329,8 +339,8 @@ module act_n_weight_ctrlr #(
             which_core_start_reg        <= 0;
         end
         else begin
-            if(get_core_delay && was_core) begin
-                which_core_start_reg[core_check_cnt_delay2] <= 1;  
+            if(get_core) begin
+                which_core_start_reg[core_check_cnt_delay] <= 1;  
             end
             else begin
                 which_core_start_reg  <= 0;

@@ -267,6 +267,8 @@ module top#(
     assign which_core_done    = core_done;
     assign core_start         = which_core_start;
     
+//    wire is_act_n_weight_ctrlr_done;
+    
     genvar i;
     generate
         for (i = 0; i < NUM_CORE; i = i + 1) begin : gen_core
@@ -283,6 +285,7 @@ module top#(
                 .IMG_W(IMG_W),
                 .K(K),
                 .STRIDE(STRIDE),
+                .is_act_n_weight_ctrlr_done(act_n_weight_ctrlr_done),
                 
                 .ia_row_mem_data(core_ia_row_mem_data),
                 .ia_row_mem_addr(core_ia_row_mem_addr),

@@ -108,14 +108,14 @@ set_property used_in_implementation false [get_files -all c:/minsung/senior_proj
 read_ip -quiet C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.srcs/sources_1/ip/IA_ROW_MEM/IA_ROW_MEM.xci
 set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.gen/sources_1/ip/IA_ROW_MEM/IA_ROW_MEM_ooc.xdc]
 
+read_ip -quiet C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.srcs/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM.xci
+set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM_ooc.xdc]
+
 read_ip -quiet C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.srcs/sources_1/ip/INPUT_MEM/INPUT_MEM.xci
 set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM_ooc.xdc]
 
 read_ip -quiet C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.srcs/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM.xci
 set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.gen/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM_ooc.xdc]
-
-read_ip -quiet C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.srcs/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM.xci
-set_property used_in_implementation false [get_files -all c:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

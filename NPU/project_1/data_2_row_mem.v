@@ -18,6 +18,7 @@ module data_2_row_mem #(
     // ------------------------------------------------------------------------
     input  wire start,          // Start signal for config_ctrlr operation
     output wire done,           // config_ctrlr operation finished
+    output wire is_idle,
     // ------------------------------------------------------------------------
     // Configurable Data
     // ------------------------------------------------------------------------
@@ -26,6 +27,10 @@ module data_2_row_mem #(
     input  wire [5:0] IMG_W,
     input  wire [2:0] K,
     input  wire [2:0] STRIDE,
+    // ------------------------------------------------------------------------
+    // Configurable Data to check whether there is no ic left, we should make data_2_row_mem transfer done
+    // ------------------------------------------------------------------------
+    input  wire is_act_n_weight_ctrlr_done,
     // ------------------------------------------------------------------------
     // activation inputs from act_n_weight_ctrlr
     // ------------------------------------------------------------------------
@@ -84,7 +89,8 @@ module data_2_row_mem #(
     localparam LOAD_DATA    = 3'd1;
     localparam DONE         = 3'd2;
     
-    assign done = (state==DONE);
+    assign done     = (state==DONE);
+    assign is_idle  = (state==DONE || state==IDLE);
     
     always @(posedge clk or negedge resetn) begin
         if(~resetn) state <= IDLE;
@@ -101,7 +107,7 @@ module data_2_row_mem #(
         end
         LOAD_DATA : begin
             if(K!=3) begin
-                if((ic_iter_cnt >= 2) && (act_row_mem_addr>=act_per_core) && (weight_row_mem_addr>=weight_per_core)) begin
+                if(((ic_iter_cnt >= 2) || is_act_n_weight_ctrlr_done) && (act_row_mem_addr>=act_per_core) && (weight_row_mem_addr>=weight_per_core)) begin
                     n_state = DONE;
                 end
                 else begin
