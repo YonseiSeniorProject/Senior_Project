@@ -258,16 +258,19 @@ module top#(
     // 4) PSUMs are accumulated and goes to 32 different output psum ports (in implementation psums ports are flattened)
     // ------------------------------------------------------------------------
     localparam PSUM_BW           = 32;
-    localparam NUM_ROWS          = 32;
+    localparam NUM_COLS          = 32;
+    localparam ADDR_PSUM         = 12;
     
-    wire [PSUM_BW*NUM_ROWS-1:0] core_psum_rows [NUM_CORE-1:0];
+    wire [PSUM_BW*NUM_COLS-1:0] core_psum_rows [NUM_CORE-1:0];
     
     wire [NUM_CORE-1:0] core_done;
     wire [NUM_CORE-1:0] core_start;
     assign which_core_done    = core_done;
     assign core_start         = which_core_start;
     
-//    wire is_act_n_weight_ctrlr_done;
+    wire [PSUM_BW*NUM_COLS-1:0] psum_row_data_out   [NUM_CORE-1:0];
+    wire [NUM_COLS-1:0]         psum_row_mem_en_in  [NUM_CORE-1:0];
+    wire [ADDR_PSUM-1:0]        psum_row_mem_addr_in[NUM_CORE-1:0];
     
     genvar i;
     generate
@@ -292,17 +295,15 @@ module top#(
                 .weight_row_mem_data(core_weight_row_mem_data),
                 .weight_row_mem_addr(core_weight_row_mem_addr),
                 
-                .psum_row_data_out(),
-                .psum_row_mem_en_in(),
-                . psum_row_mem_addr_in()
-                
-//                .psum_rows(core_psum_rows[i])
+                .psum_row_data_out(psum_row_data_out[i]),
+                .psum_row_mem_en_in(psum_row_mem_en_in[i]),
+                .psum_row_mem_addr_in(psum_row_mem_addr_in[i])
             );
         end
     endgenerate   
 
     // ------------------------------------------------------------------------
-    // out_mem_acc.v
+    // out_mem_acc Logic
     // ------------------------------------------------------------------------
     reg [2:0] state_delay;
     always @(posedge clk or negedge resetn) begin
@@ -314,7 +315,87 @@ module top#(
     assign compute_done = (state_delay==WORKING & (&core_done));
     wire out_mem_acc_done;
     
+    /***** Debugging Code for out_mem_acc *****/
+    reg [NUM_COLS-1:0]         psum_row_mem_en_in_reg  [NUM_CORE-1:0];
+    reg [ADDR_PSUM-1:0]        psum_row_mem_addr_in_reg[NUM_CORE-1:0];
+    reg [ADDR_PSUM-1:0]        psum_row_mem_addr_in_reg_delay[NUM_CORE-1:0];
+    generate
+        for (i = 0; i < NUM_CORE; i = i + 1) begin : gen_psum_row_mem_en
+            assign psum_row_mem_en_in[i] = psum_row_mem_en_in_reg[i];
+        end
+    endgenerate
+    generate
+        for (i = 0; i < NUM_CORE; i = i + 1) begin : gen_psum_row_mem_addr
+            assign psum_row_mem_addr_in[i] = psum_row_mem_addr_in_reg_delay[i];
+        end
+    endgenerate
     
+    
+    wire [PSUM_BW-1:0]         out_row_data_in_b_quantize [NUM_COLS-1:0];
+    reg [PSUM_BW-1:0]          out_row_data_in_b_quantize_reg [NUM_COLS-1:0];
+    
+    wire [PSUM_BW-1:0] psum_row_data_out_each   [NUM_CORE-1:0][NUM_COLS-1:0];
+    
+    genvar r, c;
+    generate
+        for (r = 0; r < NUM_CORE; r = r + 1) begin : gen_psum_core
+            for (c = 0; c < NUM_COLS; c = c + 1) begin : gen_psum_cols
+                assign  psum_row_data_out_each[r][c] = psum_row_data_out[r][PSUM_BW*(c+1) - 1 : PSUM_BW*(c)];
+            end
+        end
+    endgenerate
+    
+    genvar col, rr;
+    generate
+        for (col = 0; col < NUM_COLS; col = col + 1) begin : gen_col_sums
+            wire [PSUM_BW-1:0] partial [NUM_CORE-1:0];  // 부분 합 배열 (각 col마다 독립)
+            
+            assign partial[0] = psum_row_data_out_each[0][col];
+            
+            for (rr = 1; rr < NUM_CORE; rr = rr + 1) begin : gen_accum_add
+                assign partial[rr] = partial[rr-1] + psum_row_data_out_each[rr][col];
+            end
+            
+            assign out_row_data_in_b_quantize[col] = partial[NUM_CORE-1];
+        end
+    endgenerate
+    
+    integer k, m;
+    always @(posedge clk or negedge resetn) begin
+        if(~resetn) begin
+            for (k = 0; k < NUM_CORE; k = k + 1) begin
+                psum_row_mem_en_in_reg[k]   <= 0;
+                psum_row_mem_addr_in_reg[k] <= 0;
+            end
+            for (m = 0; m < NUM_COLS; m = m + 1) begin
+                out_row_data_in_b_quantize_reg[m] <= 0;
+            end
+        end
+        else begin
+            if(compute_done) begin
+                for (k = 0; k < NUM_CORE; k = k + 1) begin
+                    psum_row_mem_en_in_reg[k]   <= {NUM_COLS{1'b1}};
+                    psum_row_mem_addr_in_reg[k] <= psum_row_mem_addr_in_reg[k] + 1;
+                end
+                for (m = 0; m < NUM_COLS; m = m + 1) begin
+                    out_row_data_in_b_quantize_reg[m] <= out_row_data_in_b_quantize[m];
+                end
+            end
+        end 
+    end
+    
+    always @(posedge clk or negedge resetn) begin
+        if(~resetn) begin
+            for (k = 0; k < NUM_CORE; k = k + 1) begin
+                psum_row_mem_addr_in_reg_delay[k] <= 0;
+            end
+        end
+        else begin
+            for (k = 0; k < NUM_CORE; k = k + 1) begin
+                psum_row_mem_addr_in_reg_delay[k] <= psum_row_mem_addr_in_reg[k];
+            end
+        end 
+    end
     
     // ------------------------------------------------------------------------
     // FSM for top.v 
@@ -427,7 +508,7 @@ endmodule
 //    wire signed [INPUT_BW-1:0]   core_0_weight_row_mem_data;
 //    wire [WEIGHT_PER_CORE-1:0]   core_0_weight_row_mem_addr;
 
-//    wire [PSUM_BW*NUM_ROWS-1:0] core_0_psum_rows;
+//    wire [PSUM_BW*NUM_COLS-1:0] core_0_psum_rows;
 
 //    wire core_0_done;
 //    wire core_0_start;

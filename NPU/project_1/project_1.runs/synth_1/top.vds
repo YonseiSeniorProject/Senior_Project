@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Sun Oct 12 12:44:13 2025
-# Process ID: 6384
+# Start of session at: Sun Oct 12 17:17:56 2025
+# Process ID: 30392
 # Current directory: C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/top.vds
@@ -17,9 +17,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg
 INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-e
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 27088
+INFO: [Synth 8-7075] Helper process launched with PID 21856
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1573.953 ; gain = 117.125
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1574.008 ; gain = 116.508
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/top.v:4]
 	Parameter ADDR_IN bound to: 20 - type: integer 
@@ -34,7 +34,8 @@ INFO: [Synth 8-6157] synthesizing module 'top' [C:/minsung/senior_project/git_wo
 	Parameter WEIGHT_PER_CORE bound to: 10 - type: integer 
 	Parameter NUM_CORE bound to: 4 - type: integer 
 	Parameter PSUM_BW bound to: 32 - type: integer 
-	Parameter NUM_ROWS bound to: 32 - type: integer 
+	Parameter NUM_COLS bound to: 32 - type: integer 
+	Parameter ADDR_PSUM bound to: 12 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'core' [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/core.v:4]
 	Parameter ADDR_IN bound to: 20 - type: integer 
 	Parameter ADDR_W bound to: 18 - type: integer 
@@ -49,12 +50,12 @@ INFO: [Synth 8-6157] synthesizing module 'core' [C:/minsung/senior_project/git_w
 	Parameter NUM_PE_ROWS bound to: 3 - type: integer 
 	Parameter IA_ROW_MEM_ADDR bound to: 7 - type: integer 
 	Parameter WEIGHT_ROW_MEM_ADDR bound to: 8 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'IA_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-6384-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'IA_ROW_MEM' (1#1) [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-6384-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'WEIGHT_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-6384-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_ROW_MEM' (2#1) [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-6384-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-6384-MinsungKim/realtime/PSUM_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'PSUM_ROW_MEM' (3#1) [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-6384-MinsungKim/realtime/PSUM_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'IA_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-30392-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'IA_ROW_MEM' (1#1) [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-30392-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'WEIGHT_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-30392-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_ROW_MEM' (2#1) [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-30392-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-30392-MinsungKim/realtime/PSUM_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'PSUM_ROW_MEM' (3#1) [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-30392-MinsungKim/realtime/PSUM_ROW_MEM_stub.v:6]
 WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/core.v:282]
 WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/core.v:287]
 WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/core.v:282]
@@ -184,24 +185,24 @@ INFO: [Synth 8-6157] synthesizing module 'act_n_weight_ctrlr' [C:/minsung/senior
 	Parameter IS_DONE bound to: 3'b011 
 	Parameter DONE bound to: 3'b100 
 INFO: [Synth 8-6155] done synthesizing module 'act_n_weight_ctrlr' (9#1) [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/act_n_weight_ctrlr.v:4]
-INFO: [Synth 8-6157] synthesizing module 'INPUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-6384-MinsungKim/realtime/INPUT_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'INPUT_MEM' (10#1) [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-6384-MinsungKim/realtime/INPUT_MEM_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'WEIGHT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-6384-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_MEM' (11#1) [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-6384-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'INPUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-30392-MinsungKim/realtime/INPUT_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'INPUT_MEM' (10#1) [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-30392-MinsungKim/realtime/INPUT_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'WEIGHT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-30392-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_MEM' (11#1) [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/.Xil/Vivado-30392-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'top' (12#1) [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/top.v:4]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1665.039 ; gain = 208.211
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1665.609 ; gain = 208.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1682.969 ; gain = 226.141
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1684.523 ; gain = 227.023
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1682.969 ; gain = 226.141
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1684.523 ; gain = 227.023
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1826.512 ; gain = 12.812
+Netlist sorting complete. Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1824.168 ; gain = 12.816
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -1266,13 +1267,13 @@ Parsing XDC File [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/pro
 Finished Parsing XDC File [C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 2205.270 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.105 . Memory (MB): peak = 2205.723 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.688 . Memory (MB): peak = 2205.270 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2205.723 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:30 ; elapsed = 00:00:29 . Memory (MB): peak = 2205.270 ; gain = 748.441
+Finished Constraint Validation : Time (s): cpu = 00:00:54 ; elapsed = 00:00:53 . Memory (MB): peak = 2205.723 ; gain = 748.223
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -1280,7 +1281,7 @@ Start Loading Part and Timing Information
 Loading part: xczu9eg-ffvb1156-2-e
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:30 ; elapsed = 00:00:29 . Memory (MB): peak = 2205.270 ; gain = 748.441
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:54 ; elapsed = 00:00:53 . Memory (MB): peak = 2205.723 ; gain = 748.223
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -1814,7 +1815,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_weig
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_weight_row_mem[2].WEIGHT_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_weight_row_mem[2].WEIGHT_ROW_MEM_inst . (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 2205.270 ; gain = 748.441
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:58 ; elapsed = 00:00:57 . Memory (MB): peak = 2205.723 ; gain = 748.223
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'pe_array'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'top'
@@ -1828,13 +1829,13 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-                    IDLE |                               00 |                              000
-                 PREPARE |                               01 |                              001
-                 WORKING |                               10 |                              010
+                    IDLE |                              001 |                              000
+                 PREPARE |                              010 |                              001
+                 WORKING |                              100 |                              010
 ---------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'top'
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'top'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:35 ; elapsed = 00:00:35 . Memory (MB): peak = 2205.270 ; gain = 748.441
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:04 ; elapsed = 00:01:04 . Memory (MB): peak = 2205.723 ; gain = 748.223
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -1845,7 +1846,7 @@ Detailed RTL Component Info :
 	   2 Input   20 Bit       Adders := 1     
 	   2 Input   18 Bit       Adders := 1     
 	   2 Input   13 Bit       Adders := 1     
-	   2 Input   12 Bit       Adders := 384   
+	   2 Input   12 Bit       Adders := 385   
 	   2 Input   10 Bit       Adders := 3     
 	   2 Input    9 Bit       Adders := 12    
 	   2 Input    8 Bit       Adders := 784   
@@ -1857,18 +1858,18 @@ Detailed RTL Component Info :
 	   3 Input    1 Bit       Adders := 384   
 +---Registers : 
 	               96 Bit    Registers := 4     
-	               32 Bit    Registers := 520   
+	               32 Bit    Registers := 521   
 	               20 Bit    Registers := 1     
 	               18 Bit    Registers := 1     
 	               13 Bit    Registers := 6     
-	               12 Bit    Registers := 512   
+	               12 Bit    Registers := 517   
 	               11 Bit    Registers := 1     
 	               10 Bit    Registers := 7     
 	                8 Bit    Registers := 5780  
 	                7 Bit    Registers := 784   
 	                6 Bit    Registers := 392   
 	                4 Bit    Registers := 3     
-	                3 Bit    Registers := 1161  
+	                3 Bit    Registers := 1162  
 	                2 Bit    Registers := 791   
 	                1 Bit    Registers := 3851  
 +---Muxes : 
@@ -1891,11 +1892,12 @@ Detailed RTL Component Info :
 	   2 Input    6 Bit        Muxes := 388   
 	   2 Input    4 Bit        Muxes := 7     
 	   3 Input    4 Bit        Muxes := 1     
-	   2 Input    3 Bit        Muxes := 785   
-	   2 Input    2 Bit        Muxes := 1950  
+	   2 Input    3 Bit        Muxes := 788   
+	   3 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 1947  
 	   7 Input    2 Bit        Muxes := 4     
 	   8 Input    2 Bit        Muxes := 4     
-	   3 Input    2 Bit        Muxes := 770   
+	   3 Input    2 Bit        Muxes := 769   
 	   5 Input    2 Bit        Muxes := 768   
 	   2 Input    1 Bit        Muxes := 7415  
 	   4 Input    1 Bit        Muxes := 4     
@@ -2128,7 +2130,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[30].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[31].pe_inst /\state_reg[2] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:10 ; elapsed = 00:01:43 . Memory (MB): peak = 2205.270 ; gain = 748.441
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:01 ; elapsed = 00:02:48 . Memory (MB): peak = 2205.723 ; gain = 748.223
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -2153,19 +2155,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:26 ; elapsed = 00:02:00 . Memory (MB): peak = 2499.105 ; gain = 1042.277
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:31 ; elapsed = 00:03:22 . Memory (MB): peak = 2507.445 ; gain = 1049.945
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:28 ; elapsed = 00:02:02 . Memory (MB): peak = 2518.559 ; gain = 1061.730
+Finished Timing Optimization : Time (s): cpu = 00:02:35 ; elapsed = 00:03:26 . Memory (MB): peak = 2527.805 ; gain = 1070.305
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:41 ; elapsed = 00:02:29 . Memory (MB): peak = 2599.348 ; gain = 1142.520
+Finished Technology Mapping : Time (s): cpu = 00:02:54 ; elapsed = 00:04:09 . Memory (MB): peak = 2606.625 ; gain = 1149.125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -2182,139 +2184,38 @@ Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3295] tying undriven pin i_155022:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155023:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155024:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155025:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155026:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155027:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155028:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155029:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155030:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155031:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155032:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155033:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155034:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155035:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155036:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155037:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155038:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155039:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155040:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155041:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155042:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155043:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155044:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155045:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155046:I4 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155048:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155049:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155050:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155051:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155052:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155053:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155054:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155055:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155056:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155057:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155058:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155059:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155060:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155061:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155062:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155063:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155064:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155065:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155066:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155067:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155068:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155069:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155070:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155071:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155072:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155073:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155074:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155075:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155076:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155077:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155078:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155079:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155080:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155081:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155082:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155083:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155084:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155085:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155086:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155087:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155088:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155089:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155090:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155091:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155092:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155093:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155094:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155095:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155096:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155097:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155098:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155099:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155100:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155101:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155102:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155103:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155104:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155105:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155106:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155107:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155108:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155109:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155110:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155111:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155112:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155113:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155114:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155115:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155116:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155117:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155118:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155119:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155120:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155121:I1 to constant 0
-WARNING: [Synth 8-3295] tying undriven pin i_155122:I1 to constant 0
-INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:59 ; elapsed = 00:02:48 . Memory (MB): peak = 3057.281 ; gain = 1600.453
+Finished IO Insertion : Time (s): cpu = 00:03:27 ; elapsed = 00:04:45 . Memory (MB): peak = 3059.516 ; gain = 1602.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:59 ; elapsed = 00:02:49 . Memory (MB): peak = 3057.281 ; gain = 1600.453
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:28 ; elapsed = 00:04:46 . Memory (MB): peak = 3059.516 ; gain = 1602.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:15 ; elapsed = 00:03:05 . Memory (MB): peak = 3057.281 ; gain = 1600.453
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:54 ; elapsed = 00:05:12 . Memory (MB): peak = 3059.516 ; gain = 1602.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:17 ; elapsed = 00:03:07 . Memory (MB): peak = 3057.281 ; gain = 1600.453
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:55 ; elapsed = 00:05:13 . Memory (MB): peak = 3059.516 ; gain = 1602.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:22 ; elapsed = 00:03:12 . Memory (MB): peak = 3057.281 ; gain = 1600.453
+Finished Handling Custom Attributes : Time (s): cpu = 00:04:04 ; elapsed = 00:05:23 . Memory (MB): peak = 3059.516 ; gain = 1602.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:23 ; elapsed = 00:03:13 . Memory (MB): peak = 3057.281 ; gain = 1600.453
+Finished Renaming Generated Nets : Time (s): cpu = 00:04:05 ; elapsed = 00:05:24 . Memory (MB): peak = 3059.516 ; gain = 1602.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -2346,7 +2247,7 @@ Report Cell Usage:
 |517   |WEIGHT_ROW_MEM  |     1|
 |518   |WEIGHT_ROW_MEM_ |    11|
 |529   |BUFG            |     1|
-|530   |CARRY8          |  9892|
+|530   |CARRY8          |  9894|
 |531   |DSP_ALU         |     5|
 |532   |DSP_A_B_DATA    |     5|
 |534   |DSP_C_DATA      |     5|
@@ -2355,32 +2256,33 @@ Report Cell Usage:
 |537   |DSP_OUTPUT      |     5|
 |538   |DSP_PREADD      |     5|
 |539   |DSP_PREADD_DATA |     5|
-|540   |LUT1            |    43|
-|541   |LUT2            | 23305|
-|542   |LUT3            | 43727|
-|543   |LUT4            | 26518|
-|544   |LUT5            | 15927|
-|545   |LUT6            | 46191|
+|540   |LUT1            |    54|
+|541   |LUT2            | 23415|
+|542   |LUT3            | 43614|
+|543   |LUT4            | 26524|
+|544   |LUT5            | 15942|
+|545   |LUT6            | 46189|
 |546   |MUXF7           |    64|
-|547   |FDCE            | 71790|
-|548   |FDRE            |   426|
-|549   |IBUF            |    99|
-|550   |OBUF            |     1|
-|551   |OBUFT           |    24|
+|547   |FDCE            | 71835|
+|548   |FDPE            |     1|
+|549   |FDRE            |   426|
+|550   |IBUF            |    99|
+|551   |OBUF            |     1|
+|552   |OBUFT           |    24|
 +------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:23 ; elapsed = 00:03:13 . Memory (MB): peak = 3057.281 ; gain = 1600.453
+Finished Writing Synthesis Report : Time (s): cpu = 00:04:06 ; elapsed = 00:05:25 . Memory (MB): peak = 3059.516 ; gain = 1602.016
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1536 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:56 ; elapsed = 00:02:54 . Memory (MB): peak = 3057.281 ; gain = 1078.152
-Synthesis Optimization Complete : Time (s): cpu = 00:02:23 ; elapsed = 00:03:15 . Memory (MB): peak = 3057.281 ; gain = 1600.453
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:03:17 ; elapsed = 00:04:50 . Memory (MB): peak = 3059.516 ; gain = 1080.816
+Synthesis Optimization Complete : Time (s): cpu = 00:04:06 ; elapsed = 00:05:28 . Memory (MB): peak = 3059.516 ; gain = 1602.016
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 3155.812 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 10061 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 3070.172 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 10063 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 2 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.073 . Memory (MB): peak = 3343.586 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.112 . Memory (MB): peak = 3228.172 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 105 instances were transformed.
   BUFG => BUFGCE: 1 instance 
@@ -2388,10 +2290,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   IBUF => IBUF (IBUFCTRL, INBUF): 99 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-244 Infos, 164 Warnings, 0 Critical Warnings and 0 Errors encountered.
+243 Infos, 64 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:03:23 ; elapsed = 00:04:15 . Memory (MB): peak = 3343.586 ; gain = 2238.301
+synth_design: Time (s): cpu = 00:05:41 ; elapsed = 00:07:06 . Memory (MB): peak = 3228.172 ; gain = 2121.094
 INFO: [Common 17-1381] The checkpoint 'C:/minsung/senior_project/git_works/Back_Up_1012/project_1/project_1.runs/synth_1/top.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:34 ; elapsed = 00:00:27 . Memory (MB): peak = 3343.586 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:52 ; elapsed = 00:00:42 . Memory (MB): peak = 3228.172 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Oct 12 12:49:05 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 12 17:25:55 2025...
