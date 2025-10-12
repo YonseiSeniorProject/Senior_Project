@@ -78,8 +78,8 @@ module top#(
     reg [2:0] state, n_state;
     
     localparam IDLE     = 3'd0;
-    localparam WORKING  = 3'd1;
-    localparam DONE     = 3'd2;
+    localparam PREPARE  = 3'd1;
+    localparam WORKING  = 3'd2;
     
     // ------------------------------------------------------------------------
     // double_buf_ctrl 
@@ -251,7 +251,7 @@ module top#(
     assign core_weight_row_mem_data = weight_row_mem_data;
     assign core_weight_row_mem_addr = weight_row_mem_addr;
     // ------------------------------------------------------------------------
-    // total 8 dense_core Module (doesn't support Zero-Skip): 
+    // total 4 core Module (doesn't support Zero-Skip -> Should Change to supporting Module later): 
     // 1) get IA & Weight Data of corresponding IC (K=3: 1 IC / K=1: 3 IC)
     // 2) transfer datas to corresponding IA_ROW_MEMs & WEIGHT_ROW_MEMs
     // 3) compute MAC operation (need pe control & pe net control)
@@ -290,7 +290,11 @@ module top#(
                 .ia_row_mem_data(core_ia_row_mem_data),
                 .ia_row_mem_addr(core_ia_row_mem_addr),
                 .weight_row_mem_data(core_weight_row_mem_data),
-                .weight_row_mem_addr(core_weight_row_mem_addr)
+                .weight_row_mem_addr(core_weight_row_mem_addr),
+                
+                .psum_row_data_out(),
+                .psum_row_mem_en_in(),
+                . psum_row_mem_addr_in()
                 
 //                .psum_rows(core_psum_rows[i])
             );
@@ -298,47 +302,19 @@ module top#(
     endgenerate   
 
     // ------------------------------------------------------------------------
-    // sparse_core Module (support Zero-Skip): 
-    // 1) get IA & Weight Data of corresponding IC (K=3: 1 IC / K=1: 3 IC)
-    // 2) transfer datas to corresponding IA_ROW_MEMs & WEIGHT_ROW_MEMs
-    // 3) compute MAC operation (need pe control & pe net control & zero-skip control)
-    // 4) PSUMs are accumulated and goes to 32 different output psum ports (in implementation psums ports are flattened)
-    // ------------------------------------------------------------------------
-
-
-
-    
-    // ------------------------------------------------------------------------
-    // PSUM MEM & PSUM_MEM_ACC Ports A-ports (WRITE), B-ports (READ)
-    // ------------------------------------------------------------------------
-//    wire                            psum_mem_ena;
-//    wire                            psum_mem_wea;
-//    wire [ADDR_OUT-1:0]             psum_mem_addra;
-//    wire signed [INPUT_BW-1:0]      psum_mem_dina;
- 
-//    wire                            psum_mem_enb;
-//    wire [ADDR_OUT-1:0]             psum_mem_addrb;
-//    wire signed [INPUT_BW-1:0]      psum_mem_doutb;
-    
-//    wire                            psum_mem_acc_ena;
-//    wire                            psum_mem_acc_wea;
-//    wire [ADDR_OUT-1:0]             psum_mem_acc_addra;
-//    wire signed [INPUT_BW-1:0]      psum_mem_acc_dina;
- 
-//    wire                            psum_mem_acc_enb;
-//    wire [ADDR_OUT-1:0]             psum_mem_acc_addrb;
-//    wire signed [INPUT_BW-1:0]      psum_mem_acc_doutb;
-    
-    // ------------------------------------------------------------------------
-    // psum_acc.v
-    // ------------------------------------------------------------------------
-    wire psum_acc_done;
-
-
-    // ------------------------------------------------------------------------
     // out_mem_acc.v
     // ------------------------------------------------------------------------
+    reg [2:0] state_delay;
+    always @(posedge clk or negedge resetn) begin
+        if(~resetn) state_delay <= 0;
+        else        state_delay <= state;
+    end
+    
+    wire compute_done;
+    assign compute_done = (state_delay==WORKING & (&core_done));
     wire out_mem_acc_done;
+    
+    
     
     // ------------------------------------------------------------------------
     // FSM for top.v 
@@ -358,18 +334,19 @@ module top#(
         case (state)
             IDLE : begin 
                 if(start) begin
-                    n_state = WORKING;
+                    n_state = PREPARE;
                 end               
                 else n_state = IDLE;
             end
+            PREPARE : begin
+                if(core_start[0] == 1)  n_state = WORKING;
+                else                    n_state = PREPARE;
+            end
             WORKING : begin
                 if(out_mem_acc_done == 1)begin
-                    n_state = DONE;
+                    n_state = IDLE;
                 end
                 else n_state = WORKING;
-            end
-            DONE : begin
-                n_state = IDLE;
             end
             default :  n_state = IDLE;
         endcase

@@ -41,11 +41,13 @@ module core#(
     // weight_row_mem outputs & write
     // ------------------------------------------------------------------------
     input wire signed [INPUT_BW-1:0]       weight_row_mem_data,
-    input wire [WEIGHT_PER_CORE-1:0]       weight_row_mem_addr
+    input wire [WEIGHT_PER_CORE-1:0]       weight_row_mem_addr,
     // ------------------------------------------------------------------------
     // psum from core 32bit x 32rows (2-D shape array like wire or reg ports is not supported in verilog)
     // ------------------------------------------------------------------------
-//    output wire [PSUM_BW*NUM_COLS-1:0] psum_rows
+    output wire [PSUM_BW*NUM_COLS-1:0] psum_row_data_out,
+    input  wire [NUM_COLS-1:0]         psum_row_mem_en_in,
+    input  wire [ADDR_PSUM-1:0]        psum_row_mem_addr_in
     );
     // NOTE: CORE의 동작이 끝나면 계속 CORE_START신호가 들어오기 전까지 DONE = 1이 유지되어야 함
     
@@ -255,14 +257,20 @@ module core#(
     );
     
      /***** PSUM_ROW_MEMs Signals *****/
-    wire [0:NUM_COLS-1]             psum_row_mem_ena;
-    wire [0:NUM_COLS-1]             psum_row_mem_wea;
-    wire [ADDR_PSUM-1:0]            psum_row_mem_addra [0:NUM_COLS-1];
-    wire [PSUM_BW-1:0]              psum_row_mem_dina  [0:NUM_COLS-1];
+    wire [NUM_COLS-1:0]             psum_row_mem_ena;
+    wire [NUM_COLS-1:0]             psum_row_mem_wea;
+    wire [ADDR_PSUM-1:0]            psum_row_mem_addra [NUM_COLS-1:0];
+    wire [PSUM_BW-1:0]              psum_row_mem_dina  [NUM_COLS-1:0];
     
-    wire [0:NUM_COLS-1]             psum_row_mem_enb;
-    wire [ADDR_PSUM-1:0]            psum_row_mem_addrb [0:NUM_COLS-1];
-    wire [PSUM_BW-1:0]              psum_row_mem_doutb [0:NUM_COLS-1];
+    wire [NUM_COLS-1:0]             psum_row_mem_enb;
+    wire [ADDR_PSUM-1:0]            psum_row_mem_addrb [NUM_COLS-1:0];
+    wire [PSUM_BW-1:0]              psum_row_mem_doutb [NUM_COLS-1:0];
+    
+    generate
+        for (i = 0; i < NUM_COLS; i = i + 1) begin : gen_psum_row_data_out
+            assign psum_row_data_out[PSUM_BW*(i+1)-1 : PSUM_BW*i]  = psum_row_mem_doutb[i];
+        end
+    endgenerate
     
     /***** Total 32 PSUM_ROW_MEMs *****/
     generate
@@ -282,9 +290,9 @@ module core#(
         end
     endgenerate
     
-    wire signed [PSUM_BW-1:0]   top_psum_data_out   [0:NUM_COLS-1];
-    wire [ADDR_PSUM-1:0]        top_psum_addr_out   [0:NUM_COLS-1];
-    wire [0:NUM_COLS-1]         top_psum_valid_out;
+    wire signed [PSUM_BW-1:0]   top_psum_data_out   [NUM_COLS-1:0];
+    wire [ADDR_PSUM-1:0]        top_psum_addr_out   [NUM_COLS-1:0];
+    wire [NUM_COLS-1:0]         top_psum_valid_out;
     
     generate
         for (i = 0; i < NUM_COLS; i = i + 1) begin : gen_psum_out
@@ -295,15 +303,15 @@ module core#(
     endgenerate
     
     /***** Temporary psum acc for debugging *****/
-    reg signed [PSUM_BW-1:0]    top_psum_data_out_acc   [0:NUM_COLS-1];
-    reg [ADDR_PSUM-1:0]         top_psum_addr_out_acc   [0:NUM_COLS-1];
-    reg [0:NUM_COLS-1]          top_psum_we_acc;
+    reg signed [PSUM_BW-1:0]    top_psum_data_out_acc   [NUM_COLS-1:0];
+    reg [ADDR_PSUM-1:0]         top_psum_addr_out_acc   [NUM_COLS-1:0];
+    reg [NUM_COLS-1:0]          top_psum_we_acc;
     
     // READ PSUMs already in PSUM_ROW_MEM
-    assign psum_row_mem_enb = top_psum_valid_out;
+    assign psum_row_mem_enb = core_done ? psum_row_mem_en_in : top_psum_valid_out;
     generate
         for (i = 0; i < NUM_COLS; i = i + 1) begin : gen_psum_rd_addr
-            assign  psum_row_mem_addrb[i] = top_psum_addr_out[i];
+            assign  psum_row_mem_addrb[i] = core_done ? psum_row_mem_addr_in : top_psum_addr_out[i];
         end
     endgenerate
     
@@ -328,7 +336,7 @@ module core#(
     end
 
     // write back to PSUM_ROW_MEM after accumulation
-//    wire [PSUM_BW-1:0] psum_write_back_data   [0:NUM_COLS-1];
+//    wire [PSUM_BW-1:0] psum_write_back_data   [NUM_COLS-1:0];
     generate
         for (i = 0; i < NUM_COLS; i = i + 1) begin : gen_psum_write_back_addr
             assign  psum_row_mem_addra[i] = top_psum_addr_out_acc[i];

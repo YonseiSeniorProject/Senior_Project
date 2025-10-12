@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Sun Oct 12 11:38:49 2025
+| Date         : Sun Oct 12 12:49:05 2025
 | Host         : MinsungKim running 64-bit major release  (build 9200)
 | Command      : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
 | Design       : top
@@ -31,11 +31,11 @@ Table of Contents
 +-------------------------+--------+-------+-----------+-------+
 |        Site Type        |  Used  | Fixed | Available | Util% |
 +-------------------------+--------+-------+-----------+-------+
-| CLB LUTs*               | 117064 |     0 |    274080 | 42.71 |
-|   LUT as Logic          | 117064 |     0 |    274080 | 42.71 |
+| CLB LUTs*               | 118602 |     0 |    274080 | 43.27 |
+|   LUT as Logic          | 118602 |     0 |    274080 | 43.27 |
 |   LUT as Memory         |      0 |     0 |    144000 |  0.00 |
-| CLB Registers           |  72211 |     0 |    548160 | 13.17 |
-|   Register as Flip Flop |  72211 |     0 |    548160 | 13.17 |
+| CLB Registers           |  72216 |     0 |    548160 | 13.17 |
+|   Register as Flip Flop |  72216 |     0 |    548160 | 13.17 |
 |   Register as Latch     |      0 |     0 |    548160 |  0.00 |
 | CARRY8                  |   9892 |     0 |     34260 | 28.87 |
 | F7 Muxes                |     64 |     0 |    137040 |  0.05 |
@@ -58,7 +58,7 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 71785 |          Yes |           - |        Reset |
+| 71790 |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 426   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -153,12 +153,12 @@ Table of Contents
 +----------+-------+---------------------+
 | Ref Name |  Used | Functional Category |
 +----------+-------+---------------------+
-| FDCE     | 71785 |            Register |
-| LUT6     | 46063 |                 CLB |
-| LUT3     | 43610 |                 CLB |
-| LUT4     | 25109 |                 CLB |
-| LUT2     | 23422 |                 CLB |
-| LUT5     | 15923 |                 CLB |
+| FDCE     | 71790 |            Register |
+| LUT6     | 46191 |                 CLB |
+| LUT3     | 43727 |                 CLB |
+| LUT4     | 26518 |                 CLB |
+| LUT2     | 23305 |                 CLB |
+| LUT5     | 15927 |                 CLB |
 | CARRY8   |  9892 |                 CLB |
 | FDRE     |   426 |            Register |
 | INBUF    |    99 |                 I/O |
