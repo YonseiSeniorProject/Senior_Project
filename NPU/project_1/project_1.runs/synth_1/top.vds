@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Fri Oct 31 00:14:17 2025
-# Process ID: 38004
+# Start of session at: Fri Oct 31 02:53:50 2025
+# Process ID: 15652
 # Current directory: C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/top.vds
@@ -17,9 +17,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg
 INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-e
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 27120
+INFO: [Synth 8-7075] Helper process launched with PID 39720
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1574.297 ; gain = 115.551
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1574.375 ; gain = 116.742
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:4]
 	Parameter NUM_COLS bound to: 32 - type: integer 
@@ -52,12 +52,12 @@ INFO: [Synth 8-6157] synthesizing module 'core' [C:/minsung/senior_project/git_w
 	Parameter NUM_PE_ROWS bound to: 3 - type: integer 
 	Parameter IA_ROW_MEM_ADDR bound to: 7 - type: integer 
 	Parameter WEIGHT_ROW_MEM_ADDR bound to: 8 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'IA_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-38004-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'IA_ROW_MEM' (1#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-38004-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'WEIGHT_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-38004-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_ROW_MEM' (2#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-38004-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-38004-MinsungKim/realtime/PSUM_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'PSUM_ROW_MEM' (3#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-38004-MinsungKim/realtime/PSUM_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'IA_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-15652-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'IA_ROW_MEM' (1#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-15652-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'WEIGHT_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-15652-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_ROW_MEM' (2#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-15652-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-15652-MinsungKim/realtime/PSUM_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'PSUM_ROW_MEM' (3#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-15652-MinsungKim/realtime/PSUM_ROW_MEM_stub.v:6]
 WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/core.v:296]
 WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/core.v:301]
 WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/core.v:296]
@@ -172,44 +172,44 @@ INFO: [Synth 8-6155] done synthesizing module 'mac' (5#1) [C:/minsung/senior_pro
 INFO: [Synth 8-6155] done synthesizing module 'pe' (6#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/pe.v:4]
 INFO: [Synth 8-6155] done synthesizing module 'pe_array' (7#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/pe_array.v:4]
 INFO: [Synth 8-6155] done synthesizing module 'core' (8#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/core.v:4]
-INFO: [Synth 8-6157] synthesizing module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-38004-MinsungKim/realtime/OUT_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'OUT_MEM' (9#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-38004-MinsungKim/realtime/OUT_MEM_stub.v:6]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:578]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:585]
+INFO: [Synth 8-6157] synthesizing module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-15652-MinsungKim/realtime/OUT_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'OUT_MEM' (9#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-15652-MinsungKim/realtime/OUT_MEM_stub.v:6]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:591]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:598]
 INFO: [Common 17-14] Message 'Synth 8-689' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-6157] synthesizing module 'act_n_weight_ctrlr' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/act_n_weight_ctrlr.v:4]
 	Parameter ADDR_IN bound to: 20 - type: integer 
@@ -226,24 +226,24 @@ INFO: [Synth 8-6157] synthesizing module 'act_n_weight_ctrlr' [C:/minsung/senior
 	Parameter IS_DONE bound to: 3'b011 
 	Parameter DONE bound to: 3'b100 
 INFO: [Synth 8-6155] done synthesizing module 'act_n_weight_ctrlr' (10#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/act_n_weight_ctrlr.v:4]
-INFO: [Synth 8-6157] synthesizing module 'INPUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-38004-MinsungKim/realtime/INPUT_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'INPUT_MEM' (11#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-38004-MinsungKim/realtime/INPUT_MEM_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'WEIGHT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-38004-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_MEM' (12#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-38004-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'INPUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-15652-MinsungKim/realtime/INPUT_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'INPUT_MEM' (11#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-15652-MinsungKim/realtime/INPUT_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'WEIGHT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-15652-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_MEM' (12#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/.Xil/Vivado-15652-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'top' (13#1) [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:4]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1673.633 ; gain = 214.887
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1674.734 ; gain = 217.102
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1691.562 ; gain = 232.816
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1692.660 ; gain = 235.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1691.562 ; gain = 232.816
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1692.660 ; gain = 235.027
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1834.477 ; gain = 11.684
+Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1837.980 ; gain = 12.066
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -1372,13 +1372,13 @@ Parsing XDC File [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/pro
 Finished Parsing XDC File [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.057 . Memory (MB): peak = 2213.391 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.072 . Memory (MB): peak = 2216.238 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2213.391 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2216.238 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:40 ; elapsed = 00:00:39 . Memory (MB): peak = 2213.391 ; gain = 754.645
+Finished Constraint Validation : Time (s): cpu = 00:00:40 ; elapsed = 00:00:40 . Memory (MB): peak = 2216.238 ; gain = 758.605
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -1386,7 +1386,7 @@ Start Loading Part and Timing Information
 Loading part: xczu9eg-ffvb1156-2-e
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:40 ; elapsed = 00:00:39 . Memory (MB): peak = 2213.391 ; gain = 754.645
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:40 ; elapsed = 00:00:40 . Memory (MB): peak = 2216.238 ; gain = 758.605
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -1952,7 +1952,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for \gen_out_row_mem[7].OUT_ROW_MEM_i
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_out_row_mem[8].OUT_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_out_row_mem[9].OUT_ROW_MEM_inst . (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:44 ; elapsed = 00:00:43 . Memory (MB): peak = 2213.391 ; gain = 754.645
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:44 ; elapsed = 00:00:43 . Memory (MB): peak = 2216.238 ; gain = 758.605
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'pe_array'
 ---------------------------------------------------------------------------------------------------
@@ -1963,7 +1963,7 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'pe_ar
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'pe_array'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:48 ; elapsed = 00:00:47 . Memory (MB): peak = 2213.391 ; gain = 754.645
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:48 ; elapsed = 00:00:48 . Memory (MB): peak = 2216.238 ; gain = 758.605
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -1975,7 +1975,7 @@ Detailed RTL Component Info :
 	   2 Input   20 Bit       Adders := 1     
 	   2 Input   18 Bit       Adders := 1     
 	   2 Input   13 Bit       Adders := 1     
-	   2 Input   12 Bit       Adders := 385   
+	   2 Input   12 Bit       Adders := 388   
 	   2 Input   10 Bit       Adders := 3     
 	   2 Input    9 Bit       Adders := 12    
 	   2 Input    8 Bit       Adders := 772   
@@ -1991,7 +1991,7 @@ Detailed RTL Component Info :
 	               20 Bit    Registers := 1     
 	               18 Bit    Registers := 1     
 	               13 Bit    Registers := 6     
-	               12 Bit    Registers := 519   
+	               12 Bit    Registers := 522   
 	               11 Bit    Registers := 1     
 	               10 Bit    Registers := 7     
 	                8 Bit    Registers := 5780  
@@ -2004,14 +2004,14 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input   96 Bit        Muxes := 116   
 	   3 Input   96 Bit        Muxes := 12    
-	   2 Input   32 Bit        Muxes := 404   
+	   2 Input   32 Bit        Muxes := 436   
 	   2 Input   20 Bit        Muxes := 5     
 	   3 Input   20 Bit        Muxes := 1     
 	   2 Input   18 Bit        Muxes := 389   
 	   3 Input   18 Bit        Muxes := 1     
 	   2 Input   13 Bit        Muxes := 1     
 	   3 Input   13 Bit        Muxes := 1     
-	   2 Input   12 Bit        Muxes := 1280  
+	   2 Input   12 Bit        Muxes := 1284  
 	   2 Input   10 Bit        Muxes := 3     
 	   3 Input   10 Bit        Muxes := 3     
 	   2 Input    8 Bit        Muxes := 6614  
@@ -2022,11 +2022,12 @@ Detailed RTL Component Info :
 	   2 Input    4 Bit        Muxes := 7     
 	   3 Input    4 Bit        Muxes := 1     
 	   2 Input    3 Bit        Muxes := 1169  
-	   2 Input    2 Bit        Muxes := 1948  
+	   2 Input    2 Bit        Muxes := 1947  
 	   7 Input    2 Bit        Muxes := 4     
 	   8 Input    2 Bit        Muxes := 4     
 	   3 Input    2 Bit        Muxes := 769   
-	   5 Input    2 Bit        Muxes := 769   
+	   5 Input    2 Bit        Muxes := 768   
+	   6 Input    2 Bit        Muxes := 1     
 	   2 Input    1 Bit        Muxes := 7404  
 	   4 Input    1 Bit        Muxes := 4     
 	   3 Input    1 Bit        Muxes := 3466  
@@ -2047,6 +2048,14 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\state_reg[2] )
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[7].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[7].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[8].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[8].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[9].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[9].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[10].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[10].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[11].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[11].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[19].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[19].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[22].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[22].pe_inst/state_reg[2]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[7].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[8].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[9].pe_inst /\state_reg[2] )
@@ -2100,108 +2109,6 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[13].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[14].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[15].pe_inst /\state_reg[2] )
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[3].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[3].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[4].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[4].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[5].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[5].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[2].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[2].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[3].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[3].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[4].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[4].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[5].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[5].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[2].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[2].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[3].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[3].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[4].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[4].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[5].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[5].pe_inst/state_reg[2]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[16]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[0].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[16]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[1].gen_cols[0].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[16]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[0].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[16]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[1].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[16]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[2].gen_cols[1].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[16]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[0].gen_cols[2].pe_inst/mac_inst/mult_data_reg_reg[31]'
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[0].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[1].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[2].pe_inst /\state_reg[2] )
@@ -2219,6 +2126,100 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[3].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[4].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[2].gen_cols[5].pe_inst /\state_reg[2] )
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[27].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[27].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[28].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[28].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[29].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[29].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[30].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[30].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[31].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[31].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[26].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[27].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[27].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[28].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[28].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[29].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[29].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[30].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[30].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[31].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[31].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[26].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[26].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[27].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[27].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[28].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[28].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[29].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[29].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[30].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[30].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[31].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[31].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[16]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[0].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[16]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[1].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[16]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[2].gen_cols[25].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[16]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[23]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[24]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[25]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[26]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[27]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[28]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[29]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[30]' (FDC) to 'gen_rows[0].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[15]' (FDC) to 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[16]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[16]' (FDC) to 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[17]' (FDC) to 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[18]' (FDC) to 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[19]' (FDC) to 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[20]' (FDC) to 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[21]' (FDC) to 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[22]' (FDC) to 'gen_rows[1].gen_cols[26].pe_inst/mac_inst/mult_data_reg_reg[31]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[25].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[26].pe_inst /\state_reg[2] )
@@ -2252,13 +2253,13 @@ DSP Report: operator weight_mem_addr1 is absorbed into DSP weight_mem_addr1.
 DSP Report: Generating DSP weight_mem_addr, operation Mode is: PCIN+A*B.
 DSP Report: operator weight_mem_addr is absorbed into DSP weight_mem_addr.
 DSP Report: operator weight_mem_addr1 is absorbed into DSP weight_mem_addr.
-INFO: [Synth 8-4471] merging register 'psum_row_mem_addr_in_reg_delay_reg[1][11:0]' into 'psum_row_mem_addr_in_reg_delay_reg[0][11:0]' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:343]
-INFO: [Synth 8-4471] merging register 'psum_row_mem_addr_in_reg_delay_reg[2][11:0]' into 'psum_row_mem_addr_in_reg_delay_reg[0][11:0]' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:343]
-INFO: [Synth 8-4471] merging register 'psum_row_mem_addr_in_reg_delay_reg[3][11:0]' into 'psum_row_mem_addr_in_reg_delay_reg[0][11:0]' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:343]
+INFO: [Synth 8-4471] merging register 'psum_row_mem_addr_in_reg_delay_reg[1][11:0]' into 'psum_row_mem_addr_in_reg_delay_reg[0][11:0]' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:342]
+INFO: [Synth 8-4471] merging register 'psum_row_mem_addr_in_reg_delay_reg[2][11:0]' into 'psum_row_mem_addr_in_reg_delay_reg[0][11:0]' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:342]
+INFO: [Synth 8-4471] merging register 'psum_row_mem_addr_in_reg_delay_reg[3][11:0]' into 'psum_row_mem_addr_in_reg_delay_reg[0][11:0]' [C:/minsung/senior_project/git_works/Back_Up_1030/project_1/top.v:342]
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\state_delay_reg[2] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:05 ; elapsed = 00:02:44 . Memory (MB): peak = 2213.391 ; gain = 754.645
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:48 ; elapsed = 00:03:39 . Memory (MB): peak = 2216.238 ; gain = 758.605
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -2283,19 +2284,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:30 ; elapsed = 00:03:12 . Memory (MB): peak = 2532.977 ; gain = 1074.230
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:22 ; elapsed = 00:04:16 . Memory (MB): peak = 2525.488 ; gain = 1067.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:38 ; elapsed = 00:03:21 . Memory (MB): peak = 2532.977 ; gain = 1074.230
+Finished Timing Optimization : Time (s): cpu = 00:03:26 ; elapsed = 00:04:20 . Memory (MB): peak = 2526.590 ; gain = 1068.957
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:03:01 ; elapsed = 00:04:07 . Memory (MB): peak = 2603.020 ; gain = 1144.273
+Finished Technology Mapping : Time (s): cpu = 00:03:51 ; elapsed = 00:05:13 . Memory (MB): peak = 2590.809 ; gain = 1133.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -2313,37 +2314,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:03:30 ; elapsed = 00:04:39 . Memory (MB): peak = 3050.188 ; gain = 1591.441
+Finished IO Insertion : Time (s): cpu = 00:04:38 ; elapsed = 00:06:05 . Memory (MB): peak = 3038.504 ; gain = 1580.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:03:31 ; elapsed = 00:04:39 . Memory (MB): peak = 3050.188 ; gain = 1591.441
+Finished Renaming Generated Instances : Time (s): cpu = 00:04:40 ; elapsed = 00:06:06 . Memory (MB): peak = 3038.504 ; gain = 1580.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:48 ; elapsed = 00:04:57 . Memory (MB): peak = 3050.188 ; gain = 1591.441
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:05:11 ; elapsed = 00:06:38 . Memory (MB): peak = 3038.504 ; gain = 1580.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:03:49 ; elapsed = 00:04:58 . Memory (MB): peak = 3050.188 ; gain = 1591.441
+Finished Renaming Generated Ports : Time (s): cpu = 00:05:12 ; elapsed = 00:06:39 . Memory (MB): peak = 3038.504 ; gain = 1580.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:03:56 ; elapsed = 00:05:04 . Memory (MB): peak = 3050.188 ; gain = 1591.441
+Finished Handling Custom Attributes : Time (s): cpu = 00:05:24 ; elapsed = 00:06:51 . Memory (MB): peak = 3038.504 ; gain = 1580.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:03:56 ; elapsed = 00:05:05 . Memory (MB): peak = 3050.188 ; gain = 1591.441
+Finished Renaming Generated Nets : Time (s): cpu = 00:05:25 ; elapsed = 00:06:52 . Memory (MB): peak = 3038.504 ; gain = 1580.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -2378,7 +2379,7 @@ Report Cell Usage:
 |549   |WEIGHT_ROW_MEM  |     1|
 |550   |WEIGHT_ROW_MEM_ |    11|
 |561   |BUFG            |     1|
-|562   |CARRY8          | 10091|
+|562   |CARRY8          | 10089|
 |563   |DSP_ALU         |     5|
 |564   |DSP_A_B_DATA    |     5|
 |566   |DSP_C_DATA      |     5|
@@ -2387,31 +2388,31 @@ Report Cell Usage:
 |569   |DSP_OUTPUT      |     5|
 |570   |DSP_PREADD      |     5|
 |571   |DSP_PREADD_DATA |     5|
-|572   |LUT1            |   316|
-|573   |LUT2            | 23538|
-|574   |LUT3            | 42024|
-|575   |LUT4            | 29793|
-|576   |LUT5            | 16249|
-|577   |LUT6            | 46596|
-|578   |FDCE            | 73563|
+|572   |LUT1            |   307|
+|573   |LUT2            | 24609|
+|574   |LUT3            | 41926|
+|575   |LUT4            | 29916|
+|576   |LUT5            | 16245|
+|577   |LUT6            | 46607|
+|578   |FDCE            | 73456|
 |579   |FDRE            |   426|
 |580   |IBUF            |   373|
 |581   |OBUF            |   257|
 |582   |OBUFT           |    16|
 +------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:03:57 ; elapsed = 00:05:06 . Memory (MB): peak = 3050.188 ; gain = 1591.441
+Finished Writing Synthesis Report : Time (s): cpu = 00:05:26 ; elapsed = 00:06:53 . Memory (MB): peak = 3038.504 ; gain = 1580.871
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:03:20 ; elapsed = 00:04:41 . Memory (MB): peak = 3050.188 ; gain = 1069.613
-Synthesis Optimization Complete : Time (s): cpu = 00:03:57 ; elapsed = 00:05:08 . Memory (MB): peak = 3050.188 ; gain = 1591.441
+Synthesis Optimization Runtime : Time (s): cpu = 00:04:50 ; elapsed = 00:06:30 . Memory (MB): peak = 3038.504 ; gain = 1057.293
+Synthesis Optimization Complete : Time (s): cpu = 00:05:26 ; elapsed = 00:06:57 . Memory (MB): peak = 3038.504 ; gain = 1580.871
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 3089.121 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 10470 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3084.809 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 10468 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 2 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.111 . Memory (MB): peak = 3257.773 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.171 . Memory (MB): peak = 3250.113 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 379 instances were transformed.
   BUFG => BUFGCE: 1 instance 
@@ -2421,8 +2422,8 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 244 Infos, 100 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:05:35 ; elapsed = 00:06:55 . Memory (MB): peak = 3257.773 ; gain = 2152.055
+synth_design: Time (s): cpu = 00:06:59 ; elapsed = 00:08:42 . Memory (MB): peak = 3250.113 ; gain = 2142.617
 INFO: [Common 17-1381] The checkpoint 'C:/minsung/senior_project/git_works/Back_Up_1030/project_1/project_1.runs/synth_1/top.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:41 ; elapsed = 00:00:34 . Memory (MB): peak = 3257.773 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:01:02 ; elapsed = 00:00:51 . Memory (MB): peak = 3250.113 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Oct 31 00:21:54 2025...
+INFO: [Common 17-206] Exiting Vivado at Fri Oct 31 03:03:35 2025...

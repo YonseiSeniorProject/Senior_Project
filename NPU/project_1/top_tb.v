@@ -2,6 +2,9 @@
 
 module top_tb;
 
+    localparam OUT_BW = 8;
+    localparam NUM_COLS = 32;
+
     reg clk;
     initial clk = 1'b0;
     always #5 clk <= ~clk;
@@ -22,11 +25,12 @@ module top_tb;
 
     reg             out_mem_ena;
     reg     [15:0]  out_mem_addra, out_mem_addra_buf;
-    wire    [31:0]  out_mem_douta;
-    reg     [31:0]  out_mem_douta_buf;
+    wire    [OUT_BW*NUM_COLS-1:0]  out_mem_douta;
+    reg     [OUT_BW*NUM_COLS-1:0]  out_mem_douta_buf;
     reg             out_mem_wea;
     
-    reg     [31:0]  answer_mem [0:1000];
+    reg     [OUT_BW*NUM_COLS-1:0]    answer_mem [0:600];
+//    reg     [OUT_BW*NUM_COLS-1:0]   answer_mem_concat;
     
     initial begin
         $display("Welcom EE3551_Practice12!");
@@ -111,16 +115,16 @@ module top_tb;
     integer i;
     task compare_memory;
         begin
-            $readmemh("C:/minsung/6_ISL_Intern/ISL_NPU/VIVADO/project_2_lite_v2_no_quant/conv4_tile_layer_output_hex_1d.hex", answer_mem);
+            $readmemh("C:/minsung/senior_project/git_works/Back_Up_1030/project_1/3x3_s1_out_8bit_cols32.hex", answer_mem);
             out_mem_ena <= 1'b1;
             #20
-            for(i=0; i<1000; i=i+1) begin // 0 ~ 10404
+            for(i=0; i<600; i=i+1) begin // 0 ~ 10404
                 out_mem_addra <= i;
                 out_mem_addra_buf <= out_mem_addra;
                 #10
 //                if(i%100 == 0)  $display ("By 100th: [%d] IIDEAL : %h DUT : %h", out_mem_addra_buf, answer_mem[out_mem_addra_buf],out_mem_douta);
                 if(i >= 0) begin
-                    if(answer_mem[out_mem_addra] != out_mem_douta) begin                                                            // if(answer_mem[out_mem_addra_buf] != out_mem_douta) begin
+                    if(answer_mem[out_mem_addra] != out_mem_douta) begin   
                         $display("Error: memory comparison failed @ %8dns", $time);
                         $display ("[%d] IIDEAL : %h DUT : %h", out_mem_addra, answer_mem[out_mem_addra],out_mem_douta );    // $display ("[%d] IIDEAL : %h DUT : %h", out_mem_addra_buf, answer_mem[out_mem_addra_buf],out_mem_douta );
                         $finish;

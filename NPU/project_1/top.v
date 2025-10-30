@@ -321,7 +321,6 @@ module top#(
     
     wire compute_done;
     assign compute_done = (state_delay==WORKING & (&core_done));
-    wire out_mem_acc_done;
     
     /***** Debugging Code for out_mem_acc *****/
     reg [NUM_COLS-1:0]         psum_row_mem_en_in_reg  [NUM_CORE-1:0];
@@ -393,6 +392,15 @@ module top#(
                 end
                 for (m = 0; m < NUM_COLS; m = m + 1) begin
                     out_row_data_in_b_quantize_reg[m] <= out_row_data_in_b_quantize[m];
+                end
+            end
+            else begin
+                for (k = 0; k < NUM_CORE; k = k + 1) begin
+                    psum_row_mem_en_in_reg[k]   <= 0;
+                    psum_row_mem_addr_in_reg[k] <= 0;
+                end
+                for (m = 0; m < NUM_COLS; m = m + 1) begin
+                    out_row_data_in_b_quantize_reg[m] <= 0;
                 end
             end
         end 
@@ -473,6 +481,9 @@ module top#(
         end
     endgenerate
     
+    wire out_mem_acc_done;
+    assign out_mem_acc_done = (out_row_mem_addr >= IMG_W*OC);
+    
     // ------------------------------------------------------------------------
     // FSM for top.v 
     // ------------------------------------------------------------------------
@@ -481,6 +492,8 @@ module top#(
 //    localparam IDLE     = 3'd0;
 //    localparam WORKING  = 3'd1;
 //    localparam DONE     = 3'd2;
+
+    assign done = (state == IDLE);
     
     always @(posedge clk or negedge resetn) begin
         if(~resetn) state <= IDLE;
