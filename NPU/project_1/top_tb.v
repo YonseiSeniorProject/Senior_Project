@@ -39,21 +39,21 @@ module top_tb;
         out_mem_douta_buf <= 7'd0;
         
 //////////////////////////////
-        IC <= 14'd16;
-        K <= 3'd1;
-        IMG_H <= 6'd32;
-        IMG_W <= 6'd32;
-        OC <= 8'd32;
-        stride <= 3'd1;
-        shift_n <= 4'd8;
-//////////////////////////////        
-//        IC <= 14'd8;
-//        K <= 3'd3;
+//        IC <= 14'd16;
+//        K <= 3'd1;
 //        IMG_H <= 6'd32;
 //        IMG_W <= 6'd32;
-//        OC <= 8'd16;
+//        OC <= 8'd32;
 //        stride <= 3'd1;
-//        shift_n <= 4'd8;    
+//        shift_n <= 4'd8;
+//////////////////////////////        
+        IC <= 14'd8;
+        K <= 3'd3;
+        IMG_H <= 6'd32;
+        IMG_W <= 6'd32;
+        OC <= 8'd16;
+        stride <= 3'd1;
+        shift_n <= 4'd8;    
 //////////////////////////////    
 //        IC <= 14'd8;
 //        K <= 3'd3;
@@ -63,6 +63,15 @@ module top_tb;
 //        stride <= 3'd2;
 //        shift_n <= 4'd8;    
 //////////////////////////////
+//        IC <= 14'd16;
+//        K <= 3'd3;
+//        IMG_H <= 6'd20;
+//        IMG_W <= 6'd16;
+//        OC <= 8'd64;
+//        stride <= 3'd1;
+//        shift_n <= 4'd8;
+//////////////////////////////
+        
         #200
         start <= 1'b1;
         #10
@@ -145,9 +154,13 @@ module top_tb;
         .weight_dina_top(tot_weight_dina), 
         
         // OUTPUT B-port
-        .out_mem_clkb_top(clk), .out_mem_enb_top(out_mem_ena), .out_mem_web_top(out_mem_wea),
-        .out_mem_addrb_top(out_mem_addra), 
-        .out_mem_doutb_top(out_mem_douta)
+        .output_clkb(clk), .output_enb(out_mem_ena), .output_web(out_mem_wea),
+        .output_addrb(out_mem_addra),
+        .output_dinb(),
+        .output_doutb(out_mem_douta)
+//        .out_mem_clkb_top(clk), .out_mem_enb_top(out_mem_ena), .out_mem_web_top(out_mem_wea),
+//        .out_mem_addrb_top(out_mem_addra), 
+//        .out_mem_doutb_top(out_mem_douta)
         
     );
 

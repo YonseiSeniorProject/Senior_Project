@@ -129,7 +129,7 @@ module pe_array#(
         end
         else begin
             if(state != IDLE) begin
-                if(start_cnt == IMG_W) begin // NUM_COLS
+                if(start_cnt == IMG_H) begin // NUM_ROWS, not IMG_W
                     start_cnt   <= start_cnt;
                     start_array <= 0;
                 end

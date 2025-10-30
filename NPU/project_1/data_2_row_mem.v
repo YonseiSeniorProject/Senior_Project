@@ -204,12 +204,14 @@ module data_2_row_mem #(
                         offset_cnt <= offset_cnt + 1;
                     end
                     if ((act_row_mem_each_addr_reg) == input_img_w - 1) begin
+                        which_act_row_mem_en_reg <= 0;
+                        which_act_row_mem_we_reg <= 0;
                         if (K==3) begin
                             if(STRIDE == 1) begin
                                 if (offset_cnt == 1) begin
                                     // restore previous enable signal to zero
-                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay] <= 0;
-                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay] <= 0;
+//                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay] <= 0;
+//                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay] <= 0;
                                     ////////////////////////////////////////////////////////////
                                     
                                     offset_cnt <= offset_cnt + 1;
@@ -226,14 +228,14 @@ module data_2_row_mem #(
                                 end
                                 else if (offset_cnt == 2 && ia_row_mem_cnt < IMG_H - 1) begin
                                     // restore previous enable signal to zero
-                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay] <= 0;
-                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay] <= 0;
+//                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay] <= 0;
+//                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay] <= 0;
                                     
-                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
-                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
+//                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
+//                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
                                     
-                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
-                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
+//                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
+//                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
                                     ////////////////////////////////////////////////////////////
                                     
                                     offset_cnt <= offset_cnt;
@@ -254,14 +256,14 @@ module data_2_row_mem #(
                                 end
                                 else if (offset_cnt == 2 && ia_row_mem_cnt == IMG_H - 1) begin
                                     // restore previous enable signal to zero
-                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay] <= 0;
-                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay] <= 0;
+//                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay] <= 0;
+//                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay] <= 0;
                                     
-                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
-                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
+//                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
+//                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
                                     
-                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
-                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
+//                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
+//                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
                                     ////////////////////////////////////////////////////////////
                                     
                                     offset_cnt <= offset_cnt;
@@ -278,11 +280,11 @@ module data_2_row_mem #(
                                 end
                                 else if (offset_cnt == 2 && ia_row_mem_cnt == IMG_H) begin
                                     // restore previous enable signal to zero
-                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
-                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
+//                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
+//                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+OFFSET_S1] <= 0;
                                     
-                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
-                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
+//                                    which_act_row_mem_en_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
+//                                    which_act_row_mem_we_reg[ia_row_mem_cnt_delay+2*OFFSET_S1] <= 0;
                                     ////////////////////////////////////////////////////////////
                                     
                                     offset_cnt <= offset_cnt;
@@ -297,11 +299,11 @@ module data_2_row_mem #(
                             else begin
                                 if (offset_cnt == 1) begin
                                     // restore previous enable signal to zero 
-                                    which_act_row_mem_en_reg[ia_row_mem_cnt] <= 0;
-                                    which_act_row_mem_we_reg[ia_row_mem_cnt] <= 0;
+//                                    which_act_row_mem_en_reg[ia_row_mem_cnt] <= 0;
+//                                    which_act_row_mem_we_reg[ia_row_mem_cnt] <= 0;
                                     
-                                    which_act_row_mem_en_reg[ia_row_mem_cnt + OFFSET_S2] <= 0;
-                                    which_act_row_mem_we_reg[ia_row_mem_cnt + OFFSET_S2] <= 0;
+//                                    which_act_row_mem_en_reg[ia_row_mem_cnt + OFFSET_S2] <= 0;
+//                                    which_act_row_mem_we_reg[ia_row_mem_cnt + OFFSET_S2] <= 0;
                                     ////////////////////////////////////////////////////////////
                                                                         
                                     offset_cnt <= offset_cnt + 1;
@@ -313,8 +315,8 @@ module data_2_row_mem #(
                                 end
                                 else if (offset_cnt == 2) begin
                                     // restore previous enable signal to zero
-                                    which_act_row_mem_en_reg[ia_row_mem_cnt + 1 + OFFSET_S1] <= 0;
-                                    which_act_row_mem_we_reg[ia_row_mem_cnt + 1 + OFFSET_S1] <= 0;  
+//                                    which_act_row_mem_en_reg[ia_row_mem_cnt + 1 + OFFSET_S1] <= 0;
+//                                    which_act_row_mem_we_reg[ia_row_mem_cnt + 1 + OFFSET_S1] <= 0;  
                                     ////////////////////////////////////////////////////////////
                                     
                                     offset_cnt <= offset_cnt - 1;
@@ -334,8 +336,8 @@ module data_2_row_mem #(
                             end
                         end
                         else begin
-                            which_act_row_mem_en_reg[ia_row_mem_cnt] <= 0;
-                            which_act_row_mem_we_reg[ia_row_mem_cnt] <= 0;
+//                            which_act_row_mem_en_reg[ia_row_mem_cnt] <= 0;
+//                            which_act_row_mem_we_reg[ia_row_mem_cnt] <= 0;
                             
                             ia_row_mem_cnt <= ia_row_mem_cnt + 1;
                             

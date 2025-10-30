@@ -3,9 +3,11 @@
 
 module top#(
     // SRAM address widths (enough to cover depth)
+    parameter NUM_COLS      = 32,
     parameter ADDR_IN       = 20,           // 2^20 = 1,048,576 > 34x34x512 = 591,872 (HWC)
     parameter ADDR_W        = 18,           // 2^18 = 262,144 > 3x3x512x32 = 147,456 (KH, KW, IC, OC_tile)
     parameter ADDR_OUT      = 15,           // 2^15 = 32,768 > 32x32x32 = 32,768
+    parameter ADDR_PSUM     = 12,
     parameter INPUT_BW      = 8,            // 8bit Data comes from AXI interface
     parameter OUTPUT_BW     = 8             // 8bit Data goes to AXI interface (after Fixed point Quantization)
     )(
@@ -46,12 +48,18 @@ module top#(
     // ------------------------------------------------------------------------
     // Store Output Logits
     // ------------------------------------------------------------------------
-    input  wire                             out_mem_clkb_top,
-    input  wire                             out_mem_enb_top,
-    input  wire                             out_mem_web_top,
-    input  wire [ADDR_OUT-1:0]              out_mem_addrb_top,
-    input  wire signed [OUTPUT_BW-1:0]      out_mem_dinb_top,
-    output wire signed [OUTPUT_BW-1:0]      out_mem_doutb_top
+    input  wire                             output_clkb,
+    input  wire                             output_enb,
+    input  wire                             output_web,
+    input  wire [ADDR_PSUM-1:0]             output_addrb,
+    input  wire [NUM_COLS*OUTPUT_BW-1:0]    output_dinb,
+    output wire [NUM_COLS*OUTPUT_BW-1:0]    output_doutb
+//    input  wire                             out_mem_clkb_top,
+//    input  wire                             out_mem_enb_top,
+//    input  wire                             out_mem_web_top,
+//    input  wire [ADDR_OUT-1:0]              out_mem_addrb_top,
+//    input  wire signed [OUTPUT_BW-1:0]      out_mem_dinb_top,
+//    output wire signed [OUTPUT_BW-1:0]      out_mem_doutb_top
     );
     // ------------------------------------------------------------------------
     // IF MAP & TOTAL WEIGHT MEM B-ports (READ), OUT MEM A-ports (WRITE)
@@ -258,8 +266,8 @@ module top#(
     // 4) PSUMs are accumulated and goes to 32 different output psum ports (in implementation psums ports are flattened)
     // ------------------------------------------------------------------------
     localparam PSUM_BW           = 32;
-    localparam NUM_COLS          = 32;
-    localparam ADDR_PSUM         = 12;
+//    localparam NUM_COLS          = 32;
+//    localparam ADDR_PSUM         = 12;
     
     wire [PSUM_BW*NUM_COLS-1:0] core_psum_rows [NUM_CORE-1:0];
     
@@ -317,8 +325,14 @@ module top#(
     
     /***** Debugging Code for out_mem_acc *****/
     reg [NUM_COLS-1:0]         psum_row_mem_en_in_reg  [NUM_CORE-1:0];
+    reg [NUM_COLS-1:0]         psum_row_mem_en_in_reg_delay;
+    reg [NUM_COLS-1:0]         psum_row_mem_en_in_reg_delay2;
+    
     reg [ADDR_PSUM-1:0]        psum_row_mem_addr_in_reg[NUM_CORE-1:0];
     reg [ADDR_PSUM-1:0]        psum_row_mem_addr_in_reg_delay[NUM_CORE-1:0];
+    reg [ADDR_PSUM-1:0]        psum_row_mem_addr_in_reg_delay2;
+    reg [ADDR_PSUM-1:0]        psum_row_mem_addr_in_reg_delay3;
+    
     generate
         for (i = 0; i < NUM_CORE; i = i + 1) begin : gen_psum_row_mem_en
             assign psum_row_mem_en_in[i] = psum_row_mem_en_in_reg[i];
@@ -331,10 +345,10 @@ module top#(
     endgenerate
     
     
-    wire [PSUM_BW-1:0]         out_row_data_in_b_quantize [NUM_COLS-1:0];
-    reg [PSUM_BW-1:0]          out_row_data_in_b_quantize_reg [NUM_COLS-1:0];
+    wire signed [PSUM_BW-1:0]     out_row_data_in_b_quantize [NUM_COLS-1:0];
+    reg  signed [PSUM_BW-1:0]     out_row_data_in_b_quantize_reg [NUM_COLS-1:0];
     
-    wire [PSUM_BW-1:0] psum_row_data_out_each   [NUM_CORE-1:0][NUM_COLS-1:0];
+    wire signed [PSUM_BW-1:0]     psum_row_data_out_each   [NUM_CORE-1:0][NUM_COLS-1:0];
     
     genvar r, c;
     generate
@@ -348,7 +362,7 @@ module top#(
     genvar col, rr;
     generate
         for (col = 0; col < NUM_COLS; col = col + 1) begin : gen_col_sums
-            wire [PSUM_BW-1:0] partial [NUM_CORE-1:0];  // 부분 합 배열 (각 col마다 독립)
+            wire signed [PSUM_BW-1:0] partial [NUM_CORE-1:0];  // 부분 합 배열 (각 col마다 독립)
             
             assign partial[0] = psum_row_data_out_each[0][col];
             
@@ -396,6 +410,68 @@ module top#(
             end
         end 
     end
+    
+    always @(posedge clk or negedge resetn) begin
+        if(~resetn) begin
+            psum_row_mem_en_in_reg_delay    <= 0;
+            psum_row_mem_en_in_reg_delay2   <= 0;
+            psum_row_mem_addr_in_reg_delay2 <= 0;
+            psum_row_mem_addr_in_reg_delay3 <= 0;
+        end
+        else begin
+            psum_row_mem_en_in_reg_delay    <= psum_row_mem_en_in_reg[0];
+            psum_row_mem_en_in_reg_delay2   <= psum_row_mem_en_in_reg_delay;
+            psum_row_mem_addr_in_reg_delay2 <= psum_row_mem_addr_in_reg_delay[0];
+            psum_row_mem_addr_in_reg_delay3 <= psum_row_mem_addr_in_reg_delay2;
+        end 
+    end
+    
+    // ------------------------------------------------------------------------
+    // Clamp & ReLU Logic
+    // ------------------------------------------------------------------------
+    // Truncate 10 LSBs (maintains sign)
+    wire signed [PSUM_BW-1:0]       msb_data [NUM_COLS-1:0];
+    wire signed [OUTPUT_BW-1:0]     out_data [NUM_COLS-1:0];
+    generate
+        for (i = 0; i < NUM_COLS; i = i + 1) begin : gen_shift
+            assign msb_data[i] = out_row_data_in_b_quantize_reg[i] >>> shift_n;
+        end
+    endgenerate
+    
+    // Clamp boundaries
+    localparam signed [OUTPUT_BW-1:0] MAX_VAL =  8'sd127;
+    localparam signed [OUTPUT_BW-1:0] MIN_VAL = -8'sd128;
+
+    // Clamp & ReLU with assign
+    generate
+        for (i = 0; i < NUM_COLS; i = i + 1) begin : gen_clamp
+            assign out_data[i] =   (msb_data[i] > MAX_VAL) ? MAX_VAL :
+                                    (msb_data[i] < 0) ? 0 :
+                                    msb_data[i][OUTPUT_BW-1:0];
+        end
+    endgenerate
+    
+    // ------------------------------------------------------------------------
+    // Write to seperate 32 out_row_mems, 1 memory has 1 row of output[OC_0 : OC_MAX]
+    // ------------------------------------------------------------------------
+    wire [NUM_COLS-1:0]         out_row_mem_en;
+    wire [ADDR_PSUM-1:0]        out_row_mem_addr;
+    assign out_row_mem_en   = (out_row_mem_addr < (IMG_W*OC)) ? psum_row_mem_en_in_reg_delay2 : 0;
+    assign out_row_mem_addr = psum_row_mem_addr_in_reg_delay3;
+
+    wire [31:0] output_ena;
+    wire [31:0] output_wea;
+    wire [ADDR_PSUM-1:0] output_addra [31:0];
+    wire [OUTPUT_BW-1:0] output_dina [31:0];
+    wire [OUTPUT_BW-1:0] output_douta [31:0];
+    assign output_ena = out_row_mem_en;
+    assign output_wea = out_row_mem_en;
+    generate
+        for (i = 0; i < NUM_COLS; i = i + 1) begin : gen_out_addr
+            assign output_addra[i]  = out_row_mem_addr;
+            assign output_dina[i]   = out_data[i];
+        end
+    endgenerate
     
     // ------------------------------------------------------------------------
     // FSM for top.v 
@@ -493,6 +569,25 @@ module top#(
       .doutb(weight_doutb_1)   
     );
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    generate
+        for (i = 0; i < NUM_COLS; i = i + 1) begin : gen_out_row_mem
+            OUT_MEM OUT_ROW_MEM_inst (
+                .clka (clk),
+                .ena (output_ena[i]),
+                .wea (output_wea[i]),
+                .addra(output_addra[i]),
+                .dina (output_dina[i]),
+                .douta (output_douta[i]),
+                
+                .clkb (output_clkb),
+                .enb (output_enb),
+                .web (output_web),
+                .addrb(output_addrb),
+                .dinb (output_dinb[(i+1)*OUTPUT_BW-1:i*OUTPUT_BW]),
+                .doutb(output_doutb[(i+1)*OUTPUT_BW-1:i*OUTPUT_BW])
+            );
+        end
+    endgenerate
 endmodule
 
 
