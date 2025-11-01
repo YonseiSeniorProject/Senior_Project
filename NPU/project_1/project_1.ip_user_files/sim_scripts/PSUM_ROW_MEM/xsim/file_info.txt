@@ -1,0 +1,2 @@
+PSUM_ROW_MEM.v,verilog,xil_defaultlib,../../../../project_1.gen/sources_1/ip/PSUM_ROW_MEM/sim/PSUM_ROW_MEM.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

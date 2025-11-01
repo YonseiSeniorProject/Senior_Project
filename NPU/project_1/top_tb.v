@@ -54,8 +54,15 @@ module top_tb;
         OC <= 8'd16;
         stride <= 3'd1;
         shift_n <= 4'd8;    
+//////////////////////////////    
+//        IC <= 14'd8;
+//        K <= 3'd3;
+//        IMG_H <= 6'd32;
+//        IMG_W <= 6'd32;
+//        OC <= 8'd16;
+//        stride <= 3'd2;
+//        shift_n <= 4'd8;    
 //////////////////////////////
-
         #200
         start <= 1'b1;
         #10
@@ -128,19 +135,19 @@ module top_tb;
         .STRIDE(stride),
 
         // INPUT A-port
-        .input_clka(clk), .input_ena(input_ena), .input_wea(input_wea),
-        .input_addra(input_addra), 
-        .input_dina(input_dina), 
+        .input_clka_top(clk), .input_ena_top(input_ena), .input_wea_top(input_wea),
+        .input_addra_top(input_addra), 
+        .input_dina_top(input_dina), 
 
         // WEIGHT A-port
-        .weight_clka(clk), .weight_ena(tot_weight_ena), .weight_wea(tot_weight_wea),
-        .weight_addra(tot_weight_addra), 
-        .weight_dina(tot_weight_dina), 
+        .weight_clka_top(clk), .weight_ena_top(tot_weight_ena), .weight_wea_top(tot_weight_wea),
+        .weight_addra_top(tot_weight_addra), 
+        .weight_dina_top(tot_weight_dina), 
         
         // OUTPUT B-port
-        .out_mem_clkb(clk), .out_mem_enb(out_mem_ena), .out_mem_web(out_mem_wea),
-        .out_mem_addrb(out_mem_addra), 
-        .out_mem_doutb(out_mem_douta)
+        .out_mem_clkb_top(clk), .out_mem_enb_top(out_mem_ena), .out_mem_web_top(out_mem_wea),
+        .out_mem_addrb_top(out_mem_addra), 
+        .out_mem_doutb_top(out_mem_douta)
         
     );
 

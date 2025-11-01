@@ -1,7 +1,7 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
--- Date        : Mon Sep 29 16:27:36 2025
+-- Date        : Sun Oct 12 08:32:29 2025
 -- Host        : MinsungKim running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub -rename_top WEIGHT_MEM -prefix
 --               WEIGHT_MEM_ WEIGHT_MEM_stub.vhdl
