@@ -2,15 +2,296 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Thu Oct  2 13:36:21 2025
-# Process ID: 37276
-# Current directory: C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/INPUT_MEM_synth_1
+# Start of session at: Mon Nov  3 00:20:55 2025
+# Process ID: 38112
+# Current directory: C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/INPUT_MEM_synth_1
 # Command line: vivado.exe -log INPUT_MEM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source INPUT_MEM.tcl
-# Log file: C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/INPUT_MEM_synth_1/INPUT_MEM.vds
-# Journal file: C:/minsung/senior_project/git_works/Senior_Project/NPU/project_1/project_1.runs/INPUT_MEM_synth_1\vivado.jou
+# Log file: C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/INPUT_MEM_synth_1/INPUT_MEM.vds
+# Journal file: C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/INPUT_MEM_synth_1\vivado.jou
 #-----------------------------------------------------------
 source INPUT_MEM.tcl -notrace
-create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 1085.645 ; gain = 0.000
-INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP INPUT_MEM, cache-ID = d3747f29b8fa7236.
-config_ip_cache: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1085.645 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Thu Oct  2 13:36:55 2025...
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-3685] Ignored loading user repository 'c:/minsung/senior_project/git_works/Back_Up_1102/project_1_ip/csr_1.0'. The path is contained within another repository.
+WARNING: [IP_Flow 19-2207] Repository 'c:/minsung/senior_project/git_works/Back_Up_1102/project_1_ip/csr_1.0' already exists; ignoring attempt to add it again.
+WARNING: [IP_Flow 19-3685] Ignored loading user repository 'c:/minsung/senior_project/git_works/Back_Up_1102/project_1_ip/csr_1.0'. The path is contained within another repository.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/minsung/senior_project/git_works/Back_Up_1102/project_1_ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
+Command: synth_design -top INPUT_MEM -part xczu9eg-ffvb1156-2-e -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xczu9eg'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg'
+INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-e
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 27480
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1571.168 ; gain = 117.152
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'INPUT_MEM' [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/INPUT_MEM/synth/INPUT_MEM.vhd:76]
+	Parameter C_FAMILY bound to: zynquplus - type: string 
+	Parameter C_XDEVICEFAMILY bound to: zynquplus - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 2 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 0 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: no_coe_file_loaded - type: string 
+	Parameter C_INIT_FILE bound to: INPUT_MEM.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 1 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 557056 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 557056 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 20 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 1 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 557056 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 557056 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 20 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 136 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     44.679528 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_4' declared at 'c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/INPUT_MEM/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_4' [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/INPUT_MEM/synth/INPUT_MEM.vhd:249]
+INFO: [Synth 8-256] done synthesizing module 'INPUT_MEM' (11#1) [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/INPUT_MEM/synth/INPUT_MEM.vhd:76]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 2000.617 ; gain = 546.602
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:45 . Memory (MB): peak = 2016.199 ; gain = 562.184
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:39 ; elapsed = 00:00:45 . Memory (MB): peak = 2016.199 ; gain = 562.184
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.133 . Memory (MB): peak = 2016.199 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM_ooc.xdc] for cell 'U0'
+Parsing XDC File [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/INPUT_MEM_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/INPUT_MEM_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2058.227 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.176 . Memory (MB): peak = 2058.227 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 2058.227 ; gain = 604.211
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xczu9eg-ffvb1156-2-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 2058.227 ; gain = 604.211
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/INPUT_MEM_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 2058.227 ; gain = 604.211
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:55 ; elapsed = 00:01:02 . Memory (MB): peak = 2058.227 ; gain = 604.211
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 2     
++---Muxes : 
+	   2 Input    1 Bit        Muxes := 270   
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 2520 (col length:168)
+BRAMs: 1824 (col length: RAMB18 168 RAMB36 84)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:05 ; elapsed = 00:01:13 . Memory (MB): peak = 2058.227 ; gain = 604.211
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:17 ; elapsed = 00:01:27 . Memory (MB): peak = 2354.883 ; gain = 900.867
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:18 ; elapsed = 00:01:27 . Memory (MB): peak = 2369.711 ; gain = 915.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:18 ; elapsed = 00:01:28 . Memory (MB): peak = 2401.129 ; gain = 947.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:21 ; elapsed = 00:01:30 . Memory (MB): peak = 2415.918 ; gain = 961.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:21 ; elapsed = 00:01:30 . Memory (MB): peak = 2415.918 ; gain = 961.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:21 ; elapsed = 00:01:31 . Memory (MB): peak = 2415.918 ; gain = 961.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:21 ; elapsed = 00:01:31 . Memory (MB): peak = 2415.918 ; gain = 961.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:21 ; elapsed = 00:01:31 . Memory (MB): peak = 2415.918 ; gain = 961.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:21 ; elapsed = 00:01:31 . Memory (MB): peak = 2415.918 ; gain = 961.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |LUT4     |    18|
+|2     |LUT5     |    40|
+|3     |LUT6     |   842|
+|4     |MUXF7    |   256|
+|5     |MUXF8    |   128|
+|6     |RAMB36E2 |   136|
+|7     |FDRE     |    20|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:21 ; elapsed = 00:01:31 . Memory (MB): peak = 2415.918 ; gain = 961.902
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:34 ; elapsed = 00:01:22 . Memory (MB): peak = 2415.918 ; gain = 919.875
+Synthesis Optimization Complete : Time (s): cpu = 00:01:21 ; elapsed = 00:01:31 . Memory (MB): peak = 2415.918 ; gain = 961.902
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.095 . Memory (MB): peak = 2415.918 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 384 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2451.070 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+21 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:32 ; elapsed = 00:01:56 . Memory (MB): peak = 2451.070 ; gain = 1343.406
+INFO: [Common 17-1381] The checkpoint 'C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/INPUT_MEM_synth_1/INPUT_MEM.dcp' has been generated.
+WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP INPUT_MEM, cache-ID = 5dbe021efa6a718e
+INFO: [Coretcl 2-1174] Renamed 278 cell refs.
+INFO: [Common 17-1381] The checkpoint 'C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/INPUT_MEM_synth_1/INPUT_MEM.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file INPUT_MEM_utilization_synth.rpt -pb INPUT_MEM_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  3 00:23:11 2025...
