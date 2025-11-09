@@ -70,8 +70,9 @@ module data_2_row_mem #(
     wire [WEIGHT_PER_CORE-1:0]  weight_per_core     = (K * K * OC);                // strictly, it's per FSM iteration, not per core.
     
     /***** OFFSET since in case of K=3, ia_row_mems should be partially activated *****/
-    localparam OFFSET_S1 = (32-1); // number of PEs in 1 row = number of columns
-    localparam OFFSET_S2 = (64-1);
+    localparam NUM_COLS = 32;
+    localparam OFFSET_S1 = (NUM_COLS-1); // number of PEs in 1 row = number of columns
+    localparam OFFSET_S2 = (2*NUM_COLS-1);
     
     /***** register for counting which row_mem is enabled *****/
     localparam LOG2_NUM_IA_ROW_MEM      = $clog2(NUM_IA_ROW_MEM);
@@ -339,15 +340,19 @@ module data_2_row_mem #(
 //                            which_act_row_mem_en_reg[ia_row_mem_cnt] <= 0;
 //                            which_act_row_mem_we_reg[ia_row_mem_cnt] <= 0;
                             
-                            ia_row_mem_cnt <= ia_row_mem_cnt + 1;
-                            
-                            which_act_row_mem_en_reg[ia_row_mem_cnt + 1] <= 1;
-                            which_act_row_mem_we_reg[ia_row_mem_cnt + 1] <= 1;
-                            
-                            which_ia_row_mem_activate_reg[ia_row_mem_cnt + 1] <= 1;
-                            
                             if(act_row_mem_addr_reg >= act_per_core - 1) begin
                                 ic_iter_cnt <= ic_iter_cnt + 1;
+                                
+                                ia_row_mem_cnt <= ia_row_mem_cnt + (NUM_COLS-IMG_H) + 1;
+                                which_act_row_mem_en_reg[ia_row_mem_cnt + (NUM_COLS-IMG_H) + 1]         <= 1;
+                                which_act_row_mem_we_reg[ia_row_mem_cnt + (NUM_COLS-IMG_H) + 1]         <= 1;
+                                which_ia_row_mem_activate_reg[ia_row_mem_cnt + (NUM_COLS-IMG_H) + 1]    <= 1;
+                            end
+                            else begin
+                                ia_row_mem_cnt <= ia_row_mem_cnt + 1;
+                                which_act_row_mem_en_reg[ia_row_mem_cnt + 1]        <= 1;
+                                which_act_row_mem_we_reg[ia_row_mem_cnt + 1]        <= 1;
+                                which_ia_row_mem_activate_reg[ia_row_mem_cnt + 1]   <= 1;
                             end
                         end
                     end

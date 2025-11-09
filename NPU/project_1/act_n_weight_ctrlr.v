@@ -278,6 +278,11 @@ module act_n_weight_ctrlr #(
                         input_mem_addr_reg  <= input_mem_addr_reg;
                         input_per_core_cnt  <= input_per_core_cnt; 
                     end
+                    else begin
+                        input_mem_addr_reg   <= input_mem_addr_reg + 1;
+                        input_per_core_cnt   <= input_per_core_cnt + 1;
+                    end
+                    
                     if(weight_per_core_cnt == weight_per_core) begin
                         weight_mem_addr_reg  <= weight_mem_addr_reg;
                         weight_per_core_cnt  <= weight_per_core_cnt; 

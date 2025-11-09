@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Mon Nov  3 00:37:55 2025
-# Process ID: 3132
+# Start of session at: Sat Nov  8 23:53:35 2025
+# Process ID: 32040
 # Current directory: C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/top.vds
@@ -23,9 +23,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu9eg
 INFO: [Device 21-403] Loading part xczu9eg-ffvb1156-2-e
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 27768
+INFO: [Synth 8-7075] Helper process launched with PID 27712
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1574.605 ; gain = 116.809
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1575.078 ; gain = 116.918
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:4]
 	Parameter NUM_COLS bound to: 32 - type: integer 
@@ -60,12 +60,12 @@ INFO: [Synth 8-6157] synthesizing module 'core' [C:/minsung/senior_project/git_w
 	Parameter CLEANING bound to: 3'b001 
 	Parameter IA_ROW_MEM_ADDR bound to: 7 - type: integer 
 	Parameter WEIGHT_ROW_MEM_ADDR bound to: 8 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'IA_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-3132-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'IA_ROW_MEM' (1#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-3132-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'WEIGHT_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-3132-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_ROW_MEM' (2#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-3132-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-3132-MinsungKim/realtime/PSUM_ROW_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'PSUM_ROW_MEM' (3#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-3132-MinsungKim/realtime/PSUM_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'IA_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-32040-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'IA_ROW_MEM' (1#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-32040-MinsungKim/realtime/IA_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'WEIGHT_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-32040-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_ROW_MEM' (2#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-32040-MinsungKim/realtime/WEIGHT_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-32040-MinsungKim/realtime/PSUM_ROW_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'PSUM_ROW_MEM' (3#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-32040-MinsungKim/realtime/PSUM_ROW_MEM_stub.v:6]
 WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/core.v:310]
 WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/core.v:315]
 WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'PSUM_ROW_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/core.v:310]
@@ -138,6 +138,7 @@ INFO: [Synth 8-6157] synthesizing module 'data_2_row_mem' [C:/minsung/senior_pro
 	Parameter WEIGHT_ROW_MEM_ADDR bound to: 8 - type: integer 
 	Parameter NUM_IA_ROW_MEM bound to: 96 - type: integer 
 	Parameter NUM_WEIGHT_ROW_MEM bound to: 3 - type: integer 
+	Parameter NUM_COLS bound to: 32 - type: integer 
 	Parameter OFFSET_S1 bound to: 31 - type: integer 
 	Parameter OFFSET_S2 bound to: 63 - type: integer 
 	Parameter LOG2_NUM_IA_ROW_MEM bound to: 7 - type: integer 
@@ -180,44 +181,44 @@ INFO: [Synth 8-6155] done synthesizing module 'mac' (5#1) [C:/minsung/senior_pro
 INFO: [Synth 8-6155] done synthesizing module 'pe' (6#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/pe.v:4]
 INFO: [Synth 8-6155] done synthesizing module 'pe_array' (7#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/pe_array.v:4]
 INFO: [Synth 8-6155] done synthesizing module 'core' (8#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/core.v:4]
-INFO: [Synth 8-6157] synthesizing module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-3132-MinsungKim/realtime/OUT_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'OUT_MEM' (9#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-3132-MinsungKim/realtime/OUT_MEM_stub.v:6]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:677]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:684]
+INFO: [Synth 8-6157] synthesizing module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-32040-MinsungKim/realtime/OUT_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'OUT_MEM' (9#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-32040-MinsungKim/realtime/OUT_MEM_stub.v:6]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
+WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:679]
+WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (11) of module 'OUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:686]
 INFO: [Common 17-14] Message 'Synth 8-689' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-6157] synthesizing module 'act_n_weight_ctrlr' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/act_n_weight_ctrlr.v:4]
 	Parameter ADDR_IN bound to: 20 - type: integer 
@@ -257,24 +258,24 @@ INFO: [Synth 8-6157] synthesizing module 'upsampling' [C:/minsung/senior_project
 	Parameter NEXT bound to: 3'b011 
 	Parameter DONE bound to: 3'b100 
 INFO: [Synth 8-6155] done synthesizing module 'upsampling' (12#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/upsample.v:23]
-INFO: [Synth 8-6157] synthesizing module 'INPUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-3132-MinsungKim/realtime/INPUT_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'INPUT_MEM' (13#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-3132-MinsungKim/realtime/INPUT_MEM_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'WEIGHT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-3132-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_MEM' (14#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-3132-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'INPUT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-32040-MinsungKim/realtime/INPUT_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'INPUT_MEM' (13#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-32040-MinsungKim/realtime/INPUT_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'WEIGHT_MEM' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-32040-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'WEIGHT_MEM' (14#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/.Xil/Vivado-32040-MinsungKim/realtime/WEIGHT_MEM_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'top' (15#1) [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/top.v:4]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1694.598 ; gain = 236.801
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1695.832 ; gain = 237.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1694.598 ; gain = 236.801
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1713.762 ; gain = 255.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1694.598 ; gain = 236.801
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1713.762 ; gain = 255.602
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1843.391 ; gain = 12.457
+Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1850.887 ; gain = 12.883
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -535,10 +536,6 @@ Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/pro
 Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[30].PSUM_ROW_MEM_inst'
 Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[31].PSUM_ROW_MEM_inst'
 Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM/PSUM_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_psum_row_mem[31].PSUM_ROW_MEM_inst'
-Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM/WEIGHT_MEM_in_context.xdc] for cell 'WEIGHT_MEM_0'
-Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM/WEIGHT_MEM_in_context.xdc] for cell 'WEIGHT_MEM_0'
-Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM/WEIGHT_MEM_in_context.xdc] for cell 'WEIGHT_MEM_1'
-Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM/WEIGHT_MEM_in_context.xdc] for cell 'WEIGHT_MEM_1'
 Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_weight_row_mem[0].WEIGHT_ROW_MEM_inst'
 Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_weight_row_mem[0].WEIGHT_ROW_MEM_inst'
 Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM/WEIGHT_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_weight_row_mem[1].WEIGHT_ROW_MEM_inst'
@@ -627,10 +624,6 @@ Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/pro
 Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/OUT_MEM/OUT_MEM/OUT_MEM_in_context.xdc] for cell 'gen_out_row_mem[30].OUT_ROW_MEM_inst'
 Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/OUT_MEM/OUT_MEM/OUT_MEM_in_context.xdc] for cell 'gen_out_row_mem[31].OUT_ROW_MEM_inst'
 Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/OUT_MEM/OUT_MEM/OUT_MEM_in_context.xdc] for cell 'gen_out_row_mem[31].OUT_ROW_MEM_inst'
-Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM/INPUT_MEM_in_context.xdc] for cell 'INPUT_MEM_0'
-Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM/INPUT_MEM_in_context.xdc] for cell 'INPUT_MEM_0'
-Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM/INPUT_MEM_in_context.xdc] for cell 'INPUT_MEM_1'
-Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM/INPUT_MEM_in_context.xdc] for cell 'INPUT_MEM_1'
 Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/IA_ROW_MEM/IA_ROW_MEM/IA_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst'
 Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/IA_ROW_MEM/IA_ROW_MEM/IA_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_ia_row_mem[0].IA_ROW_MEM_inst'
 Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/IA_ROW_MEM/IA_ROW_MEM/IA_ROW_MEM_in_context.xdc] for cell 'gen_core[0].core_inst/gen_ia_row_mem[1].IA_ROW_MEM_inst'
@@ -1399,17 +1392,25 @@ Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/pro
 Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/IA_ROW_MEM/IA_ROW_MEM/IA_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_ia_row_mem[94].IA_ROW_MEM_inst'
 Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/IA_ROW_MEM/IA_ROW_MEM/IA_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_ia_row_mem[95].IA_ROW_MEM_inst'
 Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/IA_ROW_MEM/IA_ROW_MEM/IA_ROW_MEM_in_context.xdc] for cell 'gen_core[3].core_inst/gen_ia_row_mem[95].IA_ROW_MEM_inst'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM/INPUT_MEM_in_context.xdc] for cell 'INPUT_MEM_0'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM/INPUT_MEM_in_context.xdc] for cell 'INPUT_MEM_0'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM/INPUT_MEM_in_context.xdc] for cell 'INPUT_MEM_1'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/INPUT_MEM/INPUT_MEM/INPUT_MEM_in_context.xdc] for cell 'INPUT_MEM_1'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM/WEIGHT_MEM_in_context.xdc] for cell 'WEIGHT_MEM_0'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM/WEIGHT_MEM_in_context.xdc] for cell 'WEIGHT_MEM_0'
+Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM/WEIGHT_MEM_in_context.xdc] for cell 'WEIGHT_MEM_1'
+Finished Parsing XDC File [c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM/WEIGHT_MEM_in_context.xdc] for cell 'WEIGHT_MEM_1'
 Parsing XDC File [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/dont_touch.xdc]
 Finished Parsing XDC File [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.059 . Memory (MB): peak = 2226.035 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.101 . Memory (MB): peak = 2232.086 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.845 . Memory (MB): peak = 2226.035 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2232.086 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:39 ; elapsed = 00:00:38 . Memory (MB): peak = 2226.035 ; gain = 768.238
+Finished Constraint Validation : Time (s): cpu = 00:00:50 ; elapsed = 00:00:51 . Memory (MB): peak = 2232.086 ; gain = 773.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -1417,7 +1418,7 @@ Start Loading Part and Timing Information
 Loading part: xczu9eg-ffvb1156-2-e
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:39 ; elapsed = 00:00:38 . Memory (MB): peak = 2226.035 ; gain = 768.238
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:50 ; elapsed = 00:00:51 . Memory (MB): peak = 2232.086 ; gain = 773.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -1550,8 +1551,6 @@ Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_psum
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_psum_row_mem[9].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_psum_row_mem[9].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_psum_row_mem[9].PSUM_ROW_MEM_inst . (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for WEIGHT_MEM_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for WEIGHT_MEM_1. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_weight_row_mem[0].WEIGHT_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_weight_row_mem[0].WEIGHT_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_weight_row_mem[0].WEIGHT_ROW_MEM_inst . (constraint file  auto generated constraint).
@@ -1596,8 +1595,6 @@ Applied set_property KEEP_HIERARCHY = SOFT for \gen_out_row_mem[6].OUT_ROW_MEM_i
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_out_row_mem[7].OUT_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_out_row_mem[8].OUT_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_out_row_mem[9].OUT_ROW_MEM_inst . (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for INPUT_MEM_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for INPUT_MEM_1. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_ia_row_mem[0].IA_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_ia_row_mem[0].IA_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_ia_row_mem[0].IA_ROW_MEM_inst . (constraint file  auto generated constraint).
@@ -1982,8 +1979,12 @@ Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[0].core_inst /\gen_ia_r
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[1].core_inst /\gen_ia_row_mem[9].IA_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[2].core_inst /\gen_ia_row_mem[9].IA_ROW_MEM_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for \gen_core[3].core_inst /\gen_ia_row_mem[9].IA_ROW_MEM_inst . (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for INPUT_MEM_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for INPUT_MEM_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for WEIGHT_MEM_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for WEIGHT_MEM_1. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:42 . Memory (MB): peak = 2226.035 ; gain = 768.238
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 2232.086 ; gain = 773.926
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'pe_array'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'core__xdcDup__1'
@@ -2040,7 +2041,7 @@ WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_n_state_reg' [C:
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'upsampling'
 WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_n_state_reg' [C:/minsung/senior_project/git_works/Back_Up_1102/project_1/upsample.v:97]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:48 ; elapsed = 00:00:48 . Memory (MB): peak = 2226.035 ; gain = 768.238
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:03 ; elapsed = 00:01:07 . Memory (MB): peak = 2232.086 ; gain = 773.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -2048,6 +2049,7 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input   32 Bit       Adders := 2080  
+	   3 Input   32 Bit       Adders := 4     
 	   4 Input   32 Bit       Adders := 32    
 	   2 Input   20 Bit       Adders := 1     
 	   2 Input   18 Bit       Adders := 1     
@@ -2057,6 +2059,7 @@ Detailed RTL Component Info :
 	   2 Input    9 Bit       Adders := 12    
 	   2 Input    8 Bit       Adders := 772   
 	   2 Input    7 Bit       Adders := 776   
+	   3 Input    7 Bit       Adders := 4     
 	   2 Input    6 Bit       Adders := 390   
 	   3 Input    6 Bit       Adders := 2     
 	   2 Input    5 Bit       Adders := 3     
@@ -2083,11 +2086,11 @@ Detailed RTL Component Info :
 	                2 Bit    Registers := 792   
 	                1 Bit    Registers := 3855  
 +---Muxes : 
-	   2 Input   96 Bit        Muxes := 116   
+	   2 Input   96 Bit        Muxes := 128   
 	   3 Input   96 Bit        Muxes := 12    
 	   2 Input   32 Bit        Muxes := 184   
-	   7 Input   20 Bit        Muxes := 1     
 	   2 Input   20 Bit        Muxes := 5     
+	   7 Input   20 Bit        Muxes := 1     
 	   3 Input   20 Bit        Muxes := 1     
 	   2 Input   18 Bit        Muxes := 5     
 	   3 Input   18 Bit        Muxes := 1     
@@ -2100,10 +2103,10 @@ Detailed RTL Component Info :
 	   4 Input   10 Bit        Muxes := 1     
 	   7 Input   10 Bit        Muxes := 1     
 	   3 Input   10 Bit        Muxes := 3     
-	   2 Input    8 Bit        Muxes := 6728  
+	   2 Input    8 Bit        Muxes := 6760  
 	   3 Input    8 Bit        Muxes := 2688  
 	   7 Input    8 Bit        Muxes := 1     
-	   2 Input    7 Bit        Muxes := 400   
+	   2 Input    7 Bit        Muxes := 408   
 	   3 Input    7 Bit        Muxes := 384   
 	   2 Input    6 Bit        Muxes := 390   
 	   4 Input    6 Bit        Muxes := 2     
@@ -2153,17 +2156,17 @@ DSP Report: operator out_idx1 is absorbed into DSP out_idx1.
 DSP Report: Generating DSP out_idx, operation Mode is: PCIN+A*B.
 DSP Report: operator out_idx is absorbed into DSP out_idx.
 DSP Report: operator base_in is absorbed into DSP out_idx.
-DSP Report: Generating DSP weight_ic_offset, operation Mode is: A*B.
-DSP Report: operator weight_ic_offset is absorbed into DSP weight_ic_offset.
-DSP Report: Generating DSP max_elems_weight_mem, operation Mode is: A*B.
-DSP Report: operator max_elems_weight_mem is absorbed into DSP max_elems_weight_mem.
-DSP Report: Generating DSP max_elems_input_mem, operation Mode is: A*B.
-DSP Report: operator max_elems_input_mem is absorbed into DSP max_elems_input_mem.
-DSP Report: Generating DSP weight_mem_addr1, operation Mode is: A*B.
-DSP Report: operator weight_mem_addr1 is absorbed into DSP weight_mem_addr1.
-DSP Report: Generating DSP weight_mem_addr, operation Mode is: PCIN+A*B.
-DSP Report: operator weight_mem_addr is absorbed into DSP weight_mem_addr.
-DSP Report: operator weight_mem_addr1 is absorbed into DSP weight_mem_addr.
+DSP Report: Generating DSP act_n_weight_ctrlr/weight_ic_offset, operation Mode is: A*B.
+DSP Report: operator act_n_weight_ctrlr/weight_ic_offset is absorbed into DSP act_n_weight_ctrlr/weight_ic_offset.
+DSP Report: Generating DSP act_n_weight_ctrlr/max_elems_weight_mem, operation Mode is: A*B.
+DSP Report: operator act_n_weight_ctrlr/max_elems_weight_mem is absorbed into DSP act_n_weight_ctrlr/max_elems_weight_mem.
+DSP Report: Generating DSP act_n_weight_ctrlr/max_elems_input_mem, operation Mode is: A*B.
+DSP Report: operator act_n_weight_ctrlr/max_elems_input_mem is absorbed into DSP act_n_weight_ctrlr/max_elems_input_mem.
+DSP Report: Generating DSP act_n_weight_ctrlr/weight_mem_addr1, operation Mode is: A*B.
+DSP Report: operator act_n_weight_ctrlr/weight_mem_addr1 is absorbed into DSP act_n_weight_ctrlr/weight_mem_addr1.
+DSP Report: Generating DSP act_n_weight_ctrlr/weight_mem_addr, operation Mode is: PCIN+A*B.
+DSP Report: operator act_n_weight_ctrlr/weight_mem_addr is absorbed into DSP act_n_weight_ctrlr/weight_mem_addr.
+DSP Report: operator act_n_weight_ctrlr/weight_mem_addr1 is absorbed into DSP act_n_weight_ctrlr/weight_mem_addr.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\state_reg[2] )
 INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[7].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[7].pe_inst/state_reg[2]'
 INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[8].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[8].pe_inst/state_reg[2]'
@@ -2172,7 +2175,16 @@ INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[10].pe_inst/mac_inst
 INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[11].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[11].pe_inst/state_reg[2]'
 INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[19].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[19].pe_inst/state_reg[2]'
 INFO: [Synth 8-3886] merging instance 'gen_rows[0].gen_cols[22].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[0].gen_cols[22].pe_inst/state_reg[2]'
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[8].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[8].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[9].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[9].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[10].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[10].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[11].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[11].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[1].gen_cols[19].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[1].gen_cols[19].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[0].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[0].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[8].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[8].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[9].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[9].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[10].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[10].pe_inst/state_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rows[2].gen_cols[11].pe_inst/mac_inst/state_reg[2]' (FDC) to 'gen_rows[2].gen_cols[11].pe_inst/state_reg[2]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[7].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[8].pe_inst /\state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rows[0].gen_cols[9].pe_inst /\state_reg[2] )
@@ -2347,19 +2359,10 @@ INFO: [Synth 8-3886] merging instance 'psum_row_mem_en_in_reg_delay_reg[0]' (FDC
 INFO: [Synth 8-3886] merging instance 'psum_row_mem_en_in_reg_delay_reg[1]' (FDC) to 'psum_row_mem_en_in_reg_delay_reg[30]'
 INFO: [Synth 8-3886] merging instance 'psum_row_mem_en_in_reg_delay_reg[2]' (FDC) to 'psum_row_mem_en_in_reg_delay_reg[30]'
 INFO: [Synth 8-3886] merging instance 'psum_row_mem_en_in_reg_delay_reg[3]' (FDC) to 'psum_row_mem_en_in_reg_delay_reg[30]'
-INFO: [Synth 8-3886] merging instance 'psum_row_mem_en_in_reg_delay_reg[4]' (FDC) to 'psum_row_mem_en_in_reg_delay_reg[30]'
-INFO: [Synth 8-3886] merging instance 'psum_row_mem_en_in_reg_delay_reg[5]' (FDC) to 'psum_row_mem_en_in_reg_delay_reg[30]'
-INFO: [Synth 8-3886] merging instance 'psum_row_mem_en_in_reg_delay_reg[6]' (FDC) to 'psum_row_mem_en_in_reg_delay_reg[30]'
-INFO: [Synth 8-3886] merging instance 'psum_row_mem_en_in_reg_delay_reg[7]' (FDC) to 'psum_row_mem_en_in_reg_delay_reg[30]'
-INFO: [Synth 8-3886] merging instance 'psum_row_mem_en_in_reg_delay_reg[8]' (FDC) to 'psum_row_mem_en_in_reg_delay_reg[30]'
-INFO: [Synth 8-3886] merging instance 'psum_row_mem_en_in_reg_delay_reg[9]' (FDC) to 'psum_row_mem_en_in_reg_delay_reg[30]'
-INFO: [Synth 8-3886] merging instance 'psum_row_mem_en_in_reg_delay_reg[10]' (FDC) to 'psum_row_mem_en_in_reg_delay_reg[30]'
-INFO: [Synth 8-3886] merging instance 'psum_row_mem_en_in_reg_delay_reg[11]' (FDC) to 'psum_row_mem_en_in_reg_delay_reg[30]'
-INFO: [Synth 8-3886] merging instance 'psum_row_mem_en_in_reg_delay_reg[12]' (FDC) to 'psum_row_mem_en_in_reg_delay_reg[30]'
-INFO: [Synth 8-3886] merging instance 'psum_row_mem_en_in_reg_delay_reg[13]' (FDC) to 'psum_row_mem_en_in_reg_delay_reg[30]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:55 ; elapsed = 00:02:28 . Memory (MB): peak = 2226.035 ; gain = 768.238
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:25 ; elapsed = 00:03:14 . Memory (MB): peak = 2232.086 ; gain = 773.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -2388,19 +2391,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:12 ; elapsed = 00:02:47 . Memory (MB): peak = 2525.590 ; gain = 1067.793
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:59 ; elapsed = 00:03:59 . Memory (MB): peak = 2531.734 ; gain = 1073.574
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:14 ; elapsed = 00:02:49 . Memory (MB): peak = 2527.305 ; gain = 1069.508
+Finished Timing Optimization : Time (s): cpu = 00:03:03 ; elapsed = 00:04:04 . Memory (MB): peak = 2531.734 ; gain = 1073.574
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:27 ; elapsed = 00:03:15 . Memory (MB): peak = 2583.730 ; gain = 1125.934
+Finished Technology Mapping : Time (s): cpu = 00:03:26 ; elapsed = 00:04:53 . Memory (MB): peak = 2609.645 ; gain = 1151.484
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -2418,37 +2421,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:50 ; elapsed = 00:03:39 . Memory (MB): peak = 3026.766 ; gain = 1568.969
+Finished IO Insertion : Time (s): cpu = 00:04:07 ; elapsed = 00:05:44 . Memory (MB): peak = 3033.531 ; gain = 1575.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:50 ; elapsed = 00:03:39 . Memory (MB): peak = 3026.766 ; gain = 1568.969
+Finished Renaming Generated Instances : Time (s): cpu = 00:04:08 ; elapsed = 00:05:44 . Memory (MB): peak = 3033.531 ; gain = 1575.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:06 ; elapsed = 00:03:55 . Memory (MB): peak = 3026.766 ; gain = 1568.969
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:30 ; elapsed = 00:06:08 . Memory (MB): peak = 3033.531 ; gain = 1575.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:03:07 ; elapsed = 00:03:56 . Memory (MB): peak = 3026.766 ; gain = 1568.969
+Finished Renaming Generated Ports : Time (s): cpu = 00:04:32 ; elapsed = 00:06:09 . Memory (MB): peak = 3033.531 ; gain = 1575.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:03:13 ; elapsed = 00:04:03 . Memory (MB): peak = 3026.766 ; gain = 1568.969
+Finished Handling Custom Attributes : Time (s): cpu = 00:04:41 ; elapsed = 00:06:19 . Memory (MB): peak = 3033.531 ; gain = 1575.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:03:14 ; elapsed = 00:04:04 . Memory (MB): peak = 3026.766 ; gain = 1568.969
+Finished Renaming Generated Nets : Time (s): cpu = 00:04:43 ; elapsed = 00:06:22 . Memory (MB): peak = 3033.531 ; gain = 1575.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -2459,8 +2462,8 @@ Report BlackBoxes:
 |      |BlackBox name  |Instances |
 +------+---------------+----------+
 |1     |OUT_MEM        |        32|
-|2     |WEIGHT_MEM     |         2|
-|3     |INPUT_MEM      |         2|
+|2     |INPUT_MEM      |         2|
+|3     |WEIGHT_MEM     |         2|
 |4     |IA_ROW_MEM     |       384|
 |5     |WEIGHT_ROW_MEM |        12|
 |6     |PSUM_ROW_MEM   |       128|
@@ -2483,7 +2486,7 @@ Report Cell Usage:
 |549   |WEIGHT_ROW_MEM  |     1|
 |550   |WEIGHT_ROW_MEM_ |    11|
 |561   |BUFG            |     1|
-|562   |CARRY8          |  9857|
+|562   |CARRY8          |  9921|
 |563   |DSP_ALU         |     5|
 |564   |DSP_A_B_DATA    |     5|
 |566   |DSP_C_DATA      |     5|
@@ -2492,42 +2495,43 @@ Report Cell Usage:
 |569   |DSP_OUTPUT      |     5|
 |570   |DSP_PREADD      |     5|
 |571   |DSP_PREADD_DATA |     5|
-|572   |LUT1            |   563|
-|573   |LUT2            | 29316|
-|574   |LUT3            | 37737|
-|575   |LUT4            | 28449|
-|576   |LUT5            | 17763|
-|577   |LUT6            | 42163|
-|578   |FDCE            | 65820|
-|579   |FDRE            |  6570|
-|580   |IBUF            |   373|
-|581   |OBUF            |   257|
-|582   |OBUFT           |    16|
+|572   |LUT1            |   595|
+|573   |LUT2            | 28873|
+|574   |LUT3            | 37976|
+|575   |LUT4            | 28581|
+|576   |LUT5            | 17769|
+|577   |LUT6            | 43168|
+|578   |MUXF7           |    28|
+|579   |FDCE            | 65816|
+|580   |FDRE            |  6570|
+|581   |IBUF            |   374|
+|582   |OBUF            |   257|
+|583   |OBUFT           |    16|
 +------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:03:15 ; elapsed = 00:04:05 . Memory (MB): peak = 3026.766 ; gain = 1568.969
+Finished Writing Synthesis Report : Time (s): cpu = 00:04:44 ; elapsed = 00:06:23 . Memory (MB): peak = 3033.531 ; gain = 1575.371
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:40 ; elapsed = 00:03:43 . Memory (MB): peak = 3026.766 ; gain = 1037.531
-Synthesis Optimization Complete : Time (s): cpu = 00:03:15 ; elapsed = 00:04:09 . Memory (MB): peak = 3026.766 ; gain = 1568.969
+Synthesis Optimization Runtime : Time (s): cpu = 00:04:00 ; elapsed = 00:05:58 . Memory (MB): peak = 3033.531 ; gain = 1057.047
+Synthesis Optimization Complete : Time (s): cpu = 00:04:44 ; elapsed = 00:06:32 . Memory (MB): peak = 3033.531 ; gain = 1575.371
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 3072.633 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 10236 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 3080.262 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 10329 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 2 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.079 . Memory (MB): peak = 3238.719 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.100 . Memory (MB): peak = 3246.809 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 379 instances were transformed.
+  A total of 380 instances were transformed.
   BUFG => BUFGCE: 1 instance 
   DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 5 instances
-  IBUF => IBUF (IBUFCTRL, INBUF): 373 instances
+  IBUF => IBUF (IBUFCTRL, INBUF): 374 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
 257 Infos, 106 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:04:20 ; elapsed = 00:05:27 . Memory (MB): peak = 3238.719 ; gain = 2129.262
+synth_design: Time (s): cpu = 00:06:11 ; elapsed = 00:08:26 . Memory (MB): peak = 3246.809 ; gain = 2167.590
 INFO: [Common 17-1381] The checkpoint 'C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/synth_1/top.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:34 ; elapsed = 00:00:27 . Memory (MB): peak = 3238.719 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:48 ; elapsed = 00:00:42 . Memory (MB): peak = 3246.809 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Nov  3 00:43:58 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Nov  9 00:03:08 2025...

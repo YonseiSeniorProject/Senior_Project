@@ -356,15 +356,54 @@ module top_tb;
 //        STRIDE <= 3'd2;
 //        shift_n <= 4'd8;
         ////////////////////////////////
-        IC <= 14'd16;
-        K <= 3'd1;
-        IMG_H <= 6'd32;
-        IMG_W <= 6'd32;
-        OC <= 8'd32;
-        STRIDE <= 3'd1;
-        shift_n <= 4'd8;
+//        IC <= 14'd16;
+//        K <= 3'd1;
+//        IMG_H <= 6'd32;
+//        IMG_W <= 6'd32;
+//        OC <= 8'd32;
+//        STRIDE <= 3'd1;
+//        shift_n <= 4'd8;
         ////////////////////////////////
-
+//        K <= 3'd3;
+//        IC <= 10'd16;
+//        IMG_H <= 6'd20;
+//        IMG_W <= 6'd16;
+//        OC <= 8'd64;
+//        STRIDE <= 3'd1;
+//        shift_n <= 4'd8;
+        ////////////////////////////////
+//        K <= 3'd3;
+//        IC <= 10'd16;
+//        IMG_H <= 6'd16;
+//        IMG_W <= 6'd16;
+//        OC <= 8'd64;
+//        STRIDE <= 3'd2;
+//        shift_n <= 4'd8;
+        ////////////////////////////////
+//        K <= 3'd1;
+//        IC <= 10'd16;
+//        IMG_H <= 6'd16;
+//        IMG_W <= 6'd16;
+//        OC <= 8'd64;
+//        STRIDE <= 3'd1;
+//        shift_n <= 4'd8;
+        ////////////////////////////////
+//        K <= 3'd1;
+//        IC <= 10'd16;
+//        IMG_H <= 6'd32;
+//        IMG_W <= 6'd16;
+//        OC <= 8'd64;
+//        STRIDE <= 3'd1;
+//        shift_n <= 4'd8;
+        ////////////////////////////////
+        K <= 3'd3;
+        IC <= 10'd16;
+        IMG_H <= 6'd32;
+        IMG_W <= 6'd16;
+        OC <= 8'd64;
+        STRIDE <= 3'd2;
+        shift_n <= 4'd8;
+        
         // 신호 초기화
         resetn <= 1'b0;
         start <= 1'b0;
@@ -382,13 +421,13 @@ module top_tb;
     // 1. .hex 파일 로드
     // ================================
     initial begin
-        $readmemh("C:/minsung/senior_project/git_works/Back_Up_1102/project_1/1x1_s1_input.hex", input_data);
+        $readmemh("C:/minsung/senior_project/git_works/Back_Up_1102/project_1/3x3_32_16_input_data.hex", input_data);
         $display("Loaded 3x3_s1_input.hex (%0d entries)", INPUT_MEM_DEPTH);
 
-        $readmemh("C:/minsung/senior_project/git_works/Back_Up_1102/project_1/1x1_s1_filter.hex", weight_data);
+        $readmemh("C:/minsung/senior_project/git_works/Back_Up_1102/project_1/3x3_32_16_filter_data.hex", weight_data);
         $display("Loaded 3x3_s1_filter.hex (%0d entries)", WEIGHT_MEM_DEPTH);
 
-        $readmemh("C:/minsung/senior_project/git_works/Back_Up_1102/project_1/1x1_s1_out_8bit_cols32.hex", answer_mem);  // ← 정답 파일명 수정 필요
+        $readmemh("C:/minsung/senior_project/git_works/Back_Up_1102/project_1/3x3_s1_out_8bit_cols32.hex", answer_mem);  // ← 정답 파일명 수정 필요
         $display("Loaded answer.hex (%0d entries)", OUTPUT_MEM_DEPTH);
     end
 
@@ -401,14 +440,46 @@ module top_tb;
         input_wea_top <= 1;
 
         for (i = 0; i < INPUT_MEM_DEPTH; i = i + 1) begin
-            input_addra_top <= i;
-            input_dina_top  <= input_data[i];
+            if(i < ((IMG_H - 1) * STRIDE + K)*((IMG_W - 1) * STRIDE + K)*IC) begin
+                input_addra_top <= i;
+                input_dina_top  <= input_data[i];
+            end
+            else begin
+                input_addra_top <= input_addra_top;
+                input_dina_top  <= input_dina_top;
+            end
             #10;
         end
 
         input_wea_top <= 0;
         input_ena_top <= 0;
         $display("Input memory write done");
+        
+        @(posedge start) begin
+            #200
+            $readmemh("C:/minsung/senior_project/git_works/Back_Up_1102/project_1/3x3_32_16_input_data_2.hex", input_data);
+            $display("Loaded 3x3_s1_input.hex (%0d entries)", INPUT_MEM_DEPTH);
+        
+            #200;
+            input_ena_top <= 1;
+            input_wea_top <= 1;
+    
+            for (i = 0; i < INPUT_MEM_DEPTH; i = i + 1) begin
+                if(i < ((IMG_H - 1) * STRIDE + K)*((IMG_W - 1) * STRIDE + K)*IC) begin
+                    input_addra_top <= i;
+                    input_dina_top  <= input_data[i];
+                end
+                else begin
+                    input_addra_top <= input_addra_top;
+                    input_dina_top  <= input_dina_top;
+                end
+                #10;
+            end
+    
+            input_wea_top <= 0;
+            input_ena_top <= 0;
+            $display("2nd Input memory write done");
+        end
     end
 
     // ================================
@@ -420,14 +491,38 @@ module top_tb;
         weight_wea_top <= 1;
 
         for (j = 0; j < WEIGHT_MEM_DEPTH; j = j + 1) begin
-            weight_addra_top <= j;
-            weight_dina_top  <= weight_data[j];
+            if(i < (K * K * IC * OC)) begin
+                weight_addra_top <= j;
+                weight_dina_top  <= weight_data[j];
+            end
             #10;
         end
 
         weight_wea_top <= 0;
         weight_ena_top <= 0;
         $display("Weight memory write done");
+        
+        @(posedge start) begin
+            #200
+            $readmemh("C:/minsung/senior_project/git_works/Back_Up_1102/project_1/3x3_32_16_filter_data_2.hex", weight_data);
+            $display("Loaded 3x3_s1_filter.hex (%0d entries)", WEIGHT_MEM_DEPTH);
+            
+            #200;
+            weight_ena_top <= 1;
+            weight_wea_top <= 1;
+    
+            for (j = 0; j < WEIGHT_MEM_DEPTH; j = j + 1) begin
+                if(i < (K * K * IC * OC)) begin
+                    weight_addra_top <= j;
+                    weight_dina_top  <= weight_data[j];
+                end
+                #10;
+            end
+    
+            weight_wea_top <= 0;
+            weight_ena_top <= 0;
+            $display("2nd Weight memory write done");
+        end
     end
 
     // ================================
@@ -436,11 +531,26 @@ module top_tb;
     initial begin
         // 메모리 쓰기 완료 대기
         # (200 + 10 * (INPUT_MEM_DEPTH > WEIGHT_MEM_DEPTH ? INPUT_MEM_DEPTH : WEIGHT_MEM_DEPTH) + 200);
-
+        
+        #200
+        input_ena_top <= 1;
+        weight_ena_top <= 1;
+        #200
+        input_ena_top <= 0;
+        weight_ena_top <= 0;
+        #200
+        
         $display("Asserting start signal...");
         start <= 1'b1;
         #10;
         start <= 1'b0;
+        
+//        #200
+//        input_ena_top <= 1;
+//        weight_ena_top <= 1;
+//        #200
+//        input_ena_top <= 0;
+//        weight_ena_top <= 0;
     end
 
     // ================================
@@ -450,6 +560,13 @@ module top_tb;
         #2000
         @(posedge done) begin
             $display("DUT finished at %0t", $time);
+            #200
+            input_ena_top <= 1;
+            weight_ena_top <= 1;
+            #200
+            input_ena_top <= 0;
+            weight_ena_top <= 0;
+            #200
 
             #200
             $display("Asserting 2nd start signal...");

@@ -48,20 +48,20 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="zcu102"/>
-    <Option Name="WTXSimLaunchSim" Val="298"/>
+    <Option Name="WTXSimLaunchSim" Val="327"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="100"/>
-    <Option Name="WTModelSimExportSim" Val="100"/>
-    <Option Name="WTQuestaExportSim" Val="100"/>
-    <Option Name="WTIesExportSim" Val="100"/>
-    <Option Name="WTVcsExportSim" Val="100"/>
-    <Option Name="WTRivieraExportSim" Val="100"/>
-    <Option Name="WTActivehdlExportSim" Val="100"/>
+    <Option Name="WTXSimExportSim" Val="108"/>
+    <Option Name="WTModelSimExportSim" Val="108"/>
+    <Option Name="WTQuestaExportSim" Val="108"/>
+    <Option Name="WTIesExportSim" Val="108"/>
+    <Option Name="WTVcsExportSim" Val="108"/>
+    <Option Name="WTRivieraExportSim" Val="108"/>
+    <Option Name="WTActivehdlExportSim" Val="108"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -78,13 +78,6 @@
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/sources_1/ip/PSUM_ROW_MEM/PSUM_ROW_MEM.xci">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM.xci">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -224,6 +217,18 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/garbage_data.coe">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/garbage_filter_data.coe">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/../project_1_ip/component.xml">
         <FileInfo SFType="IPXACT"/>
       </File>
@@ -295,6 +300,19 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
+    <FileSet Name="IA_ROW_MEM" Type="BlockSrcs" RelSrcDir="$PSRCDIR/IA_ROW_MEM" RelGenDir="$PGENDIR/IA_ROW_MEM">
+      <File Path="$PSRCDIR/sources_1/ip/IA_ROW_MEM/IA_ROW_MEM.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="IA_ROW_MEM"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
     <FileSet Name="INPUT_MEM" Type="BlockSrcs" RelSrcDir="$PSRCDIR/INPUT_MEM" RelGenDir="$PGENDIR/INPUT_MEM">
       <File Path="$PSRCDIR/sources_1/ip/INPUT_MEM/INPUT_MEM.xci">
         <FileInfo>
@@ -308,8 +326,8 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="IA_ROW_MEM" Type="BlockSrcs" RelSrcDir="$PSRCDIR/IA_ROW_MEM" RelGenDir="$PGENDIR/IA_ROW_MEM">
-      <File Path="$PSRCDIR/sources_1/ip/IA_ROW_MEM/IA_ROW_MEM.xci">
+    <FileSet Name="WEIGHT_MEM" Type="BlockSrcs" RelSrcDir="$PSRCDIR/WEIGHT_MEM" RelGenDir="$PGENDIR/WEIGHT_MEM">
+      <File Path="$PSRCDIR/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM.xci">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -317,7 +335,7 @@
         </FileInfo>
       </File>
       <Config>
-        <Option Name="TopModule" Val="IA_ROW_MEM"/>
+        <Option Name="TopModule" Val="WEIGHT_MEM"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -371,7 +389,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="INPUT_MEM_synth_1" Type="Ft3:Synth" SrcSet="INPUT_MEM" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="INPUT_MEM" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/INPUT_MEM_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PPRDIR/../../Back_Up_1031/project_1/project_1.srcs/utils_1/imports/INPUT_MEM_synth_1">
+    <Run Id="IA_ROW_MEM_synth_1" Type="Ft3:Synth" SrcSet="IA_ROW_MEM" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="IA_ROW_MEM" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/IA_ROW_MEM_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PPRDIR/../../Back_Up_1031/project_1/project_1.srcs/utils_1/imports/IA_ROW_MEM_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
         <Step Id="synth_design"/>
@@ -381,7 +399,17 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="IA_ROW_MEM_synth_1" Type="Ft3:Synth" SrcSet="IA_ROW_MEM" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="IA_ROW_MEM" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/IA_ROW_MEM_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PPRDIR/../../Back_Up_1031/project_1/project_1.srcs/utils_1/imports/IA_ROW_MEM_synth_1">
+    <Run Id="INPUT_MEM_synth_1" Type="Ft3:Synth" SrcSet="INPUT_MEM" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="INPUT_MEM" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/INPUT_MEM_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/INPUT_MEM_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2020"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="WEIGHT_MEM_synth_1" Type="Ft3:Synth" SrcSet="WEIGHT_MEM" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="WEIGHT_MEM" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/WEIGHT_MEM_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/WEIGHT_MEM_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
         <Step Id="synth_design"/>
@@ -442,7 +470,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="INPUT_MEM_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="INPUT_MEM" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="INPUT_MEM_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PPRDIR/../../Back_Up_1031/project_1/project_1.srcs/utils_1/imports/INPUT_MEM_impl_1">
+    <Run Id="IA_ROW_MEM_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="IA_ROW_MEM" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="IA_ROW_MEM_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PPRDIR/../../Back_Up_1031/project_1/project_1.srcs/utils_1/imports/IA_ROW_MEM_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
         <Step Id="init_design"/>
@@ -459,7 +487,24 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="IA_ROW_MEM_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="IA_ROW_MEM" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="IA_ROW_MEM_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PPRDIR/../../Back_Up_1031/project_1/project_1.srcs/utils_1/imports/IA_ROW_MEM_impl_1">
+    <Run Id="INPUT_MEM_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="INPUT_MEM" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="INPUT_MEM_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/INPUT_MEM_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2020"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="WEIGHT_MEM_impl_1" Type="Ft2:EntireDesign" Part="xczu9eg-ffvb1156-2-e" ConstrsSet="WEIGHT_MEM" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="WEIGHT_MEM_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/WEIGHT_MEM_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
         <Step Id="init_design"/>

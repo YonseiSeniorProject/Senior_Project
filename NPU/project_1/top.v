@@ -25,6 +25,7 @@ module top#(
     input  wire [7:0] OC,       // Tile_Size_oc = 64
     input  wire [3:0] shift_n,  // Max: 7 or 8
     input  wire [2:0] STRIDE,
+    input  wire       IS_RELU,
 //    output wire ready,
     output wire done,
     // ------------------------------------------------------------------------
@@ -455,8 +456,9 @@ module top#(
     // Clamp & ReLU with assign
     generate
         for (i = 0; i < NUM_COLS; i = i + 1) begin : gen_clamp
-            assign out_data[i] =   (msb_data[i] > MAX_VAL) ? MAX_VAL :
-                                    (msb_data[i] < 0) ? 0 :
+            assign out_data[i] =   (msb_data[i] > MAX_VAL)         ? MAX_VAL :
+                                    (msb_data[i] < 0 && IS_RELU)    ? 0 :
+                                    (msb_data[i] < MIN_VAL)         ? MIN_VAL :
                                     msb_data[i][OUTPUT_BW-1:0];
         end
     endgenerate

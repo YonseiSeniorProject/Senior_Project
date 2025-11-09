@@ -3,6 +3,3 @@
 
 # IP: ip/PSUM_ROW_MEM/PSUM_ROW_MEM.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==PSUM_ROW_MEM || ORIG_REF_NAME==PSUM_ROW_MEM} -quiet] -quiet
-
-# IP: ip/WEIGHT_MEM/WEIGHT_MEM.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==WEIGHT_MEM || ORIG_REF_NAME==WEIGHT_MEM} -quiet] -quiet
