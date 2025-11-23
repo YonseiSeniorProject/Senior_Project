@@ -2,6 +2,7 @@
 `timescale 1ns / 1ps
 
 module pe_array#(
+    parameter BW_EXPANSION          = 8,
     // SRAM address widths (enough to cover depth)
     parameter ADDR_PSUM             = 12,           // 2^12 = 4096 > 32x64 = 2048
     parameter INPUT_BW              = 8,            // 8bit Data comes from AXI interface
@@ -28,7 +29,7 @@ module pe_array#(
     // ------------------------------------------------------------------------
     // ia_row_mem outputs & read
     // ------------------------------------------------------------------------
-    input wire signed [INPUT_BW*NUM_IA_ROW_MEM-1:0]     ia_row_mem_data,
+    input wire signed [BW_EXPANSION*INPUT_BW*NUM_IA_ROW_MEM-1:0]     ia_row_mem_data,
     input wire [NUM_IA_ROW_MEM-1:0]                     which_ia_row_mem_activate,
     output wire [IA_ROW_MEM_ADDR*NUM_IA_ROW_MEM-1:0]    ia_row_mem_addr,
     output wire [NUM_IA_ROW_MEM-1:0]                    which_ia_row_mem_en,
@@ -190,7 +191,7 @@ module pe_array#(
                     .is_bottom(r == NUM_PE_ROWS-1),
                    
                     // ia_row_mem: data와 addr을 각 PE별 slice로 따로 연결
-                    .ia_row_mem_data(ia_row_mem_data[INPUT_BW*(idx+1)-1 : INPUT_BW*idx]),
+                    .ia_row_mem_data(ia_row_mem_data[BW_EXPANSION*INPUT_BW*(idx+1)-1 : BW_EXPANSION*INPUT_BW*idx]),
                     .ia_row_mem_activate(which_ia_row_mem_activate[idx]),
                     .ia_row_mem_addr(pe_ia_row_mem_addr),               // 독립 wire
                     .ia_row_mem_en(which_ia_row_mem_en[idx]),

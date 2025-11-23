@@ -2,6 +2,7 @@
 `timescale 1ns / 1ps
 
 module mac#(
+//    parameter BW_EXPANSION          = 8,
     // SRAM address widths (enough to cover depth)
     parameter INPUT_BW              = 8,            // 8bit Data comes from AXI interface
     parameter PSUM_BW               = 32,           // 8bit Data goes to AXI interface (after Quantization)

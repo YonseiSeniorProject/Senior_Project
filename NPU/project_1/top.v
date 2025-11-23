@@ -3,9 +3,11 @@
 
 module top#(
     // SRAM address widths (enough to cover depth)
+    parameter BW_EXPANSION  = 8,
     parameter NUM_COLS      = 32,
-    parameter ADDR_IN       = 20,           // 2^20 = 1,048,576 > 34x34x512 = 591,872 (HWC)
-    parameter ADDR_W        = 18,           // 2^18 = 262,144 > 3x3x512x32 = 147,456 (KH, KW, IC, OC_tile)
+    parameter ADDR_IN       = 17,           // 2^18 = 262,144 doubleword > 65x65x128 = 540,800 Byte (HWC) = 134,200 double word
+    parameter ADDR_W        = 18,           // 2^16 = 65,536 doubleword > 3x3x512x32 = 147,456 Byte (KH, KW, IC, OC_tile) = 36,864 double word 
+    parameter ADDR_B        = 6,            // 2^4 = 16 double word == 64 byte (MAX OC tile)
     parameter ADDR_OUT      = 15,           // 2^15 = 32,768 > 32x32x32 = 32,768
     parameter ADDR_PSUM     = 12,
     parameter INPUT_BW      = 8,            // 8bit Data comes from AXI interface
@@ -35,8 +37,8 @@ module top#(
     input wire                          input_ena_top,
     input wire                          input_wea_top,
     input wire [ADDR_IN-1:0]            input_addra_top, 
-    input wire signed [INPUT_BW-1:0]    input_dina_top,
-    output wire signed [INPUT_BW-1:0]   input_douta_top,
+    input wire signed [BW_EXPANSION*INPUT_BW-1:0]  input_dina_top,
+    output wire signed [BW_EXPANSION*INPUT_BW-1:0] input_douta_top,
     // ------------------------------------------------------------------------
     // Store Total Weights
     // ------------------------------------------------------------------------
@@ -44,8 +46,17 @@ module top#(
     input  wire                             weight_ena_top,
     input  wire                             weight_wea_top,
     input  wire [ADDR_W-1:0]                weight_addra_top,
-    input  wire signed [INPUT_BW-1:0]       weight_dina_top,
-    output wire signed [INPUT_BW-1:0]       weight_douta_top,
+    input  wire signed [INPUT_BW-1:0]     weight_dina_top,
+    output wire signed [INPUT_BW-1:0]     weight_douta_top,
+    // ------------------------------------------------------------------------
+    // Store Total Biases
+    // ------------------------------------------------------------------------
+    input  wire                             bias_clka_top,
+    input  wire                             bias_ena_top,
+    input  wire                             bias_wea_top,
+    input  wire [ADDR_B-1:0]                bias_addra_top,
+    input  wire signed [INPUT_BW-1:0]     bias_dina_top,
+    output wire signed [INPUT_BW-1:0]     bias_douta_top,
     // ------------------------------------------------------------------------
     // Store Output Logits
     // ------------------------------------------------------------------------
@@ -68,14 +79,20 @@ module top#(
     wire                            input_enb_top;
     wire                            input_web_top;
     wire [ADDR_IN-1:0]              input_addrb_top;
-    wire signed [INPUT_BW-1:0]      input_dinb_top;
-    wire signed [INPUT_BW-1:0]      input_doutb_top;
+    wire signed [BW_EXPANSION*INPUT_BW-1:0]      input_dinb_top;
+    wire signed [BW_EXPANSION*INPUT_BW-1:0]      input_doutb_top;
     
     wire                            weight_enb_top;
     wire                            weight_web_top;
     wire [ADDR_W-1:0]               weight_addrb_top;
     wire signed [INPUT_BW-1:0]      weight_dinb_top;
     wire signed [INPUT_BW-1:0]      weight_doutb_top;
+    
+    wire                            bias_enb_top;
+    wire                            bias_web_top;
+    wire [ADDR_B-1:0]               bias_addrb_top;
+    wire signed [INPUT_BW-1:0]      bias_dinb_top;
+    wire signed [INPUT_BW-1:0]      bias_doutb_top;
     
     wire                            out_mem_ena_top;
     wire                            out_mem_wea_top;
@@ -116,24 +133,24 @@ module top#(
     wire                            input_ena_0;
     wire                            input_wea_0;
     wire [ADDR_IN-1:0]              input_addra_0; 
-    wire signed [INPUT_BW-1:0]      input_dina_0;
-    wire signed [INPUT_BW-1:0]      input_douta_0;
+    wire signed [BW_EXPANSION*INPUT_BW-1:0]      input_dina_0;
+    wire signed [BW_EXPANSION*INPUT_BW-1:0]      input_douta_0;
     wire                            input_enb_0;
     wire                            input_web_0;
     wire [ADDR_IN-1:0]              input_addrb_0;
-    wire signed [INPUT_BW-1:0]      input_dinb_0;
-    wire signed [INPUT_BW-1:0]      input_doutb_0;
+    wire signed [BW_EXPANSION*INPUT_BW-1:0]      input_dinb_0;
+    wire signed [BW_EXPANSION*INPUT_BW-1:0]      input_doutb_0;
     
     wire                            input_ena_1;
     wire                            input_wea_1;
     wire [ADDR_IN-1:0]              input_addra_1; 
-    wire signed [INPUT_BW-1:0]      input_dina_1;
-    wire signed [INPUT_BW-1:0]      input_douta_1;
+    wire signed [BW_EXPANSION*INPUT_BW-1:0]      input_dina_1;
+    wire signed [BW_EXPANSION*INPUT_BW-1:0]      input_douta_1;
     wire                            input_enb_1;
     wire                            input_web_1;
     wire [ADDR_IN-1:0]              input_addrb_1;
-    wire signed [INPUT_BW-1:0]      input_dinb_1;
-    wire signed [INPUT_BW-1:0]      input_doutb_1;
+    wire signed [BW_EXPANSION*INPUT_BW-1:0]      input_dinb_1;
+    wire signed [BW_EXPANSION*INPUT_BW-1:0]      input_doutb_1;
     
     wire                            weight_ena_0;
     wire                            weight_wea_0;
@@ -156,6 +173,28 @@ module top#(
     wire [ADDR_W-1:0]               weight_addrb_1;
     wire signed [INPUT_BW-1:0]      weight_dinb_1;
     wire signed [INPUT_BW-1:0]      weight_doutb_1;
+    
+    wire                            bias_ena_0;
+    wire                            bias_wea_0;
+    wire [ADDR_B-1:0]               bias_addra_0;
+    wire signed [INPUT_BW-1:0]      bias_dina_0;
+    wire signed [INPUT_BW-1:0]      bias_douta_0;
+    wire                            bias_enb_0;
+    wire                            bias_web_0;
+    wire [ADDR_B-1:0]               bias_addrb_0;
+    wire signed [INPUT_BW-1:0]      bias_dinb_0;
+    wire signed [INPUT_BW-1:0]      bias_doutb_0;
+    
+    wire                            bias_ena_1;
+    wire                            bias_wea_1;
+    wire [ADDR_B-1:0]               bias_addra_1;
+    wire signed [INPUT_BW-1:0]      bias_dina_1;
+    wire signed [INPUT_BW-1:0]      bias_douta_1;
+    wire                            bias_enb_1;
+    wire                            bias_web_1;
+    wire [ADDR_B-1:0]               bias_addrb_1;
+    wire signed [INPUT_BW-1:0]      bias_dinb_1;
+    wire signed [INPUT_BW-1:0]      bias_doutb_1;
   
     // Writing to GLB by PS(IA & Weight)
     assign input_ena_0      = (double_buf_cnt==0) ? input_ena_top : 0; //double_buf_cnt_for_ps
@@ -175,6 +214,15 @@ module top#(
     assign weight_addra_1    = (double_buf_cnt!=0) ? weight_addra_top : 0;
     assign weight_dina_0     = (double_buf_cnt==0) ? weight_dina_top : 0;
     assign weight_dina_1     = (double_buf_cnt!=0) ? weight_dina_top : 0;
+    
+    assign bias_ena_0      = (double_buf_cnt==0) ? bias_ena_top : 0;
+    assign bias_ena_1      = (double_buf_cnt!=0) ? bias_ena_top : 0;
+    assign bias_wea_0      = (double_buf_cnt==0) ? bias_wea_top : 0;
+    assign bias_wea_1      = (double_buf_cnt!=0) ? bias_wea_top : 0;
+    assign bias_addra_0    = (double_buf_cnt==0) ? bias_addra_top : 0;
+    assign bias_addra_1    = (double_buf_cnt!=0) ? bias_addra_top : 0;
+    assign bias_dina_0     = (double_buf_cnt==0) ? bias_dina_top : 0;
+    assign bias_dina_1     = (double_buf_cnt!=0) ? bias_dina_top : 0;
     
     // Reading From GLB(IA & Weight)
     assign input_enb_0      = (double_buf_cnt==1) ? input_enb_top : 0;
@@ -197,14 +245,24 @@ module top#(
     assign weight_dinb_1     = (double_buf_cnt!=1) ? weight_dinb_top : 0;
     assign weight_doutb_top  = (double_buf_cnt==1) ? weight_doutb_0 : weight_doutb_1;
     
+    assign bias_enb_0      = (double_buf_cnt==1) ? bias_enb_top : 0;
+    assign bias_enb_1      = (double_buf_cnt!=1) ? bias_enb_top : 0;
+    assign bias_web_0      = 0;
+    assign bias_web_1      = 0;
+    assign bias_addrb_0    = (double_buf_cnt==1) ? bias_addrb_top : 0;
+    assign bias_addrb_1    = (double_buf_cnt!=1) ? bias_addrb_top : 0;
+    assign bias_dinb_0     = (double_buf_cnt==1) ? bias_dinb_top : 0;
+    assign bias_dinb_1     = (double_buf_cnt!=1) ? bias_dinb_top : 0;
+    assign bias_doutb_top  = (double_buf_cnt==1) ? bias_doutb_0 : bias_doutb_1;
+    
     // ------------------------------------------------------------------------
     // act_n_weight_ctrlr Module : locate activations & weights to appropriate core
     // ------------------------------------------------------------------------
-    localparam  ACT_PER_CORE      = 13;
-    localparam  WEIGHT_PER_CORE   = 10;
+    localparam  ACT_PER_CORE      = 10;  // 2^13/8 = 2^10
+    localparam  WEIGHT_PER_CORE   = 10;   // 2^10
     localparam  NUM_CORE    = 4;
     
-    wire [INPUT_BW-1:0]  input_mem_data;
+    wire [BW_EXPANSION*INPUT_BW-1:0]  input_mem_data;
     wire [ADDR_IN-1:0]   input_mem_addr;
     wire                 input_mem_en;
     assign input_mem_data       = input_doutb_top;
@@ -218,7 +276,7 @@ module top#(
     assign weight_addrb_top     = weight_mem_addr;
     assign weight_enb_top       = weight_mem_en;
     
-    wire signed [INPUT_BW-1:0]      ia_row_mem_data;
+    wire signed [BW_EXPANSION*INPUT_BW-1:0]      ia_row_mem_data;
     wire [ACT_PER_CORE-1:0]         ia_row_mem_addr;
 
     wire signed [INPUT_BW-1:0]      weight_row_mem_data;
@@ -248,7 +306,7 @@ module top#(
     // fan out = Num of COREs = (8+4) -> "may need register insertions to avoid Timing violation"
     // ------------------------------------------------------------------------
     // signals for total dense_core x8
-    wire signed [INPUT_BW-1:0]  core_ia_row_mem_data;
+    wire signed [BW_EXPANSION*INPUT_BW-1:0]  core_ia_row_mem_data;
     wire [ACT_PER_CORE-1:0]     core_ia_row_mem_addr;
     
     assign core_ia_row_mem_data    = ia_row_mem_data;
@@ -364,7 +422,7 @@ module top#(
     genvar col, rr;
     generate
         for (col = 0; col < NUM_COLS; col = col + 1) begin : gen_col_sums
-            wire signed [PSUM_BW-1:0] partial [NUM_CORE-1:0];  // ºÎºÐ ÇÕ ¹è¿­ (°¢ col¸¶´Ù µ¶¸³)
+            wire signed [PSUM_BW-1:0] partial [NUM_CORE-1:0];  // ï¿½Îºï¿½ ï¿½ï¿½ ï¿½è¿­ (ï¿½ï¿½ colï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
             
             assign partial[0] = psum_row_data_out_each[0][col];
             
@@ -668,6 +726,36 @@ module top#(
       .addrb(weight_addrb_1),     
       .dinb (weight_dinb_1),        
       .doutb(weight_doutb_1)   
+    );
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    BIAS_MEM BIAS_MEM_0 (
+      .clka (bias_clka_top),
+      .ena  (bias_ena_0),
+      .wea  (bias_wea_0),
+      .addra(bias_addra_0), 
+      .dina (bias_dina_0),
+      .douta(bias_douta_0), 
+      .clkb (clk),
+      .enb  (bias_enb_0),
+      .web  (bias_web_0),         
+      .addrb(bias_addrb_0),     
+      .dinb (bias_dinb_0),        
+      .doutb(bias_doutb_0)   
+    );
+    
+    BIAS_MEM BIAS_MEM_1 (
+      .clka (bias_clka_top),
+      .ena  (bias_ena_1),
+      .wea  (bias_wea_1),
+      .addra(bias_addra_1), 
+      .dina (bias_dina_1),
+      .douta(bias_douta_1), 
+      .clkb (clk),
+      .enb  (bias_enb_1),
+      .web  (bias_web_1),         
+      .addrb(bias_addrb_1),     
+      .dinb (bias_dinb_1),        
+      .doutb(bias_doutb_1)   
     );
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     generate

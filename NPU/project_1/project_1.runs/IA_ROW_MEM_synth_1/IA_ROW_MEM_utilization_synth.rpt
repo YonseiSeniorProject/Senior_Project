@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Fri Oct 31 06:16:38 2025
+| Date         : Sun Nov 23 16:06:36 2025
 | Host         : MinsungKim running 64-bit major release  (build 9200)
 | Command      : report_utilization -file IA_ROW_MEM_utilization_synth.rpt -pb IA_ROW_MEM_utilization_synth.pb
 | Design       : IA_ROW_MEM
@@ -70,10 +70,10 @@ Table of Contents
 +-------------------+------+-------+-----------+-------+
 |     Site Type     | Used | Fixed | Available | Util% |
 +-------------------+------+-------+-----------+-------+
-| Block RAM Tile    |  0.5 |     0 |       912 |  0.05 |
-|   RAMB36/FIFO*    |    0 |     0 |       912 |  0.00 |
-|   RAMB18          |    1 |     0 |      1824 |  0.05 |
-|     RAMB18E2 only |    1 |       |           |       |
+| Block RAM Tile    |    1 |     0 |       912 |  0.11 |
+|   RAMB36/FIFO*    |    1 |     0 |       912 |  0.11 |
+|     RAMB36E2 only |    1 |       |           |       |
+|   RAMB18          |    0 |     0 |      1824 |  0.00 |
 +-------------------+------+-------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E2 or one FIFO18E2. However, if a FIFO18E2 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E2
 
@@ -153,7 +153,7 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| RAMB18E2 |    1 |            BLOCKRAM |
+| RAMB36E2 |    1 |            BLOCKRAM |
 +----------+------+---------------------+
 
 

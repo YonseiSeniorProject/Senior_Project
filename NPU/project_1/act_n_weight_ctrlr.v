@@ -3,12 +3,13 @@
 
 module act_n_weight_ctrlr #(
     // SRAM address widths
-    parameter ADDR_IN           = 20,           // 2^20 = 1,048,576 > 34x34x512 = 591,872 (HWC)
-    parameter ADDR_W            = 18,           // 2^18 = 262,144 > 3x3x512x32 = 147,456 (KH, KW, IC, OC_tile)
-    parameter ACT_PER_CORE      = 13,
-    parameter WEIGHT_PER_CORE   = 10,
+    parameter BW_EXPANSION      = 8,
+    parameter ADDR_IN           = 17,           // 2^20 / 8 = 2^17
+    parameter ADDR_W            = 18,           // 2^18
+    parameter ACT_PER_CORE      = 10,           // 2^13 / 8 = 2^10
+    parameter WEIGHT_PER_CORE   = 10,           // 2^10
     parameter NUM_CORE          = 4,
-    parameter INPUT_BW          = 8,            // 8bit Data comes from AXI interface
+    parameter INPUT_BW          = 8,            // 8bit Data comes from AXI interface, but we will transfer 32bit
     parameter OUTPUT_BW         = 8             // 8bit Data goes to AXI interface (after Quantization)
 )(
     input                       clk,
@@ -30,7 +31,7 @@ module act_n_weight_ctrlr #(
     // ------------------------------------------------------------------------
     // global input inputs & read
     // ------------------------------------------------------------------------
-    input  wire signed [INPUT_BW-1:0]   input_mem_data,
+    input  wire signed [BW_EXPANSION*INPUT_BW-1:0]   input_mem_data,
     output wire [ADDR_IN-1:0]           input_mem_addr,
     output                              input_mem_en,
     // ------------------------------------------------------------------------
@@ -42,7 +43,7 @@ module act_n_weight_ctrlr #(
     // ------------------------------------------------------------------------
     // act_row_mem outputs & write
     // ------------------------------------------------------------------------
-    output wire signed [INPUT_BW-1:0]   act_row_mem_data,
+    output wire signed [BW_EXPANSION*INPUT_BW-1:0]   act_row_mem_data,
     output wire [ACT_PER_CORE-1:0]      act_row_mem_addr,
     // ------------------------------------------------------------------------
     // weight_row_mem outputs & write
@@ -63,14 +64,25 @@ module act_n_weight_ctrlr #(
     wire [6:0] input_img_h        = (IMG_H - 1) * STRIDE + K;
     wire [6:0] input_img_w        = (IMG_W - 1) * STRIDE + K;
     
-    wire [ADDR_IN-1:0] max_elems_input_mem    = input_img_h * input_img_w * TOTAL_IC; 
+    wire is_input_img_w_align                 = ((input_img_w % BW_EXPANSION) == 0);
+//    wire [5:0] input_img_w_offset             = (is_input_img_w_align == 0) ?
+//                                                input_img_w / BW_EXPANSION + 1 :
+//                                                input_img_w / BW_EXPANSION;
+//    reg fetch_delay_flag;
+
+    wire [ADDR_IN-1:0] max_elems_input_mem    = ((input_img_h * input_img_w * TOTAL_IC) % BW_EXPANSION == 0) ? 
+                                                 (input_img_h * input_img_w * TOTAL_IC) / BW_EXPANSION :
+                                                 (input_img_h * input_img_w * TOTAL_IC) / BW_EXPANSION + 1; 
     wire [ADDR_W-1:0]  max_elems_weight_mem   = K * K * TOTAL_IC * OC; 
     
     /***** Total Elems which will be transfered to CORE *****/
     wire [12:0] weight_ic_offset   = K * K * (TOTAL_IC);
     
-    wire [ACT_PER_CORE-1:0]     act_per_core       = (input_img_h * input_img_w); // strictly, it's per FSM iteration, not per core.
-    wire [WEIGHT_PER_CORE-1:0]  weight_per_core    = (K * K * OC);                // strictly, it's per FSM iteration, not per core.
+    wire [ACT_PER_CORE-1:0]     act_per_core       = ((input_img_h * input_img_w) % BW_EXPANSION == 0) ? 
+                                                        (input_img_h * input_img_w) / BW_EXPANSION :
+                                                        (input_img_h * input_img_w) / BW_EXPANSION + 1;    // strictly, it's per FSM iteration, not per core.
+                                                        
+    wire [WEIGHT_PER_CORE-1:0]  weight_per_core    = (K * K * OC); 
     
     /***** K=3: 1 IC per CORE / K=1: 3 IC per CORE *****/
     reg [1:0] ic_per_core_cnt;
@@ -113,8 +125,8 @@ module act_n_weight_ctrlr #(
     
     ////////////////////////////////////////
     // for address output, synchronized with data out of GLB
-    reg [ACT_PER_CORE-1:0]  input_per_core_cnt_delay;
-    reg [10:0]              weight_per_core_cnt_delay;
+    reg [ACT_PER_CORE-1:0]      input_per_core_cnt_delay;
+    reg [WEIGHT_PER_CORE:0]     weight_per_core_cnt_delay;
     
     always @(posedge clk or negedge resetn) begin
         if(~resetn) begin
@@ -229,8 +241,6 @@ module act_n_weight_ctrlr #(
     /***** Check whether there is available CORE *****/
     always @(posedge clk or negedge resetn) begin
         if(~resetn) begin
-//            dense_core_ready        <= 0;
-//            sparse_core_ready       <= 0;
             core_check_cnt    <= 0;
         end
         else begin
@@ -253,10 +263,19 @@ module act_n_weight_ctrlr #(
     /***** Load Data to available CORE *****/
 //    reg [ACT_PER_CORE-1:0]    act_row_mem_addr_reg;
 //    reg [WEIGHT_PER_CORE-1:0] weight_row_mem_addr_reg;
+    reg [6:0]   input_img_w_cnt;
     always @(posedge clk or negedge resetn) begin
         if(~resetn) begin
             input_mem_addr_reg    <= 0;
             input_per_core_cnt    <= 0;
+            
+            weight_mem_addr_reg    <= weight_mem_addr_reg;
+            weight_per_core_cnt    <= 0;
+            
+            weight_ic_cnt          <= 0;
+            weight_oc_iter         <= 0;
+
+            input_img_w_cnt       <= 0;
         end
         else begin
             case (state)
@@ -270,20 +289,17 @@ module act_n_weight_ctrlr #(
                     weight_ic_cnt          <= 0;
                     weight_oc_iter  <= 0;
                 end
-                LOAD_DATA : begin
-                    input_mem_addr_reg   <= input_mem_addr_reg + 1;
-                    input_per_core_cnt   <= input_per_core_cnt + 1;
-                    
-                    if(input_per_core_cnt == act_per_core) begin
+                LOAD_DATA : begin            
+                    if(input_per_core_cnt >= act_per_core) begin
                         input_mem_addr_reg  <= input_mem_addr_reg;
-                        input_per_core_cnt  <= input_per_core_cnt; 
+                        input_per_core_cnt  <= input_per_core_cnt;
                     end
                     else begin
                         input_mem_addr_reg   <= input_mem_addr_reg + 1;
                         input_per_core_cnt   <= input_per_core_cnt + 1;
                     end
                     
-                    if(weight_per_core_cnt == weight_per_core) begin
+                    if(weight_per_core_cnt >= weight_per_core) begin
                         weight_mem_addr_reg  <= weight_mem_addr_reg;
                         weight_per_core_cnt  <= weight_per_core_cnt; 
                     end
@@ -299,6 +315,12 @@ module act_n_weight_ctrlr #(
                         end
                     end
                 end
+                IS_DONE : begin
+                    if(is_input_img_w_align == 0) begin 
+                        input_mem_addr_reg   <= input_mem_addr_reg - 1; // if not aligned should start from previous address
+                    end
+                    else                            input_mem_addr_reg   <= input_mem_addr_reg;
+                end
                 default :  begin
                     input_mem_addr_reg     <= input_mem_addr_reg;
                     input_per_core_cnt     <= 0;
@@ -307,7 +329,9 @@ module act_n_weight_ctrlr #(
                     weight_per_core_cnt    <= 0;
                     
                     weight_ic_cnt          <= 0;
-                    weight_oc_iter  <= 0;
+                    weight_oc_iter         <= 0;
+
+                    input_img_w_cnt       <= 0;
                 end
             endcase
         end

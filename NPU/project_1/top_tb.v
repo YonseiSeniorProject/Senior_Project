@@ -205,21 +205,22 @@ module top_tb;
     // ================================
     // Parameters from top.v
     // ================================
+    localparam BW_EXPANSION = 8;
     localparam NUM_COLS     = 32;
     localparam INPUT_BW     = 8;
     localparam OUTPUT_BW    = 8;
     localparam ADDR_IN      = 20;
     localparam ADDR_W       = 18;
-    localparam ADDR_PSUM    = 12;  // ½ÇÁ¦ Ãâ·Â ¸Þ¸ð¸® ÁÖ¼Ò ºñÆ®
-    localparam ADDR_OUT     = 15;  // Âü°í¿ë (»ç¿ë ¾È ÇÔ)
+    localparam ADDR_PSUM    = 12;  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿? ï¿½Þ¸ï¿½ ï¿½Ö¼ï¿½ ï¿½ï¿½Æ®
+    localparam ADDR_OUT     = 15;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿? ï¿½ï¿½ ï¿½ï¿½)
 
-    // ¸Þ¸ð¸® ±íÀÌ °è»ê
+    // compute memory depth
 //    localparam INPUT_MEM_DEPTH  = 1 << ADDR_IN;  // 2^20
 //    localparam WEIGHT_MEM_DEPTH = 1 << ADDR_W;   // 2^18
 //    localparam OUTPUT_MEM_DEPTH = 1 << ADDR_PSUM; // 2^12 = 4096
 
-    localparam INPUT_MEM_DEPTH  = 1 << 16;      // 2^14
-    localparam WEIGHT_MEM_DEPTH = 1 << 16;      // 2^14
+    localparam INPUT_MEM_DEPTH  = 1 << 14;      // 2^14
+    localparam WEIGHT_MEM_DEPTH = 1 << 14;      // 2^14
     localparam OUTPUT_MEM_DEPTH = 1 << 15;      // 2^12 = 4096
 
     // ================================
@@ -235,10 +236,10 @@ module top_tb;
 
     // Configurable Parameters
     reg [2:0] K;
-    reg [9:0] IC;        // Max: 512 ¡æ 10ºñÆ®
+    reg [9:0] IC;        // Max: 512 ï¿½ï¿½ 10ï¿½ï¿½Æ®
     reg [5:0] IMG_H;
     reg [5:0] IMG_W;
-    reg [7:0] OC;        // Max: 64 ¡æ 8ºñÆ®
+    reg [7:0] OC;        // Max: 64 ï¿½ï¿½ 8ï¿½ï¿½Æ®
     reg [3:0] shift_n;
     reg [2:0] STRIDE;
 
@@ -249,8 +250,8 @@ module top_tb;
     reg                     input_ena_top;
     reg                     input_wea_top;
     reg  [ADDR_IN-1:0]      input_addra_top;
-    reg  signed [INPUT_BW-1:0] input_dina_top;
-    wire signed [INPUT_BW-1:0] input_douta_top;
+    reg  signed [BW_EXPANSION*INPUT_BW-1:0] input_dina_top;
+    wire signed [BW_EXPANSION*INPUT_BW-1:0] input_douta_top;
 
     // ================================
     // Weight Memory (Port A: PS Write)
@@ -275,11 +276,11 @@ module top_tb;
     // ================================
     // Data Arrays for .hex loading
     // ================================
-    reg signed [INPUT_BW-1:0] input_data  [0:INPUT_MEM_DEPTH-1];
+    reg signed [BW_EXPANSION*INPUT_BW-1:0] input_data  [0:INPUT_MEM_DEPTH-1];
     reg signed [INPUT_BW-1:0] weight_data [0:WEIGHT_MEM_DEPTH-1];
     reg [NUM_COLS*OUTPUT_BW-1:0] answer_mem [0:OUTPUT_MEM_DEPTH-1];
 
-    // Loop variable (¸ðµâ ·¹º§ ¼±¾ð ÇÊ¼ö!)
+    // Loop variable (use within each modules)
     integer i, j, k;
 
     // ================================
@@ -333,12 +334,12 @@ module top_tb;
     );
 
     // ================================
-    // ÃÊ±â ¼³Á¤
+    // Initialization
     // ================================
     initial begin
         $display("=== Convolution Accelerator Testbench ===");
 
-        // ÆÄ¶ó¹ÌÅÍ ¼³Á¤ (¿¹½Ã)
+        // ï¿½Ä¶ï¿½ï¿½ï¿½ï¿? ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½)
         ////////////////////////////////
 //        K <= 3'd3;
 //        IC <= 10'd8;
@@ -397,14 +398,15 @@ module top_tb;
 //        shift_n <= 4'd8;
         ////////////////////////////////
         K <= 3'd3;
-        IC <= 10'd16;
+        IC <= 10'd3;
         IMG_H <= 6'd32;
-        IMG_W <= 6'd16;
-        OC <= 8'd64;
+        IMG_W <= 6'd32;
+        OC <= 8'd16;
         STRIDE <= 3'd2;
         shift_n <= 4'd8;
+        ////////////////////////////////
         
-        // ½ÅÈ£ ÃÊ±âÈ­
+        // ï¿½ï¿½È£ ï¿½Ê±ï¿½È­
         resetn <= 1'b0;
         start <= 1'b0;
 
@@ -418,21 +420,21 @@ module top_tb;
     end
 
     // ================================
-    // 1. .hex ÆÄÀÏ ·Îµå
+    // 1. .hex load
     // ================================
     initial begin
-        $readmemh("C:/minsung/senior_project/git_works/Back_Up_1102/project_1/3x3_32_16_input_data.hex", input_data);
+        $readmemh("C:/minsung/senior_project/git_works/Back_Up_1107/project_1/3x3_s2_random_data_64bit.hex", input_data);
         $display("Loaded 3x3_s1_input.hex (%0d entries)", INPUT_MEM_DEPTH);
 
-        $readmemh("C:/minsung/senior_project/git_works/Back_Up_1102/project_1/3x3_32_16_filter_data.hex", weight_data);
+        $readmemh("C:/minsung/senior_project/git_works/Back_Up_1107/project_1/3x3_s2_filter_v2.hex", weight_data);
         $display("Loaded 3x3_s1_filter.hex (%0d entries)", WEIGHT_MEM_DEPTH);
 
-        $readmemh("C:/minsung/senior_project/git_works/Back_Up_1102/project_1/3x3_s1_out_8bit_cols32.hex", answer_mem);  // ¡ç Á¤´ä ÆÄÀÏ¸í ¼öÁ¤ ÇÊ¿ä
+        $readmemh("C:/minsung/senior_project/git_works/Back_Up_1107/project_1/3x3_s1_out_8bit_cols32.hex", answer_mem);  // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
         $display("Loaded answer.hex (%0d entries)", OUTPUT_MEM_DEPTH);
     end
 
     // ================================
-    // 2. Input Memory ¾²±â
+    // 2. Input Memory write
     // ================================
     initial begin
         #200;
@@ -483,7 +485,7 @@ module top_tb;
     end
 
     // ================================
-    // 3. Weight Memory ¾²±â
+    // 3. Weight Memory write
     // ================================
     initial begin
         #200;
@@ -526,10 +528,10 @@ module top_tb;
     end
 
     // ================================
-    // 4. Start ½ÅÈ£ ¹ß»ý
+    // 4. Start signal assertion
     // ================================
     initial begin
-        // ¸Þ¸ð¸® ¾²±â ¿Ï·á ´ë±â
+        // wait for memory write to be done
         # (200 + 10 * (INPUT_MEM_DEPTH > WEIGHT_MEM_DEPTH ? INPUT_MEM_DEPTH : WEIGHT_MEM_DEPTH) + 200);
         
         #200
@@ -554,7 +556,7 @@ module top_tb;
     end
 
     // ================================
-    // 5. done ´ë±â ÈÄ Ãâ·Â ºñ±³
+    // 5. wait for done and compare output 
     // ================================
     initial begin
         #2000
@@ -581,7 +583,7 @@ module top_tb;
     end
 
     // ================================
-    // Ãâ·Â ¸Þ¸ð¸® ºñ±³ ÅÂ½ºÅ©
+    // Out Mem Compare Task
     // ================================
     task compare_output;
         begin
@@ -609,7 +611,7 @@ module top_tb;
     endtask
 
     // ================================
-    // ¾ÈÀü¸Á (Å¸ÀÓ¾Æ¿ô)
+    // Time Out
     // ================================
     initial begin
         #3_000_000;

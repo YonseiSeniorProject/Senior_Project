@@ -2,11 +2,11 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Fri Nov  7 16:45:22 2025
-# Process ID: 5220
-# Current directory: C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/INPUT_MEM_synth_1
+# Start of session at: Sun Nov 23 14:26:11 2025
+# Process ID: 34636
+# Current directory: C:/minsung/senior_project/git_works/Back_Up_1107/project_1/project_1.runs/INPUT_MEM_synth_1
 # Command line: vivado.exe -log INPUT_MEM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source INPUT_MEM.tcl
-# Log file: C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/INPUT_MEM_synth_1/INPUT_MEM.vds
-# Journal file: C:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.runs/INPUT_MEM_synth_1\vivado.jou
+# Log file: C:/minsung/senior_project/git_works/Back_Up_1107/project_1/project_1.runs/INPUT_MEM_synth_1/INPUT_MEM.vds
+# Journal file: C:/minsung/senior_project/git_works/Back_Up_1107/project_1/project_1.runs/INPUT_MEM_synth_1\vivado.jou
 #-----------------------------------------------------------
 source INPUT_MEM.tcl -notrace

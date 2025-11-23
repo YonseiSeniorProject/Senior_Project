@@ -2,11 +2,13 @@
 `timescale 1ns / 1ps
 
 module pe#(
+    parameter BW_EXPANSION          = 8,
+    parameter BW_EXPANSION_LOG      = 3,
     // SRAM address widths (enough to cover depth)
     parameter ADDR_PSUM             = 12,           // 2^12 = 4096 > 32x64 = 2048
     parameter INPUT_BW              = 8,            // 8bit Data comes from AXI interface
     parameter PSUM_BW               = 32,           // 8bit Data goes to AXI interface (after Quantization)
-    parameter IA_ROW_MEM_ADDR       = 7,
+    parameter IA_ROW_MEM_ADDR       = 7,            // PE operates in 8bit BW, 2^7 = 128 > MAX_ROW_DATA = 65
     parameter WEIGHT_ROW_MEM_ADDR   = 8
     )(
     input wire clk,
@@ -27,7 +29,7 @@ module pe#(
     // ------------------------------------------------------------------------
     // ia_row_mem outputs & read
     // ------------------------------------------------------------------------
-    input wire signed [INPUT_BW-1:0]   ia_row_mem_data,
+    input wire signed [BW_EXPANSION*INPUT_BW-1:0]   ia_row_mem_data,
     input wire                         ia_row_mem_activate,
     output wire [IA_ROW_MEM_ADDR-1:0]  ia_row_mem_addr,
     output wire                        ia_row_mem_en,
@@ -111,7 +113,7 @@ module pe#(
     wire [IA_ROW_MEM_ADDR-1:0] input_img_w          = (IMG_W - 1) * STRIDE + K;
     wire [WEIGHT_ROW_MEM_ADDR-1:0] WEIGHT_ADDR_MAX  = K*OC;
     
-    assign ia_row_mem_addr      = ia_row_mem_addr_reg_delay;
+    assign ia_row_mem_addr      = (ia_row_mem_addr_reg_delay >> BW_EXPANSION_LOG);  // ia_row_mem_addr should read 64bit based address
     assign ia_row_mem_en        = ia_row_mem_en_reg;
     assign weight_row_mem_addr  = weight_row_mem_addr_reg_delay;
     assign weight_row_mem_en    = weight_row_mem_en_reg;
@@ -198,7 +200,12 @@ module pe#(
     // ------------------------------------------------------------------------
     // pe_net_ctrl logic
     // ------------------------------------------------------------------------
-    wire signed [INPUT_BW-1:0] ia_row_mem_data_2_pe_net = (ia_row_mem_activate) ? ia_row_mem_data: 0;
+//    wire signed [INPUT_BW-1:0] ia_row_mem_data_2_pe_net = (ia_row_mem_activate) ? ia_row_mem_data: 0;
+    
+    wire [2:0] byte_sel = ia_row_mem_addr_reg_delay[2:0];  // 0~7
+    wire signed [INPUT_BW-1:0] extracted_data;
+    assign extracted_data = ia_row_mem_data[ byte_sel*BW_EXPANSION +: BW_EXPANSION ];
+    assign ia_row_mem_data_2_pe_net = ia_row_mem_activate ? extracted_data : {INPUT_BW{1'sh0}};
     
     wire signed [INPUT_BW-1:0] weight_data_2_pe_net = (weight_row_mem_activate) ? weight_row_mem_data: left_weight_data_in;
     reg signed [INPUT_BW-1:0] right_weight_data_out_reg;

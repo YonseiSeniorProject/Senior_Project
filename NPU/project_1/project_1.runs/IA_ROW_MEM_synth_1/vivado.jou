@@ -2,11 +2,11 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Fri Oct 31 06:15:29 2025
-# Process ID: 41240
-# Current directory: C:/minsung/senior_project/git_works/Back_Up_1031/project_1/project_1.runs/IA_ROW_MEM_synth_1
+# Start of session at: Sun Nov 23 16:05:03 2025
+# Process ID: 15580
+# Current directory: C:/minsung/senior_project/git_works/Back_Up_1107/project_1/project_1.runs/IA_ROW_MEM_synth_1
 # Command line: vivado.exe -log IA_ROW_MEM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source IA_ROW_MEM.tcl
-# Log file: C:/minsung/senior_project/git_works/Back_Up_1031/project_1/project_1.runs/IA_ROW_MEM_synth_1/IA_ROW_MEM.vds
-# Journal file: C:/minsung/senior_project/git_works/Back_Up_1031/project_1/project_1.runs/IA_ROW_MEM_synth_1\vivado.jou
+# Log file: C:/minsung/senior_project/git_works/Back_Up_1107/project_1/project_1.runs/IA_ROW_MEM_synth_1/IA_ROW_MEM.vds
+# Journal file: C:/minsung/senior_project/git_works/Back_Up_1107/project_1/project_1.runs/IA_ROW_MEM_synth_1\vivado.jou
 #-----------------------------------------------------------
 source IA_ROW_MEM.tcl -notrace

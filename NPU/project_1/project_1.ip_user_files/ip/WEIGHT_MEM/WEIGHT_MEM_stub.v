@@ -1,10 +1,10 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-// Date        : Fri Nov  7 16:47:34 2025
+// Date        : Sun Nov 23 13:46:09 2025
 // Host        : MinsungKim running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               c:/minsung/senior_project/git_works/Back_Up_1102/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM_stub.v
+//               c:/minsung/senior_project/git_works/Back_Up_1107/project_1/project_1.gen/sources_1/ip/WEIGHT_MEM/WEIGHT_MEM_stub.v
 // Design      : WEIGHT_MEM
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xczu9eg-ffvb1156-2-e

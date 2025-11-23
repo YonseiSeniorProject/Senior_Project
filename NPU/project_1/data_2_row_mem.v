@@ -2,8 +2,9 @@
 `timescale 1ns / 1ps
 
 module data_2_row_mem #(
+    parameter BW_EXPANSION          = 8,
     // SRAM address widths
-    parameter ACT_PER_CORE          = 13,
+    parameter ACT_PER_CORE          = 10,
     parameter WEIGHT_PER_CORE       = 10,
     parameter INPUT_BW              = 8,
     parameter IA_ROW_MEM_ADDR       = 7,
@@ -34,7 +35,7 @@ module data_2_row_mem #(
     // ------------------------------------------------------------------------
     // activation inputs from act_n_weight_ctrlr
     // ------------------------------------------------------------------------
-    input wire signed [INPUT_BW-1:0]   act_row_mem_data,
+    input wire signed [BW_EXPANSION*INPUT_BW-1:0]   act_row_mem_data,
     input wire [ACT_PER_CORE-1:0]      act_row_mem_addr,
     // ------------------------------------------------------------------------
     // weight inputs from act_n_weight_ctrlr
@@ -44,7 +45,7 @@ module data_2_row_mem #(
     // ------------------------------------------------------------------------
     // act_row_mem outputs & write
     // ------------------------------------------------------------------------
-    output wire signed [INPUT_BW-1:0]   act_row_mem_each_data,
+    output wire signed [BW_EXPANSION*INPUT_BW-1:0]   act_row_mem_each_data,
     output wire [IA_ROW_MEM_ADDR-1:0]   act_row_mem_each_addr,
     output wire [NUM_IA_ROW_MEM-1:0]    which_act_row_mem_en,
     output wire [NUM_IA_ROW_MEM-1:0]    which_act_row_mem_we,
@@ -65,8 +66,18 @@ module data_2_row_mem #(
     /***** MAX Elems of each Global memory *****/
     wire [IA_ROW_MEM_ADDR-1:0] input_img_h        = (IMG_H - 1) * STRIDE + K;
     wire [IA_ROW_MEM_ADDR-1:0] input_img_w        = (IMG_W - 1) * STRIDE + K;
+    wire is_input_img_w_align                 = ((input_img_w % BW_EXPANSION) == 0);
+    wire [IA_ROW_MEM_ADDR-1:0] input_img_w_expand = (is_input_img_w_align) ? 
+                                                        input_img_w / BW_EXPANSION : 
+                                                        input_img_w / BW_EXPANSION + 1;
+                                                        
     
-    wire [ACT_PER_CORE-1:0]     act_per_core        = (input_img_h * input_img_w); // strictly, it's per FSM iteration, not per core.
+    
+//    wire [ACT_PER_CORE-1:0]     act_per_core        = (input_img_h * input_img_w); // strictly, it's per FSM iteration, not per core.
+    wire [ACT_PER_CORE-1:0]     act_per_core       = ((input_img_h * input_img_w) % BW_EXPANSION == 0) ? 
+                                                        (input_img_h * input_img_w) / BW_EXPANSION :
+                                                        (input_img_h * input_img_w) / BW_EXPANSION + 1;    // strictly, it's per FSM iteration, not per core.
+
     wire [WEIGHT_PER_CORE-1:0]  weight_per_core     = (K * K * OC);                // strictly, it's per FSM iteration, not per core.
     
     /***** OFFSET since in case of K=3, ia_row_mems should be partially activated *****/
@@ -130,21 +141,68 @@ module data_2_row_mem #(
         default :  n_state = IDLE;
         endcase
     end
+    
+    // align IA datas, use large FIFO like buffer
+    reg  signed [BW_EXPANSION*INPUT_BW-1:0]      act_row_mem_data_aligned;
+    reg  [50*BW_EXPANSION*INPUT_BW-1:0]          data_fifo;
+    reg  [9:0]                                   fifo_wptr;
+//    reg [7:0]                                   fifo_rptr;
+    reg  [6:0] align_cnt;
+    wire [3:0] data_offset = input_img_w % BW_EXPANSION;
+    always @(posedge clk or negedge resetn) begin
+        if(~resetn) begin
+            act_row_mem_data_aligned            <= 0;
+            align_cnt                           <= 0;
+            data_fifo                           <= 0;
+            fifo_wptr                           <= 0;
+        end
+        else begin
+            case (state)
+                LOAD_DATA : begin
+                    if(is_input_img_w_align) begin
+                        act_row_mem_data_aligned    <= act_row_mem_data;
+                    end
+                    else begin
+                        act_row_mem_data_aligned    <= data_fifo[INPUT_BW*BW_EXPANSION-1:0];
+                        if ((act_row_mem_addr)%input_img_w_expand == 0) begin // (act_row_mem_addr)*BW_EXPANSION > (align_cnt + 1)*input_img_w == input_img_w_expand-1
+                            align_cnt                   <= align_cnt + 1;
+                            data_fifo   <= (data_fifo >> data_offset*INPUT_BW) + (act_row_mem_data << fifo_wptr*INPUT_BW);
+                        end
+                        else if ((act_row_mem_addr+1)%input_img_w_expand == 0) begin // 8*(8+1) > 65, 8*(16+1) > 130
+                            fifo_wptr   <= fifo_wptr + (BW_EXPANSION - data_offset); // (act_row_mem_addr+1)*BW_EXPANSION - (align_cnt + 1)*input_img_w ex. 72 - 65 = 7, 136 - 130 = 6
+                            data_fifo   <= (data_fifo >> INPUT_BW*BW_EXPANSION) + (act_row_mem_data << (fifo_wptr*INPUT_BW));
+                        end
+                        else begin
+                            data_fifo   <= (data_fifo >> INPUT_BW*BW_EXPANSION) + (act_row_mem_data << (fifo_wptr*INPUT_BW));
+                        end
+                    end
+                end
+                default :  begin
+                    act_row_mem_data_aligned            <= 0;
+                    align_cnt                           <= 0;
+                    data_fifo                           <= 0;
+                    fifo_wptr                           <= 0;
+                end
+            endcase
+        end
+    end
 
     /***** reg insertion *****/
-    reg signed [INPUT_BW-1:0]   act_row_mem_data_reg;
+    reg signed [BW_EXPANSION*INPUT_BW-1:0]   act_row_mem_data_reg, act_row_mem_data_reg_buf;
     reg [ACT_PER_CORE-1:0]      act_row_mem_addr_reg;
     reg signed [INPUT_BW-1:0]   weight_row_mem_data_reg;
     reg [WEIGHT_PER_CORE-1:0]   weight_row_mem_addr_reg;
     always @(posedge clk or negedge resetn) begin
         if(~resetn) begin
             act_row_mem_data_reg        <= 0;
+            act_row_mem_data_reg_buf    <= 0;
             act_row_mem_addr_reg        <= 0;
             weight_row_mem_data_reg     <= 0;
             weight_row_mem_addr_reg     <= 0;
         end
         else begin
             act_row_mem_data_reg    <= act_row_mem_data;
+            act_row_mem_data_reg_buf<= act_row_mem_data_reg;
             act_row_mem_addr_reg    <= act_row_mem_addr;
             weight_row_mem_data_reg <= weight_row_mem_data;
             weight_row_mem_addr_reg <= weight_row_mem_addr;
@@ -162,11 +220,16 @@ module data_2_row_mem #(
         end
     end
     
-    reg signed [INPUT_BW-1:0]   act_row_mem_each_data_reg;
+    reg signed [BW_EXPANSION*INPUT_BW-1:0]   act_row_mem_each_data_reg;
     reg [IA_ROW_MEM_ADDR-1:0]   act_row_mem_each_addr_reg;
+//    reg [2:0]                   act_row_mem_each_addr_offset;
+//    reg [ACT_PER_CORE-1:0]      img_w_offset;
     reg [NUM_IA_ROW_MEM-1:0]    which_act_row_mem_en_reg;
     reg [NUM_IA_ROW_MEM-1:0]    which_act_row_mem_we_reg;
     reg [1:0]                   offset_cnt;
+    
+    localparam delay_amount = 2;
+    reg [1:0]                   each_addr_reg_delay_amount;
     
     reg [NUM_IA_ROW_MEM-1:0]        which_ia_row_mem_activate_reg;
     
@@ -182,20 +245,34 @@ module data_2_row_mem #(
         if(~resetn) begin
             act_row_mem_each_data_reg   <= 0;
             act_row_mem_each_addr_reg   <= 0;
+//            act_row_mem_each_addr_offset<= 0;
+//            img_w_offset                <= 0;
             which_act_row_mem_en_reg    <= 0;
             which_act_row_mem_we_reg    <= 0;
             ia_row_mem_cnt              <= 0;
             offset_cnt                  <= 0;
             ic_iter_cnt                 <= 0;
             
+            each_addr_reg_delay_amount  <= 0;
+            
             which_ia_row_mem_activate_reg   <= 0;
         end
         else begin
             case (state)
                 LOAD_DATA : begin
-                    act_row_mem_each_data_reg <= act_row_mem_data_reg;
-                    act_row_mem_each_addr_reg <= act_row_mem_addr_reg % input_img_w;
-                                    
+//                    act_row_mem_each_data_reg <= act_row_mem_data_reg;
+//                    act_row_mem_each_addr_reg <= act_row_mem_addr_reg % input_img_w;
+//                    act_row_mem_each_data_reg <= ((act_row_mem_data_reg_buf >> (BW_EXPANSION-act_row_mem_each_addr_offset)*INPUT_BW) + (act_row_mem_data_reg << (act_row_mem_each_addr_offset*INPUT_BW)));
+                    
+                    act_row_mem_each_data_reg <= act_row_mem_data_aligned;
+                    
+                    if(each_addr_reg_delay_amount >= delay_amount) begin
+                        act_row_mem_each_addr_reg <= act_row_mem_each_addr_reg + 1;
+                    end
+                    else begin
+                        each_addr_reg_delay_amount <= each_addr_reg_delay_amount + 1;
+                    end
+                                                        
                     if(offset_cnt == 0) begin
                         which_ia_row_mem_activate_reg[ia_row_mem_cnt] <= 1;
                             
@@ -204,9 +281,18 @@ module data_2_row_mem #(
                         
                         offset_cnt <= offset_cnt + 1;
                     end
-                    if ((act_row_mem_each_addr_reg) == input_img_w - 1) begin
+//                    // 앞의 always문에서 address에서 일부러 delay를 줬기에 -2 취함, 따라서, 연산은 act_row_mem_addr로 진행
+//                    if ((act_row_mem_each_addr_reg) == input_img_w_expand - 2) begin    
+//                        img_w_offset                    <= img_w_offset + 1;
+//                        act_row_mem_each_addr_offset    <= act_row_mem_addr*BW_EXPANSION - (img_w_offset+1)*input_img_w;    // ex. 72 - 65 = 7 -- next --> 144 - 130
+//                    end
+                    
+                    if ((act_row_mem_each_addr_reg) >= input_img_w_expand - 1) begin // if ((act_row_mem_each_addr_reg) >= input_img_w - 1) begin
+                        act_row_mem_each_addr_reg       <= 0; // initialize address for next row_mem
+                        
                         which_act_row_mem_en_reg <= 0;
                         which_act_row_mem_we_reg <= 0;
+                        
                         if (K==3) begin
                             if(STRIDE == 1) begin
                                 if (offset_cnt == 1) begin
@@ -360,11 +446,15 @@ module data_2_row_mem #(
                 default :  begin
                     act_row_mem_each_data_reg   <= 0;
                     act_row_mem_each_addr_reg   <= 0;
+//                    act_row_mem_each_addr_offset<= 0;
+//                    img_w_offset                <= 0;
                     which_act_row_mem_en_reg    <= 0;
                     which_act_row_mem_we_reg    <= 0;
                     ia_row_mem_cnt              <= 0;
                     offset_cnt                  <= 0;
                     ic_iter_cnt                 <= 0;
+
+                    each_addr_reg_delay_amount  <= 0;
 
                     which_ia_row_mem_activate_reg   <= 0;                    
 //                    which_ia_row_mem_activate_reg   <= which_ia_row_mem_activate_reg;

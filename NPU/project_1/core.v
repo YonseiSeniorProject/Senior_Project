@@ -2,13 +2,14 @@
 `timescale 1ns / 1ps
 
 module core#(
+    parameter BW_EXPANSION      = 8,
     // SRAM address widths (enough to cover depth)
-    parameter ADDR_IN           = 20,           // 2^20 = 1,048,576 > 34x34x512 = 591,872 (HWC)
+    parameter ADDR_IN           = 17,           // 2^20 / 8 = 2^17
     parameter ADDR_W            = 18,           // 2^18 = 262,144 > 3x3x512x32 = 147,456 (KH, KW, IC, OC_tile)
     parameter ADDR_PSUM         = 12,           // 2^12 = 4096 > 32x64 = 2048
     parameter INPUT_BW          = 8,            // 8bit Data comes from AXI interface
     parameter PSUM_BW           = 32,           // 8bit Data goes to AXI interface (after Quantization)
-    parameter ACT_PER_CORE      = 13,
+    parameter ACT_PER_CORE      = 10,           // 2^13 / 8 = 2^10
     parameter WEIGHT_PER_CORE   = 10,
     parameter NUM_IA_ROW_MEM    = 96,
     parameter NUM_WEIGHT_ROW_MEM= 3,
@@ -35,7 +36,7 @@ module core#(
     // ------------------------------------------------------------------------
     // ia_row_mem outputs & write
     // ------------------------------------------------------------------------
-    input wire signed [INPUT_BW-1:0]   ia_row_mem_data,
+    input wire signed [BW_EXPANSION*INPUT_BW-1:0]   ia_row_mem_data,
     input wire [ACT_PER_CORE-1:0]      ia_row_mem_addr,
     // ------------------------------------------------------------------------
     // weight_row_mem outputs & write
@@ -76,7 +77,7 @@ module core#(
     wire data_2_row_mem_idle;
     assign data_2_row_mem_start = core_start;
     
-    wire signed [INPUT_BW-1:0]   ia_row_mem_each_data;
+    wire signed [BW_EXPANSION*INPUT_BW-1:0]   ia_row_mem_each_data;
     wire [IA_ROW_MEM_ADDR-1:0]   ia_row_mem_each_addr;
     wire [NUM_IA_ROW_MEM-1:0]    which_ia_row_mem_en;
     wire [NUM_IA_ROW_MEM-1:0]    which_ia_row_mem_we;
@@ -144,11 +145,11 @@ module core#(
     wire [NUM_IA_ROW_MEM-1:0]               ia_row_mem_ena;         // 0 to 95
     wire [NUM_IA_ROW_MEM-1:0]               ia_row_mem_wea;
     wire [IA_ROW_MEM_ADDR-1:0]              ia_row_mem_addra;
-    wire [INPUT_BW-1:0]                     ia_row_mem_dina;
+    wire [BW_EXPANSION*INPUT_BW-1:0]                     ia_row_mem_dina;
     
     wire [NUM_IA_ROW_MEM-1:0]               ia_row_mem_enb;
     wire [IA_ROW_MEM_ADDR-1:0]              ia_row_mem_addrb [NUM_IA_ROW_MEM-1:0];
-    wire [INPUT_BW-1:0]                     ia_row_mem_doutb [NUM_IA_ROW_MEM-1:0];
+    wire [BW_EXPANSION*INPUT_BW-1:0]                     ia_row_mem_doutb [NUM_IA_ROW_MEM-1:0];
    
     /***** Total 96 IA_ROW_MEMs *****/
     genvar i;
@@ -219,7 +220,7 @@ module core#(
     
     wire [IA_ROW_MEM_ADDR*NUM_IA_ROW_MEM-1:0]   pe_array_ia_row_mem_addr;
     wire [NUM_IA_ROW_MEM-1:0]                   pe_array_which_ia_row_mem_en;
-    wire [INPUT_BW*NUM_IA_ROW_MEM-1:0]          pe_array_ia_row_mem_data;
+    wire [BW_EXPANSION*INPUT_BW*NUM_IA_ROW_MEM-1:0]          pe_array_ia_row_mem_data;
     
     wire [WEIGHT_ROW_MEM_ADDR*NUM_WEIGHT_ROW_MEM-1:0]   pe_array_weight_row_mem_addr;
     wire [NUM_WEIGHT_ROW_MEM-1:0]                       pe_array_which_weight_row_mem_en;
@@ -232,7 +233,7 @@ module core#(
     // Concatenate IA_ROW_MEM doutb to pe_array ia_row_mem_data
     generate
         for (i = 0; i < NUM_IA_ROW_MEM; i = i + 1) begin : gen_ia_data_concat
-            assign pe_array_ia_row_mem_data[INPUT_BW*(i+1)-1 : INPUT_BW*i]  = ia_row_mem_doutb[i];
+            assign pe_array_ia_row_mem_data[BW_EXPANSION*INPUT_BW*(i+1)-1 : BW_EXPANSION*INPUT_BW*i]  = ia_row_mem_doutb[i];
             assign ia_row_mem_addrb[i]                                      = pe_array_ia_row_mem_addr[IA_ROW_MEM_ADDR*(i+1)-1 : IA_ROW_MEM_ADDR*i];
             assign ia_row_mem_enb[i]                                        = pe_array_which_ia_row_mem_en[i];
         end
